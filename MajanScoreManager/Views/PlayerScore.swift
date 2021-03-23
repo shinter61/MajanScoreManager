@@ -13,9 +13,19 @@ struct PlayerScore: View {
     var playerIndex: Int {
         modelData.gameData.players.firstIndex(where: { $0.id == player.id })!
     }
+    
+    
     var body: some View {
         Button(action: {
-            modelData.gameData.players[playerIndex].isRiichi.toggle()
+            if player.isRiichi {
+                modelData.gameData.players[playerIndex].isRiichi = false
+                modelData.gameData.players[playerIndex].score += 1000
+            } else {
+                if player.score >= 1000 {
+                    modelData.gameData.players[playerIndex].isRiichi = true
+                    modelData.gameData.players[playerIndex].score -= 1000
+                }
+            }
         }) {
             ZStack {
                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
