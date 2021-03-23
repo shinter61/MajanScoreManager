@@ -17,6 +17,8 @@ struct Game: View {
         ZStack {
             EndGameButton()
             GeometryReader { geometry in
+                GameInfo()
+                    .position(x: 0.5 * geometry.size.width, y: 0.1 * geometry.size.height)
                 if player1.isRiichi {
                     RiichiBar()
                         .position(x: 0.5 * geometry.size.width, y: 0.39 * geometry.size.height)
