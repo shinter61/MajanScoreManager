@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E569DAA02609E09C00441533 /* MajanScoreManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */; };
+		E569DAA22609E09C00441533 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAA12609E09C00441533 /* ContentView.swift */; };
+		E569DAA42609E09D00441533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E569DAA32609E09D00441533 /* Assets.xcassets */; };
+		E569DAA72609E09D00441533 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E569DAA62609E09D00441533 /* Preview Assets.xcassets */; };
+		E569DAB22609E09D00441533 /* MajanScoreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAB12609E09D00441533 /* MajanScoreManagerTests.swift */; };
+		E569DABD2609E09D00441533 /* MajanScoreManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DABC2609E09D00441533 /* MajanScoreManagerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E569DAAE2609E09D00441533 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E569DA942609E09C00441533 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E569DA9B2609E09C00441533;
+			remoteInfo = MajanScoreManager;
+		};
+		E569DAB92609E09D00441533 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E569DA942609E09C00441533 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E569DA9B2609E09C00441533;
+			remoteInfo = MajanScoreManager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E569DA9C2609E09C00441533 /* MajanScoreManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MajanScoreManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajanScoreManagerApp.swift; sourceTree = "<group>"; };
+		E569DAA12609E09C00441533 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E569DAA32609E09D00441533 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E569DAA62609E09D00441533 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E569DAA82609E09D00441533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E569DAAD2609E09D00441533 /* MajanScoreManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MajanScoreManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E569DAB12609E09D00441533 /* MajanScoreManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajanScoreManagerTests.swift; sourceTree = "<group>"; };
+		E569DAB32609E09D00441533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E569DAB82609E09D00441533 /* MajanScoreManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MajanScoreManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E569DABC2609E09D00441533 /* MajanScoreManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajanScoreManagerUITests.swift; sourceTree = "<group>"; };
+		E569DABE2609E09D00441533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E569DA992609E09C00441533 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E569DAAA2609E09D00441533 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E569DAB52609E09D00441533 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E569DA932609E09C00441533 = {
+			isa = PBXGroup;
+			children = (
+				E569DA9E2609E09C00441533 /* MajanScoreManager */,
+				E569DAB02609E09D00441533 /* MajanScoreManagerTests */,
+				E569DABB2609E09D00441533 /* MajanScoreManagerUITests */,
+				E569DA9D2609E09C00441533 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E569DA9D2609E09C00441533 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E569DA9C2609E09C00441533 /* MajanScoreManager.app */,
+				E569DAAD2609E09D00441533 /* MajanScoreManagerTests.xctest */,
+				E569DAB82609E09D00441533 /* MajanScoreManagerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E569DA9E2609E09C00441533 /* MajanScoreManager */ = {
+			isa = PBXGroup;
+			children = (
+				E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */,
+				E569DAA12609E09C00441533 /* ContentView.swift */,
+				E569DAA32609E09D00441533 /* Assets.xcassets */,
+				E569DAA82609E09D00441533 /* Info.plist */,
+				E569DAA52609E09D00441533 /* Preview Content */,
+			);
+			path = MajanScoreManager;
+			sourceTree = "<group>";
+		};
+		E569DAA52609E09D00441533 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E569DAA62609E09D00441533 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E569DAB02609E09D00441533 /* MajanScoreManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E569DAB12609E09D00441533 /* MajanScoreManagerTests.swift */,
+				E569DAB32609E09D00441533 /* Info.plist */,
+			);
+			path = MajanScoreManagerTests;
+			sourceTree = "<group>";
+		};
+		E569DABB2609E09D00441533 /* MajanScoreManagerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E569DABC2609E09D00441533 /* MajanScoreManagerUITests.swift */,
+				E569DABE2609E09D00441533 /* Info.plist */,
+			);
+			path = MajanScoreManagerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E569DA9B2609E09C00441533 /* MajanScoreManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E569DAC12609E09D00441533 /* Build configuration list for PBXNativeTarget "MajanScoreManager" */;
+			buildPhases = (
+				E569DA982609E09C00441533 /* Sources */,
+				E569DA992609E09C00441533 /* Frameworks */,
+				E569DA9A2609E09C00441533 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MajanScoreManager;
+			productName = MajanScoreManager;
+			productReference = E569DA9C2609E09C00441533 /* MajanScoreManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E569DAAC2609E09D00441533 /* MajanScoreManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E569DAC42609E09D00441533 /* Build configuration list for PBXNativeTarget "MajanScoreManagerTests" */;
+			buildPhases = (
+				E569DAA92609E09D00441533 /* Sources */,
+				E569DAAA2609E09D00441533 /* Frameworks */,
+				E569DAAB2609E09D00441533 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E569DAAF2609E09D00441533 /* PBXTargetDependency */,
+			);
+			name = MajanScoreManagerTests;
+			productName = MajanScoreManagerTests;
+			productReference = E569DAAD2609E09D00441533 /* MajanScoreManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E569DAB72609E09D00441533 /* MajanScoreManagerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E569DAC72609E09D00441533 /* Build configuration list for PBXNativeTarget "MajanScoreManagerUITests" */;
+			buildPhases = (
+				E569DAB42609E09D00441533 /* Sources */,
+				E569DAB52609E09D00441533 /* Frameworks */,
+				E569DAB62609E09D00441533 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E569DABA2609E09D00441533 /* PBXTargetDependency */,
+			);
+			name = MajanScoreManagerUITests;
+			productName = MajanScoreManagerUITests;
+			productReference = E569DAB82609E09D00441533 /* MajanScoreManagerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E569DA942609E09C00441533 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					E569DA9B2609E09C00441533 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					E569DAAC2609E09D00441533 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = E569DA9B2609E09C00441533;
+					};
+					E569DAB72609E09D00441533 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = E569DA9B2609E09C00441533;
+					};
+				};
+			};
+			buildConfigurationList = E569DA972609E09C00441533 /* Build configuration list for PBXProject "MajanScoreManager" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E569DA932609E09C00441533;
+			productRefGroup = E569DA9D2609E09C00441533 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E569DA9B2609E09C00441533 /* MajanScoreManager */,
+				E569DAAC2609E09D00441533 /* MajanScoreManagerTests */,
+				E569DAB72609E09D00441533 /* MajanScoreManagerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E569DA9A2609E09C00441533 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E569DAA72609E09D00441533 /* Preview Assets.xcassets in Resources */,
+				E569DAA42609E09D00441533 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E569DAAB2609E09D00441533 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E569DAB62609E09D00441533 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E569DA982609E09C00441533 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E569DAA22609E09C00441533 /* ContentView.swift in Sources */,
+				E569DAA02609E09C00441533 /* MajanScoreManagerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E569DAA92609E09D00441533 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E569DAB22609E09D00441533 /* MajanScoreManagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E569DAB42609E09D00441533 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E569DABD2609E09D00441533 /* MajanScoreManagerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E569DAAF2609E09D00441533 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E569DA9B2609E09C00441533 /* MajanScoreManager */;
+			targetProxy = E569DAAE2609E09D00441533 /* PBXContainerItemProxy */;
+		};
+		E569DABA2609E09D00441533 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E569DA9B2609E09C00441533 /* MajanScoreManager */;
+			targetProxy = E569DAB92609E09D00441533 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E569DABF2609E09D00441533 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E569DAC02609E09D00441533 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E569DAC22609E09D00441533 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"MajanScoreManager/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MajanScoreManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MajanScoreManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E569DAC32609E09D00441533 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"MajanScoreManager/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MajanScoreManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MajanScoreManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E569DAC52609E09D00441533 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MajanScoreManagerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MajanScoreManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MajanScoreManager.app/MajanScoreManager";
+			};
+			name = Debug;
+		};
+		E569DAC62609E09D00441533 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MajanScoreManagerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MajanScoreManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MajanScoreManager.app/MajanScoreManager";
+			};
+			name = Release;
+		};
+		E569DAC82609E09D00441533 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MajanScoreManagerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MajanScoreManagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MajanScoreManager;
+			};
+			name = Debug;
+		};
+		E569DAC92609E09D00441533 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MajanScoreManagerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MajanScoreManagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MajanScoreManager;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E569DA972609E09C00441533 /* Build configuration list for PBXProject "MajanScoreManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E569DABF2609E09D00441533 /* Debug */,
+				E569DAC02609E09D00441533 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E569DAC12609E09D00441533 /* Build configuration list for PBXNativeTarget "MajanScoreManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E569DAC22609E09D00441533 /* Debug */,
+				E569DAC32609E09D00441533 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E569DAC42609E09D00441533 /* Build configuration list for PBXNativeTarget "MajanScoreManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E569DAC52609E09D00441533 /* Debug */,
+				E569DAC62609E09D00441533 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E569DAC72609E09D00441533 /* Build configuration list for PBXNativeTarget "MajanScoreManagerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E569DAC82609E09D00441533 /* Debug */,
+				E569DAC92609E09D00441533 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E569DA942609E09C00441533 /* Project object */;
+}
