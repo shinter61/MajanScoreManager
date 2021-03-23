@@ -10,38 +10,42 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
     var body: some View {
+        let player1: Player = modelData.gameData.players[0]
+        let player2: Player = modelData.gameData.players[1]
+        let player3: Player = modelData.gameData.players[2]
+        let player4: Player = modelData.gameData.players[3]
         ZStack {
             EndGameButton()
             GeometryReader { geometry in
-                if modelData.gameData.isPlayer1Riichi {
+                if player1.isRiichi {
                     RiichiBar()
                         .position(x: 0.5 * geometry.size.width, y: 0.39 * geometry.size.height)
                 }
-                PlayerScore(score: modelData.gameData.player1Score)
+                PlayerScore(player: player1)
                     .rotationEffect(Angle(degrees: 0))
                     .position(x: 0.5 * geometry.size.width, y: 0.33 * geometry.size.height)
-                if modelData.gameData.isPlayer2Riichi {
+                if player2.isRiichi {
                     RiichiBar()
                         .rotationEffect(Angle(degrees: 90))
                         .position(x: 0.67 * geometry.size.width, y: 0.5 * geometry.size.height)
                 }
-                PlayerScore(score: modelData.gameData.player2Score)
+                PlayerScore(player: player2)
                     .rotationEffect(Angle(degrees: 90))
                     .position(x: 0.77 * geometry.size.width, y: 0.5 * geometry.size.height)
-                if modelData.gameData.isPlayer3Riichi {
+                if player3.isRiichi {
                     RiichiBar()
                         .rotationEffect(Angle(degrees: 0))
                         .position(x: 0.5 * geometry.size.width, y: 0.61 * geometry.size.height)
                 }
-                PlayerScore(score: modelData.gameData.player3Score)
+                PlayerScore(player: player3)
                     .rotationEffect(Angle(degrees: 180))
                     .position(x: 0.5 * geometry.size.width, y: 0.67 * geometry.size.height)
-                if modelData.gameData.isPlayer4Riichi {
+                if player4.isRiichi {
                     RiichiBar()
                         .rotationEffect(Angle(degrees: 90))
                         .position(x: 0.33 * geometry.size.width, y: 0.5 * geometry.size.height)
                 }
-                PlayerScore(score: modelData.gameData.player4Score)
+                PlayerScore(player: player4)
                     .rotationEffect(Angle(degrees: 270))
                     .position(x: 0.23 * geometry.size.width, y: 0.5 * geometry.size.height)
             }

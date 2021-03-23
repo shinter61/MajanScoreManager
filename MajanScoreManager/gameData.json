@@ -1,12 +1,26 @@
 {
   "id": 1,
   "isEnd": false,
-  "player1Score": 25000,
-  "player2Score": 28000,
-  "player3Score": 27000,
-  "player4Score": 22000,
-  "isPlayer1Riichi": false,
-  "isPlayer2Riichi": true,
-  "isPlayer3Riichi": false,
-  "isPlayer4Riichi": false 
+  "players": [
+      {
+          "id": 1,
+          "score": 25000,
+          "isRiichi": false
+      },
+      {
+          "id": 2,
+          "score": 28000,
+          "isRiichi": true
+      },
+      {
+          "id": 3,
+          "score": 27000,
+          "isRiichi": false
+      },
+      {
+          "id": 4,
+          "score": 22000,
+          "isRiichi": false
+      },
+  ]
 }

@@ -10,12 +10,5 @@ import Foundation
 struct GameData: Hashable, Codable, Identifiable {
     var id: Int
     var isEnd: Bool
-    var player1Score: Int
-    var player2Score: Int
-    var player3Score: Int
-    var player4Score: Int
-    var isPlayer1Riichi: Bool
-    var isPlayer2Riichi: Bool
-    var isPlayer3Riichi: Bool
-    var isPlayer4Riichi: Bool
+    var players: [Player]
 }

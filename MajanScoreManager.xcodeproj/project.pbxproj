@@ -19,6 +19,7 @@
 		E569DAE82609ECA200441533 /* PlayerScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAE72609ECA200441533 /* PlayerScore.swift */; };
 		E598A53F2609F92A0046F434 /* RiichiBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598A53E2609F92A0046F434 /* RiichiBar.swift */; };
 		E5E7D2292609FD9B00DD8694 /* gameData.json in Resources */ = {isa = PBXBuildFile; fileRef = E5E7D2282609FD9B00DD8694 /* gameData.json */; };
+		E5E7D22E260A20E600DD8694 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7D22D260A20E600DD8694 /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E569DAE72609ECA200441533 /* PlayerScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScore.swift; sourceTree = "<group>"; };
 		E598A53E2609F92A0046F434 /* RiichiBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiichiBar.swift; sourceTree = "<group>"; };
 		E5E7D2282609FD9B00DD8694 /* gameData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gameData.json; sourceTree = "<group>"; };
+		E5E7D22D260A20E600DD8694 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			children = (
 				E569DAD22609E87800441533 /* GameData.swift */,
 				E569DAD72609E90B00441533 /* ModelData.swift */,
+				E5E7D22D260A20E600DD8694 /* Player.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				E598A53F2609F92A0046F434 /* RiichiBar.swift in Sources */,
 				E569DAE82609ECA200441533 /* PlayerScore.swift in Sources */,
 				E569DAD32609E87800441533 /* GameData.swift in Sources */,
+				E5E7D22E260A20E600DD8694 /* Player.swift in Sources */,
 				E569DAD82609E90B00441533 /* ModelData.swift in Sources */,
 				E569DACE2609E12400441533 /* EndGameButton.swift in Sources */,
 				E569DAA02609E09C00441533 /* MajanScoreManagerApp.swift in Sources */,
