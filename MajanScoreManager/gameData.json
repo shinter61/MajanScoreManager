@@ -5,21 +5,25 @@
       {
           "id": 1,
           "score": 25000,
+          "name": "佐藤",
           "isRiichi": false
       },
       {
           "id": 2,
           "score": 28000,
+          "name": "鈴木",
           "isRiichi": true
       },
       {
           "id": 3,
           "score": 27000,
+          "name": "田中",
           "isRiichi": false
       },
       {
           "id": 4,
           "score": 22000,
+          "name": "高橋",
           "isRiichi": false
       },
   ]

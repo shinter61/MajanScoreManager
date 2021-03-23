@@ -10,5 +10,6 @@ import Foundation
 struct Player: Hashable, Codable, Identifiable {
     var id: Int
     var score: Int
+    var name: String
     var isRiichi: Bool
 }
