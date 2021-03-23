@@ -36,7 +36,7 @@ struct StartGame: View {
                 let isEmpty: Bool = name1.isEmpty || name2.isEmpty || name3.isEmpty || name4.isEmpty
                 Button(action: {
                 }) {
-                    NavigationLink(destination: Game()) {
+                    NavigationLink(destination: Game().navigationBarHidden(true)) {
                         ZStack {
                             RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
                                 .fill(Color.yellow)
@@ -46,9 +46,9 @@ struct StartGame: View {
                         }
                     }
                     .disabled(isEmpty)
-                    .navigationTitle("MajanScoreManager")
                 }
                 .padding(.top, 50)
+                .navigationTitle("MajanScoreManager")
             }
         }
         .padding(0.0)
