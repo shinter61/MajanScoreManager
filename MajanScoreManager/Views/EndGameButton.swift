@@ -19,6 +19,10 @@ struct EndGameButton: View {
                     .stroke(Color.gray, lineWidth: 2)
                     .frame(width: 100, height: 100)
                 
+                Circle()
+                    .fill(Color.white)
+                    .frame(width: 98, height: 98)
+                
                 Text(modelData.gameData.isEnd ? "終局しました" : "終局")
                     .foregroundColor(.black)
             }

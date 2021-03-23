@@ -16,7 +16,9 @@
 		E569DACE2609E12400441533 /* EndGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DACD2609E12400441533 /* EndGameButton.swift */; };
 		E569DAD32609E87800441533 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAD22609E87800441533 /* GameData.swift */; };
 		E569DAD82609E90B00441533 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAD72609E90B00441533 /* ModelData.swift */; };
-		E569DADD2609E9EE00441533 /* gameData.json in Resources */ = {isa = PBXBuildFile; fileRef = E569DADC2609E9EE00441533 /* gameData.json */; };
+		E569DAE82609ECA200441533 /* PlayerScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAE72609ECA200441533 /* PlayerScore.swift */; };
+		E598A53F2609F92A0046F434 /* RiichiBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598A53E2609F92A0046F434 /* RiichiBar.swift */; };
+		E5E7D2292609FD9B00DD8694 /* gameData.json in Resources */ = {isa = PBXBuildFile; fileRef = E5E7D2282609FD9B00DD8694 /* gameData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,9 @@
 		E569DACD2609E12400441533 /* EndGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameButton.swift; sourceTree = "<group>"; };
 		E569DAD22609E87800441533 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		E569DAD72609E90B00441533 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
-		E569DADC2609E9EE00441533 /* gameData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gameData.json; sourceTree = "<group>"; };
+		E569DAE72609ECA200441533 /* PlayerScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScore.swift; sourceTree = "<group>"; };
+		E598A53E2609F92A0046F434 /* RiichiBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiichiBar.swift; sourceTree = "<group>"; };
+		E5E7D2282609FD9B00DD8694 /* gameData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gameData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,15 +107,13 @@
 		E569DA9E2609E09C00441533 /* MajanScoreManager */ = {
 			isa = PBXGroup;
 			children = (
+				E569DAE32609EC2F00441533 /* Views */,
+				E569DAE12609EC0800441533 /* Model */,
 				E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */,
-				E569DAA12609E09C00441533 /* ContentView.swift */,
 				E569DAA32609E09D00441533 /* Assets.xcassets */,
-				E569DADC2609E9EE00441533 /* gameData.json */,
 				E569DAA82609E09D00441533 /* Info.plist */,
+				E5E7D2282609FD9B00DD8694 /* gameData.json */,
 				E569DAA52609E09D00441533 /* Preview Content */,
-				E569DACD2609E12400441533 /* EndGameButton.swift */,
-				E569DAD22609E87800441533 /* GameData.swift */,
-				E569DAD72609E90B00441533 /* ModelData.swift */,
 			);
 			path = MajanScoreManager;
 			sourceTree = "<group>";
@@ -140,6 +142,26 @@
 				E569DABE2609E09D00441533 /* Info.plist */,
 			);
 			path = MajanScoreManagerUITests;
+			sourceTree = "<group>";
+		};
+		E569DAE12609EC0800441533 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E569DAD22609E87800441533 /* GameData.swift */,
+				E569DAD72609E90B00441533 /* ModelData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E569DAE32609EC2F00441533 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E569DAA12609E09C00441533 /* ContentView.swift */,
+				E569DACD2609E12400441533 /* EndGameButton.swift */,
+				E569DAE72609ECA200441533 /* PlayerScore.swift */,
+				E598A53E2609F92A0046F434 /* RiichiBar.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,7 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E569DADD2609E9EE00441533 /* gameData.json in Resources */,
+				E5E7D2292609FD9B00DD8694 /* gameData.json in Resources */,
 				E569DAA72609E09D00441533 /* Preview Assets.xcassets in Resources */,
 				E569DAA42609E09D00441533 /* Assets.xcassets in Resources */,
 			);
@@ -273,6 +295,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E569DAA22609E09C00441533 /* ContentView.swift in Sources */,
+				E598A53F2609F92A0046F434 /* RiichiBar.swift in Sources */,
+				E569DAE82609ECA200441533 /* PlayerScore.swift in Sources */,
 				E569DAD32609E87800441533 /* GameData.swift in Sources */,
 				E569DAD82609E90B00441533 /* ModelData.swift in Sources */,
 				E569DACE2609E12400441533 /* EndGameButton.swift in Sources */,

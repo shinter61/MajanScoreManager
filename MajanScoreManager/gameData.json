@@ -2,7 +2,11 @@
   "id": 1,
   "isEnd": false,
   "player1Score": 25000,
-  "player2Score": 25000,
-  "player3Score": 25000,
-  "player4Score": 25000
+  "player2Score": 28000,
+  "player3Score": 27000,
+  "player4Score": 22000,
+  "isPlayer1Riichi": false,
+  "isPlayer2Riichi": true,
+  "isPlayer3Riichi": false,
+  "isPlayer4Riichi": false 
 }
