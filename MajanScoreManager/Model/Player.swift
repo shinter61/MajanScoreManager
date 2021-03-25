@@ -12,4 +12,5 @@ struct Player: Hashable, Codable, Identifiable {
     var score: Int
     var name: String
     var isRiichi: Bool
+    var wind: Int
 }

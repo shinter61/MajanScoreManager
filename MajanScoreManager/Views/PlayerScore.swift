@@ -46,7 +46,7 @@ struct PlayerScore: View {
 
 struct PlayerScore_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerScore(player: Player(id: 1, score: 25000, name: "松本", isRiichi: false))
+        PlayerScore(player: Player(id: 1, score: 25000, name: "松本", isRiichi: false, wind: 0))
             .environmentObject(ModelData())
     }
 }

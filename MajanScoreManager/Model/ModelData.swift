@@ -9,6 +9,7 @@ import Foundation
 
 final class ModelData: ObservableObject {
     @Published var gameData: GameData = load("gameData.json")
+    @Published var winds: [String] = ["東", "南", "西", "北"]
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

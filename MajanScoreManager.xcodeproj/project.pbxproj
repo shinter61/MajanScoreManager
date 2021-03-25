@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5065A72260D0FBF00A3AB65 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5065A71260D0FBF00A3AB65 /* Wind.swift */; };
 		E527FB6F260A848B0073173A /* DrawnGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E527FB6E260A848B0073173A /* DrawnGame.swift */; };
 		E569DAA02609E09C00441533 /* MajanScoreManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */; };
 		E569DAA22609E09C00441533 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAA12609E09C00441533 /* ContentView.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E5065A71260D0FBF00A3AB65 /* Wind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
 		E527FB6E260A848B0073173A /* DrawnGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawnGame.swift; sourceTree = "<group>"; };
 		E569DA9C2609E09C00441533 /* MajanScoreManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MajanScoreManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajanScoreManagerApp.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				E56DFF34260A2FD7000312B5 /* Game.swift */,
 				E5CDF941260A4E8000E17A3F /* GameInfo.swift */,
 				E527FB6E260A848B0073173A /* DrawnGame.swift */,
+				E5065A71260D0FBF00A3AB65 /* Wind.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				E5CDF942260A4E8000E17A3F /* GameInfo.swift in Sources */,
 				E56DFF30260A2E22000312B5 /* StartGame.swift in Sources */,
 				E569DAA02609E09C00441533 /* MajanScoreManagerApp.swift in Sources */,
+				E5065A72260D0FBF00A3AB65 /* Wind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

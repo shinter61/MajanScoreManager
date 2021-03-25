@@ -48,6 +48,28 @@ struct DrawnGame: View {
     }
     
     func drawnProcess() -> Void {
+        var playerIndex: Int {
+            modelData.gameData.players.firstIndex(where: { $0.wind == 0 })!
+        }
+        if !waiters.contains(playerIndex) {
+            // 局
+            if modelData.gameData.hand == 4 && modelData.gameData.round == "東" {
+                modelData.gameData.hand = 1
+                modelData.gameData.round = "南"
+            } else {
+                modelData.gameData.hand += 1
+            }
+            
+            // 風
+            for i in 0..<modelData.gameData.players.count {
+                if modelData.gameData.players[i].wind == 0 {
+                    modelData.gameData.players[i].wind = 3
+                } else {
+                    modelData.gameData.players[i].wind -= 1
+                }
+            }
+        }
+        
         // 聴牌料
         switch waiters.count {
         case 1:
