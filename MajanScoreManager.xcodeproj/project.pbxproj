@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E527FB6F260A848B0073173A /* DrawnGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E527FB6E260A848B0073173A /* DrawnGame.swift */; };
 		E569DAA02609E09C00441533 /* MajanScoreManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */; };
 		E569DAA22609E09C00441533 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAA12609E09C00441533 /* ContentView.swift */; };
 		E569DAA42609E09D00441533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E569DAA32609E09D00441533 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E527FB6E260A848B0073173A /* DrawnGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawnGame.swift; sourceTree = "<group>"; };
 		E569DA9C2609E09C00441533 /* MajanScoreManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MajanScoreManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajanScoreManagerApp.swift; sourceTree = "<group>"; };
 		E569DAA12609E09C00441533 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				E56DFF2F260A2E22000312B5 /* StartGame.swift */,
 				E56DFF34260A2FD7000312B5 /* Game.swift */,
 				E5CDF941260A4E8000E17A3F /* GameInfo.swift */,
+				E527FB6E260A848B0073173A /* DrawnGame.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				E56DFF35260A2FD7000312B5 /* Game.swift in Sources */,
 				E598A53F2609F92A0046F434 /* RiichiBar.swift in Sources */,
 				E569DAE82609ECA200441533 /* PlayerScore.swift in Sources */,
+				E527FB6F260A848B0073173A /* DrawnGame.swift in Sources */,
 				E569DAD32609E87800441533 /* GameData.swift in Sources */,
 				E5E7D22E260A20E600DD8694 /* Player.swift in Sources */,
 				E569DAD82609E90B00441533 /* ModelData.swift in Sources */,

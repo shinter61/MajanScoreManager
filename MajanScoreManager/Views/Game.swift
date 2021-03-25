@@ -9,51 +9,79 @@ import SwiftUI
 
 struct Game: View {
     @EnvironmentObject var modelData: ModelData
+    @State private var showingEndGameMenu = false
+    @State private var showingDrawnMenu = false
     var body: some View {
         let player1: Player = modelData.gameData.players[0]
         let player2: Player = modelData.gameData.players[1]
         let player3: Player = modelData.gameData.players[2]
         let player4: Player = modelData.gameData.players[3]
-        ZStack {
-            EndGameButton()
-            GeometryReader { geometry in
-                GameInfo()
-                    .position(x: 0.5 * geometry.size.width, y: 0.1 * geometry.size.height)
-                if player1.isRiichi {
-                    RiichiBar()
-                        .position(x: 0.5 * geometry.size.width, y: 0.39 * geometry.size.height)
+        NavigationView {
+            ZStack {
+                GeometryReader { geometry in
+                    EndGameButton(
+                        showingEndGameMenu: self.$showingEndGameMenu,
+                        showingDrawnMenu: self.$showingDrawnMenu
+                    )
+                        .position(x: 0.5 * geometry.size.width, y: 0.5 * geometry.size.height)
+                    Group {
+                        GameInfo()
+                            .position(x: 0.5 * geometry.size.width, y: 0.1 * geometry.size.height)
+                        if player1.isRiichi {
+                            RiichiBar()
+                                .position(x: 0.5 * geometry.size.width, y: 0.39 * geometry.size.height)
+                        }
+                        PlayerScore(player: player1)
+                            .rotationEffect(Angle(degrees: 180))
+                            .position(x: 0.5 * geometry.size.width, y: 0.30 * geometry.size.height)
+                        if player2.isRiichi {
+                            RiichiBar()
+                                .rotationEffect(Angle(degrees: 90))
+                                .position(x: 0.67 * geometry.size.width, y: 0.5 * geometry.size.height)
+                        }
+                        PlayerScore(player: player2)
+                            .rotationEffect(Angle(degrees: -90))
+                            .position(x: 0.81 * geometry.size.width, y: 0.5 * geometry.size.height)
+                        if player3.isRiichi {
+                            RiichiBar()
+                                .rotationEffect(Angle(degrees: 0))
+                                .position(x: 0.5 * geometry.size.width, y: 0.61 * geometry.size.height)
+                        }
+                        PlayerScore(player: player3)
+                            .rotationEffect(Angle(degrees: 0))
+                            .position(x: 0.5 * geometry.size.width, y: 0.70 * geometry.size.height)
+                        if player4.isRiichi {
+                            RiichiBar()
+                                .rotationEffect(Angle(degrees: 90))
+                                .position(x: 0.33 * geometry.size.width, y: 0.5 * geometry.size.height)
+                        }
+                        PlayerScore(player: player4)
+                            .rotationEffect(Angle(degrees: 90))
+                            .position(x: 0.19 * geometry.size.width, y: 0.5 * geometry.size.height)
+                    }
+
+                    NavigationLink(destination: DrawnGame(), isActive: self.$showingDrawnMenu) {
+                        EmptyView()
+                    }
                 }
-                PlayerScore(player: player1)
-                    .rotationEffect(Angle(degrees: 180))
-                    .position(x: 0.5 * geometry.size.width, y: 0.30 * geometry.size.height)
-                if player2.isRiichi {
-                    RiichiBar()
-                        .rotationEffect(Angle(degrees: 90))
-                        .position(x: 0.67 * geometry.size.width, y: 0.5 * geometry.size.height)
-                }
-                PlayerScore(player: player2)
-                    .rotationEffect(Angle(degrees: -90))
-                    .position(x: 0.81 * geometry.size.width, y: 0.5 * geometry.size.height)
-                if player3.isRiichi {
-                    RiichiBar()
-                        .rotationEffect(Angle(degrees: 0))
-                        .position(x: 0.5 * geometry.size.width, y: 0.61 * geometry.size.height)
-                }
-                PlayerScore(player: player3)
-                    .rotationEffect(Angle(degrees: 0))
-                    .position(x: 0.5 * geometry.size.width, y: 0.70 * geometry.size.height)
-                if player4.isRiichi {
-                    RiichiBar()
-                        .rotationEffect(Angle(degrees: 90))
-                        .position(x: 0.33 * geometry.size.width, y: 0.5 * geometry.size.height)
-                }
-                PlayerScore(player: player4)
-                    .rotationEffect(Angle(degrees: 90))
-                    .position(x: 0.19 * geometry.size.width, y: 0.5 * geometry.size.height)
+                .background(Color.green)
+                .ignoresSafeArea(edges: .top)
+                .actionSheet(isPresented: $showingEndGameMenu, content: {
+                    ActionSheet(
+                        title: Text("終局"),
+                        message: Text("種類を選んでください"),
+                        buttons: [
+                            .default(Text("和了")),
+                            .default(Text("流局"), action: {
+                                self.showingEndGameMenu = false
+                                self.showingDrawnMenu = true
+                            }),
+                            .cancel()
+                        ]
+                    )
+                })
             }
         }
-        .background(Color.green)
-        .ignoresSafeArea(edges: .top)
     }
 }
 

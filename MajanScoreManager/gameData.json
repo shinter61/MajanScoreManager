@@ -3,7 +3,7 @@
   "isEnd": false,
   "round": "東",
   "hand": 1,
-  "extra": 2,
+  "extra": 0,
   "bets": 0,
   "players": [
       {
@@ -14,19 +14,19 @@
       },
       {
           "id": 2,
-          "score": 28000,
+          "score": 25000,
           "name": "鈴木",
-          "isRiichi": true
+          "isRiichi": false
       },
       {
           "id": 3,
-          "score": 27000,
+          "score": 25000,
           "name": "田中",
           "isRiichi": false
       },
       {
           "id": 4,
-          "score": 22000,
+          "score": 25000,
           "name": "高橋",
           "isRiichi": false
       },
