@@ -196,9 +196,9 @@ struct Winning: View {
         let scores: Score = modelData.parentDrawScores.first(where: { $0.double == double })!
         if scores.pointExists {
             let score: Point = scores.points.first(where: { $0.point == point })!
-            return score.score
+            return score.score + modelData.gameData.extra * 300
         } else {
-            return scores.score
+            return scores.score + modelData.gameData.extra * 300
         }
     }
     
@@ -206,9 +206,9 @@ struct Winning: View {
         let scores: Score = modelData.parentRonScores.first(where: { $0.double == double })!
         if scores.pointExists {
             let score: Point = scores.points.first(where: { $0.point == point })!
-            return score.score
+            return score.score + modelData.gameData.extra * 300
         } else {
-            return scores.score
+            return scores.score + modelData.gameData.extra * 300
         }
     }
     
@@ -216,9 +216,9 @@ struct Winning: View {
         let scores: ChildDrawScore = modelData.childDrawScores.first(where: { $0.double == double })!
         if scores.pointExists {
             let score: ChildDrawPoint = scores.points.first(where: { $0.point == point })!
-            return score.score
+            return score.score.map { $0 + modelData.gameData.extra * 100 }
         } else {
-            return scores.score
+            return scores.score.map { $0 + modelData.gameData.extra * 100 }
         }
     }
     
@@ -226,9 +226,9 @@ struct Winning: View {
         let scores: Score = modelData.childRonScores.first(where: { $0.double == double })!
         if scores.pointExists {
             let score: Point = scores.points.first(where: { $0.point == point })!
-            return score.score
+            return score.score + modelData.gameData.extra * 300
         } else {
-            return scores.score
+            return scores.score + modelData.gameData.extra * 300
         }
     }
 }
