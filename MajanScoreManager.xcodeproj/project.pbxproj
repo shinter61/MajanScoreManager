@@ -133,16 +133,12 @@
 		E569DA9E2609E09C00441533 /* MajanScoreManager */ = {
 			isa = PBXGroup;
 			children = (
+				E5E7330A260F8AEA00805B41 /* Sources */,
 				E569DAE32609EC2F00441533 /* Views */,
 				E569DAE12609EC0800441533 /* Model */,
 				E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */,
 				E569DAA32609E09D00441533 /* Assets.xcassets */,
 				E569DAA82609E09D00441533 /* Info.plist */,
-				E503074E260F6CA800061C47 /* parentRonScores.json */,
-				E5030756260F70BA00061C47 /* childRonScores.json */,
-				E503075B260F72B000061C47 /* childDrawScores.json */,
-				E5030749260F6C6300061C47 /* parentDrawScores.json */,
-				E5E7D2282609FD9B00DD8694 /* gameData.json */,
 				E569DAA52609E09D00441533 /* Preview Content */,
 			);
 			path = MajanScoreManager;
@@ -201,6 +197,18 @@
 				E5065A76260D2F5B00A3AB65 /* Winning.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E5E7330A260F8AEA00805B41 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E5030756260F70BA00061C47 /* childRonScores.json */,
+				E503074E260F6CA800061C47 /* parentRonScores.json */,
+				E503075B260F72B000061C47 /* childDrawScores.json */,
+				E5E7D2282609FD9B00DD8694 /* gameData.json */,
+				E5030749260F6C6300061C47 /* parentDrawScores.json */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
