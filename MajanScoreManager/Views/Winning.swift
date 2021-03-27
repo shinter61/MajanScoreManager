@@ -105,7 +105,9 @@ struct Winning: View {
     
     func winningProcess() -> Void {
         let winner = modelData.gameData.players.first(where: { $0.id == winnerID })!
-        let loser = modelData.gameData.players.first(where: { $0.id == loserID })!
+        let loser = loserID == -1
+            ? Player(id: -1, score: -1, name: "", isRiichi: false, wind: -1)
+            : modelData.gameData.players.first(where: { $0.id == loserID })!
         let double = modelData.doubles[doubleID]
         let point = pointID == -1 ? -1 : modelData.points[pointID]
 
