@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5030745260F610F00061C47 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5030744260F610F00061C47 /* Score.swift */; };
+		E503074A260F6C6300061C47 /* parentDrawScores.json in Resources */ = {isa = PBXBuildFile; fileRef = E5030749260F6C6300061C47 /* parentDrawScores.json */; };
+		E503074F260F6CA800061C47 /* parentRonScores.json in Resources */ = {isa = PBXBuildFile; fileRef = E503074E260F6CA800061C47 /* parentRonScores.json */; };
+		E5030757260F70BA00061C47 /* childRonScores.json in Resources */ = {isa = PBXBuildFile; fileRef = E5030756260F70BA00061C47 /* childRonScores.json */; };
+		E503075C260F72B000061C47 /* childDrawScores.json in Resources */ = {isa = PBXBuildFile; fileRef = E503075B260F72B000061C47 /* childDrawScores.json */; };
 		E5065A72260D0FBF00A3AB65 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5065A71260D0FBF00A3AB65 /* Wind.swift */; };
+		E5065A77260D2F5B00A3AB65 /* Winning.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5065A76260D2F5B00A3AB65 /* Winning.swift */; };
+		E50ED8E3260F74F600E58E19 /* ChildDrawScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50ED8E2260F74F600E58E19 /* ChildDrawScore.swift */; };
 		E527FB6F260A848B0073173A /* DrawnGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E527FB6E260A848B0073173A /* DrawnGame.swift */; };
 		E569DAA02609E09C00441533 /* MajanScoreManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */; };
 		E569DAA22609E09C00441533 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAA12609E09C00441533 /* ContentView.swift */; };
@@ -45,7 +52,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E5030744260F610F00061C47 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		E5030749260F6C6300061C47 /* parentDrawScores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = parentDrawScores.json; sourceTree = "<group>"; };
+		E503074E260F6CA800061C47 /* parentRonScores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = parentRonScores.json; sourceTree = "<group>"; };
+		E5030756260F70BA00061C47 /* childRonScores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = childRonScores.json; sourceTree = "<group>"; };
+		E503075B260F72B000061C47 /* childDrawScores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = childDrawScores.json; sourceTree = "<group>"; };
 		E5065A71260D0FBF00A3AB65 /* Wind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
+		E5065A76260D2F5B00A3AB65 /* Winning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Winning.swift; sourceTree = "<group>"; };
+		E50ED8E2260F74F600E58E19 /* ChildDrawScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildDrawScore.swift; sourceTree = "<group>"; };
 		E527FB6E260A848B0073173A /* DrawnGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawnGame.swift; sourceTree = "<group>"; };
 		E569DA9C2609E09C00441533 /* MajanScoreManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MajanScoreManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajanScoreManagerApp.swift; sourceTree = "<group>"; };
@@ -124,6 +138,10 @@
 				E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */,
 				E569DAA32609E09D00441533 /* Assets.xcassets */,
 				E569DAA82609E09D00441533 /* Info.plist */,
+				E503074E260F6CA800061C47 /* parentRonScores.json */,
+				E5030756260F70BA00061C47 /* childRonScores.json */,
+				E503075B260F72B000061C47 /* childDrawScores.json */,
+				E5030749260F6C6300061C47 /* parentDrawScores.json */,
 				E5E7D2282609FD9B00DD8694 /* gameData.json */,
 				E569DAA52609E09D00441533 /* Preview Content */,
 			);
@@ -162,6 +180,8 @@
 				E569DAD22609E87800441533 /* GameData.swift */,
 				E569DAD72609E90B00441533 /* ModelData.swift */,
 				E5E7D22D260A20E600DD8694 /* Player.swift */,
+				E5030744260F610F00061C47 /* Score.swift */,
+				E50ED8E2260F74F600E58E19 /* ChildDrawScore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +198,7 @@
 				E5CDF941260A4E8000E17A3F /* GameInfo.swift */,
 				E527FB6E260A848B0073173A /* DrawnGame.swift */,
 				E5065A71260D0FBF00A3AB65 /* Wind.swift */,
+				E5065A76260D2F5B00A3AB65 /* Winning.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,6 +308,10 @@
 			files = (
 				E5E7D2292609FD9B00DD8694 /* gameData.json in Resources */,
 				E569DAA72609E09D00441533 /* Preview Assets.xcassets in Resources */,
+				E503074A260F6C6300061C47 /* parentDrawScores.json in Resources */,
+				E5030757260F70BA00061C47 /* childRonScores.json in Resources */,
+				E503074F260F6CA800061C47 /* parentRonScores.json in Resources */,
+				E503075C260F72B000061C47 /* childDrawScores.json in Resources */,
 				E569DAA42609E09D00441533 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +341,7 @@
 				E56DFF35260A2FD7000312B5 /* Game.swift in Sources */,
 				E598A53F2609F92A0046F434 /* RiichiBar.swift in Sources */,
 				E569DAE82609ECA200441533 /* PlayerScore.swift in Sources */,
+				E5030745260F610F00061C47 /* Score.swift in Sources */,
 				E527FB6F260A848B0073173A /* DrawnGame.swift in Sources */,
 				E569DAD32609E87800441533 /* GameData.swift in Sources */,
 				E5E7D22E260A20E600DD8694 /* Player.swift in Sources */,
@@ -324,6 +350,8 @@
 				E5CDF942260A4E8000E17A3F /* GameInfo.swift in Sources */,
 				E56DFF30260A2E22000312B5 /* StartGame.swift in Sources */,
 				E569DAA02609E09C00441533 /* MajanScoreManagerApp.swift in Sources */,
+				E50ED8E3260F74F600E58E19 /* ChildDrawScore.swift in Sources */,
+				E5065A77260D2F5B00A3AB65 /* Winning.swift in Sources */,
 				E5065A72260D0FBF00A3AB65 /* Wind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

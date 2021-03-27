@@ -1,0 +1,188 @@
+[
+    {
+        "double": "1飜",
+        "pointExists": true,
+        "score": 0,
+        "points": [
+            {
+                "point": 30,
+                "score": 1500
+            },
+            {
+                "point": 40,
+                "score": 2000
+            },
+            {
+                "point": 50,
+                "score": 2400
+            },
+            {
+                "point": 60,
+                "score": 2900
+            },
+            {
+                "point": 70,
+                "score": 3400
+            },
+            {
+                "point": 80,
+                "score": 3900
+            },
+            {
+                "point": 90,
+                "score": 4400
+            },
+            {
+                "point": 100,
+                "score": 4800
+            },
+            {
+                "point": 110,
+                "score": 5300
+            },
+        ]
+    },
+    {
+        "double": "2飜",
+        "pointExists": true,
+        "score": 0,
+        "points": [
+            {
+                "point": 25,
+                "score": 2400
+            },
+            {
+                "point": 30,
+                "score": 2900
+            },
+            {
+                "point": 40,
+                "score": 3900
+            },
+            {
+                "point": 50,
+                "score": 4800
+            },
+            {
+                "point": 60,
+                "score": 5800
+            },
+            {
+                "point": 70,
+                "score": 6800
+            },
+            {
+                "point": 80,
+                "score": 7700
+            },
+            {
+                "point": 90,
+                "score": 8700
+            },
+            {
+                "point": 100,
+                "score": 9600
+            },
+            {
+                "point": 110,
+                "score": 10600
+            },
+        ]
+    },
+    {
+        "double": "3飜",
+        "pointExists": true,
+        "score": 0,
+        "points": [
+            {
+                "point": 25,
+                "score": 4800
+            },
+            {
+                "point": 30,
+                "score": 5800
+            },
+            {
+                "point": 40,
+                "score": 7700
+            },
+            {
+                "point": 50,
+                "score": 9600
+            },
+            {
+                "point": 60,
+                "score": 11600
+            },
+        ]
+    },
+    {
+        "double": "4飜",
+        "pointExists": true,
+        "score": 0,
+        "points": [
+            {
+                "point": 25,
+                "score": 9600
+            },
+            {
+                "point": 30,
+                "score": 11600
+            },
+        ]
+    },
+    {
+        "double": "満貫",
+        "pointExists": false,
+        "score": 12000,
+        "points": [],
+    },
+    {
+        "double": "跳満",
+        "pointExists": false,
+        "score": 18000,
+        "points": [],
+    },
+    {
+        "double": "倍満",
+        "pointExists": false,
+        "score": 24000,
+        "points": [],
+    },
+    {
+        "double": "三倍満",
+        "pointExists": false,
+        "score": 36000,
+        "points": [],
+    },
+    {
+        "double": "役満",
+        "pointExists": false,
+        "score": 48000,
+        "points": [],
+    },
+    {
+        "double": "二倍役満",
+        "pointExists": false,
+        "score": 96000,
+        "points": [],
+    },
+    {
+        "double": "三倍役満",
+        "pointExists": false,
+        "score": 144000,
+        "points": [],
+    },
+    {
+        "double": "四倍役満",
+        "pointExists": false,
+        "score": 192000,
+        "points": [],
+    },
+    {
+        "double": "五倍役満",
+        "pointExists": false,
+        "score": 240000,
+        "points": [],
+    }
+]

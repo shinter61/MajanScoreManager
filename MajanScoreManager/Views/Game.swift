@@ -10,6 +10,7 @@ import SwiftUI
 struct Game: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showingEndGameMenu = false
+    @State private var showingWinningMenu = false
     @State private var showingDrawnMenu = false
     var body: some View {
         let player1: Player = modelData.gameData.players[0]
@@ -80,6 +81,9 @@ struct Game: View {
                         }
                     }
 
+                    NavigationLink(destination: Winning(), isActive: self.$showingWinningMenu) {
+                        EmptyView()
+                    }
                     NavigationLink(destination: DrawnGame(), isActive: self.$showingDrawnMenu) {
                         EmptyView()
                     }
@@ -91,7 +95,10 @@ struct Game: View {
                         title: Text("終局"),
                         message: Text("種類を選んでください"),
                         buttons: [
-                            .default(Text("和了")),
+                            .default(Text("和了"), action: {
+                                self.showingEndGameMenu = false
+                                self.showingWinningMenu = true
+                            }),
                             .default(Text("流局"), action: {
                                 self.showingEndGameMenu = false
                                 self.showingDrawnMenu = true
