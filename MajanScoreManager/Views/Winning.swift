@@ -109,13 +109,6 @@ struct Winning: View {
         let double = modelData.doubles[doubleID]
         let point = pointID == -1 ? -1 : modelData.points[pointID]
 
-        if winner.wind == 0 {
-            modelData.incrementExtra()
-        } else {
-            modelData.proceedHand()
-            modelData.proceedWind()
-        }
-        
         if type == WinningType.draw {
             if winner.wind == 0 {
                 let score = calcParentDrawScore(double: double, point: point)
@@ -172,6 +165,13 @@ struct Winning: View {
             }
         }
         
+        if winner.wind == 0 {
+            modelData.incrementExtra()
+        } else {
+            modelData.proceedHand()
+            modelData.proceedWind()
+        }
+
         self.presentationMode.wrappedValue.dismiss()
     }
     
