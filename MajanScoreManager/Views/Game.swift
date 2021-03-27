@@ -90,6 +90,7 @@ struct Game: View {
                 }
                 .background(Color.green)
                 .ignoresSafeArea(edges: .top)
+                .ignoresSafeArea(edges: .bottom)
                 .actionSheet(isPresented: $showingEndGameMenu, content: {
                     ActionSheet(
                         title: Text("終局"),
