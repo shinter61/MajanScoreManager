@@ -12,6 +12,7 @@ struct Game: View {
     @State private var showingEndGameMenu = false
     @State private var showingWinningMenu = false
     @State private var showingDrawnMenu = false
+    @State private var isGameEnd = false
     var body: some View {
         let player1: Player = modelData.gameData.players[0]
         let player2: Player = modelData.gameData.players[1]
@@ -96,10 +97,13 @@ struct Game: View {
                         .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
                     }
 
-                    NavigationLink(destination: Winning(), isActive: self.$showingWinningMenu) {
+                    NavigationLink(destination: Winning(isGameEnd: $isGameEnd), isActive: self.$showingWinningMenu) {
                         EmptyView()
                     }
-                    NavigationLink(destination: DrawnGame(), isActive: self.$showingDrawnMenu) {
+                    NavigationLink(destination: DrawnGame(isGameEnd: $isGameEnd), isActive: self.$showingDrawnMenu) {
+                        EmptyView()
+                    }
+                    NavigationLink(destination: EndGame().navigationBarHidden(true), isActive: self.$isGameEnd) {
                         EmptyView()
                     }
                 }

@@ -47,6 +47,18 @@ final class ModelData: ObservableObject {
     func resetBets() -> Void {
         gameData.bets = 0
     }
+    
+    func judgeGameEnd() -> Bool {
+        if gameData.round == "南" && gameData.hand >= 5 {
+            return true
+        }
+        
+        if !gameData.players.allSatisfy({ $0.score >= 0 }) {
+            return true
+        }
+        
+        return false
+    }
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

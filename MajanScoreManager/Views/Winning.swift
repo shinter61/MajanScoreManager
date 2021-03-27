@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct Winning: View {
-    init(){
+    init(isGameEnd: Binding<Bool>){
+        self._isGameEnd = isGameEnd
         UITableView.appearance().backgroundColor = .clear
     }
     
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
+    @Binding var isGameEnd: Bool
     @State private var type = WinningType.unselected
     @State private var winnerID: Int = -1
     @State private var loserID: Int = -1
@@ -188,8 +190,12 @@ struct Winning: View {
         }
         
         modelData.resetBets()
-
-        self.presentationMode.wrappedValue.dismiss()
+        
+        if modelData.judgeGameEnd() {
+            isGameEnd = modelData.judgeGameEnd()
+        } else {
+            self.presentationMode.wrappedValue.dismiss()
+        }
     }
     
     func calcParentDrawScore(double: String, point: Int) -> Int {
@@ -235,7 +241,7 @@ struct Winning: View {
 
 struct Winning_Previews: PreviewProvider {
     static var previews: some View {
-        Winning()
+        Winning(isGameEnd: .constant(false))
             .environmentObject(ModelData())
     }
 }

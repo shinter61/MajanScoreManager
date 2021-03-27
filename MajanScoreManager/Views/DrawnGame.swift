@@ -10,6 +10,7 @@ import SwiftUI
 struct DrawnGame: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
+    @Binding var isGameEnd: Bool
     @State private var waiters: [Int] = []
     var body: some View {
         let players: [Player] = modelData.gameData.players
@@ -103,14 +104,18 @@ struct DrawnGame: View {
             // 立直取り消し
             modelData.gameData.players[i].isRiichi = false
         }
-        
-        self.presentationMode.wrappedValue.dismiss()
+       
+        if modelData.judgeGameEnd() {
+            isGameEnd = modelData.judgeGameEnd()
+        } else {
+            self.presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 
 struct DrawnGame_Previews: PreviewProvider {
     static var previews: some View {
-        DrawnGame()
+        DrawnGame(isGameEnd: .constant(false))
             .environmentObject(ModelData())
     }
 }
