@@ -52,14 +52,7 @@ struct DrawnGame: View {
         var playerIndex: Int {
             modelData.gameData.players.firstIndex(where: { $0.wind == 0 })!
         }
-        if !waiters.contains(playerIndex) {
-            // 局
-            modelData.proceedHand()
 
-            // 風
-            modelData.proceedWind()
-        }
-        
         // 聴牌料
         switch waiters.count {
         case 1:
@@ -108,6 +101,10 @@ struct DrawnGame: View {
         if modelData.judgeGameEnd() {
             isGameEnd = modelData.judgeGameEnd()
         } else {
+            if !waiters.contains(playerIndex) {
+                modelData.proceedHand()
+                modelData.proceedWind()
+            }
             self.presentationMode.wrappedValue.dismiss()
         }
     }

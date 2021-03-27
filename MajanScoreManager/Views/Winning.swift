@@ -181,19 +181,19 @@ struct Winning: View {
         
         modelData.gameData.players[winnerIndex].score += 1000 * modelData.gameData.bets
 
-        if winner.wind == 0 {
-            modelData.incrementExtra()
-        } else {
-            modelData.proceedHand()
-            modelData.proceedWind()
-            modelData.resetExtra()
-        }
-        
         modelData.resetBets()
         
         if modelData.judgeGameEnd() {
             isGameEnd = modelData.judgeGameEnd()
         } else {
+            if winner.wind == 0 {
+                modelData.incrementExtra()
+            } else {
+                modelData.proceedHand()
+                modelData.proceedWind()
+                modelData.resetExtra()
+            }
+            
             self.presentationMode.wrappedValue.dismiss()
         }
     }
