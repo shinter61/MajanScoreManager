@@ -79,6 +79,21 @@ struct Game: View {
                                 .rotationEffect(Angle(degrees: -90))
                                 .position(x: 0.81 * geometry.size.width, y: 0.38 * geometry.size.height)
                         }
+                        
+                        Button(action: {}) {
+                            NavigationLink(destination: EndGame().navigationBarHidden(true)) {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 12.0)
+                                        .fill(Color.gray)
+                                        .frame(width: 150, height: 60)
+                                    RoundedRectangle(cornerRadius: 11.0)
+                                        .fill(Color.white)
+                                        .frame(width: 146, height: 56)
+                                    Text("対局終了")
+                                }
+                            }
+                        }
+                        .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
                     }
 
                     NavigationLink(destination: Winning(), isActive: self.$showingWinningMenu) {
