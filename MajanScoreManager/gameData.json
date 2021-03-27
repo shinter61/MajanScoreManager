@@ -9,28 +9,28 @@
       {
           "id": 1,
           "score": 25000,
-          "name": "佐藤",
+          "name": "player1",
           "isRiichi": false,
           "wind": 0
       },
       {
           "id": 2,
           "score": 25000,
-          "name": "鈴木",
+          "name": "player2",
           "isRiichi": false,
           "wind": 1
       },
       {
           "id": 3,
           "score": 25000,
-          "name": "田中",
+          "name": "player3",
           "isRiichi": false,
           "wind": 2
       },
       {
           "id": 4,
           "score": 25000,
-          "name": "高橋",
+          "name": "player4",
           "isRiichi": false,
           "wind": 3
       },

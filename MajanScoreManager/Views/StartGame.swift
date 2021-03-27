@@ -33,7 +33,6 @@ struct StartGame: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: 200, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 
-                let isEmpty: Bool = name1.isEmpty || name2.isEmpty || name3.isEmpty || name4.isEmpty
                 Button(action: {
                 }) {
                     NavigationLink(destination: Game().navigationBarHidden(true)) {
@@ -45,7 +44,6 @@ struct StartGame: View {
                                 .foregroundColor(.black)
                         }
                     }
-                    .disabled(isEmpty)
                 }
                 .padding(.top, 50)
                 .navigationTitle("MajanScoreManager")
