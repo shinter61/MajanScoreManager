@@ -39,6 +39,14 @@ final class ModelData: ObservableObject {
     func incrementExtra() -> Void {
         gameData.extra += 1
     }
+    
+    func resetExtra() -> Void {
+        gameData.extra = 0
+    }
+    
+    func resetBets() -> Void {
+        gameData.bets = 0
+    }
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

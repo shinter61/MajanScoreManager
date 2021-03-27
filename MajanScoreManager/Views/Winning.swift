@@ -110,6 +110,8 @@ struct Winning: View {
             : modelData.gameData.players.first(where: { $0.id == loserID })!
         let double = modelData.doubles[doubleID]
         let point = pointID == -1 ? -1 : modelData.points[pointID]
+        
+        var winnerIndex: Int { modelData.gameData.players.firstIndex(where: { $0.id == winner.id })! }
 
         if type == WinningType.draw {
             if winner.wind == 0 {
@@ -167,12 +169,25 @@ struct Winning: View {
             }
         }
         
+        for i in 0..<modelData.gameData.players.count {
+            if modelData.gameData.players[i].isRiichi {
+                modelData.gameData.players[winnerIndex].score += 1000
+            }
+            
+            modelData.gameData.players[i].isRiichi = false
+        }
+        
+        modelData.gameData.players[winnerIndex].score += 1000 * modelData.gameData.bets
+
         if winner.wind == 0 {
             modelData.incrementExtra()
         } else {
             modelData.proceedHand()
             modelData.proceedWind()
+            modelData.resetExtra()
         }
+        
+        modelData.resetBets()
 
         self.presentationMode.wrappedValue.dismiss()
     }
