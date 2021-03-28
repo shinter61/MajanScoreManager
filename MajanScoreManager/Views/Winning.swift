@@ -22,6 +22,7 @@ struct Winning: View {
     @State private var doubleID: Int = -1
     @State private var pointID: Int = -1
     @State private var showingAlert: Bool = false
+    @State private var AlertText: String = ""
     enum WinningType: Int {
         case unselected = 0
         case draw = 1
@@ -104,14 +105,22 @@ struct Winning: View {
                 }
             }
             .alert(isPresented: self.$showingAlert) {
-                Alert(title: Text("不正な入力です"))
+                Alert(title: Text(AlertText))
             }
         }
     }
     
     func winningProcess() -> Void {
+        if winnerID == -1 || loserID == -1 || doubleID == -1 || pointID == -1 {
+            showingAlert = true
+            AlertText = "未入力の項目があります"
+            return
+        }
         showingAlert = winningShapeValidate(type: type, doubleID: doubleID, pointID: pointID)
-        if showingAlert { return }
+        if showingAlert {
+            AlertText = "不正な入力です"
+            return
+        }
         
         let winner = modelData.gameData.players.first(where: { $0.id == winnerID })!
         let loser = loserID == -1
