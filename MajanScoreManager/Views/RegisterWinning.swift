@@ -9,17 +9,18 @@ import SwiftUI
 
 struct RegisterWinning: View {
     var body: some View {
-        VStack {
+        GeometryReader { geometry in
             Text("和了を登録してください")
-            HStack {
-                Spacer()
+                .position(x: 0.5 * geometry.size.width, y: 0)
+            Button(action: {}) {
                 Image(systemName: "plus.circle")
                     .resizable()
                     .frame(width: 26, height: 26, alignment: .center)
                     .foregroundColor(.blue)
                     .padding(.trailing, 20)
-                    .padding(.top, -30)
+                    .padding(.top, -15)
             }
+            .position(x: 0.9 * geometry.size.width, y: 0.01 * geometry.size.height)
             List {
                 VStack {
                     Group {
@@ -40,7 +41,8 @@ struct RegisterWinning: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
-            
+            .position(x: 0.5 * geometry.size.width, y: 0.6 * geometry.size.height)
+
             Button(action: {}) {
                 ZStack {
                     Rectangle()
@@ -50,7 +52,7 @@ struct RegisterWinning: View {
                     Text("決定")
                 }
             }
-            .padding(.bottom, 50)
+            .position(x: 0.5 * geometry.size.width, y: 0.85 * geometry.size.height)
         }
     }
 }
