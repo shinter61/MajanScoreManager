@@ -111,8 +111,8 @@ struct Winning: View {
     }
     
     func winningProcess() -> Void {
-        if winnerID == -1 || loserID == -1 || doubleID == -1 || pointID == -1 {
-            showingAlert = true
+        showingAlert = inputValidate(type: type, winnerID: winnerID, loserID: loserID, doubleID: doubleID, pointID: pointID)
+        if showingAlert {
             AlertText = "未入力の項目があります"
             return
         }
@@ -212,6 +212,28 @@ struct Winning: View {
             
             self.presentationMode.wrappedValue.dismiss()
         }
+    }
+    func inputValidate(type: WinningType,winnerID: Int, loserID: Int, doubleID: Int, pointID: Int) -> Bool {
+        switch type {
+        //自摸、放銃の選択が必須
+        case WinningType.unselected:
+            return true
+        //自摸選択の場合、和了者、飜数の選択が必須
+        case WinningType.draw:
+            if winnerID == -1 || doubleID == -1 {
+                return true
+            }
+        //放銃選択の場合、さらに放銃者の選択が必須
+        case WinningType.ron:
+            if winnerID == -1 || loserID == -1 || doubleID == -1 {
+                return true
+            }
+        }
+        //満貫未満の場合、符の選択が必須
+        if doubleID < 4 && pointID == -1 {
+            return true
+        }
+        return false
     }
     
     func winningShapeValidate(type: WinningType, doubleID: Int, pointID: Int) -> Bool {
