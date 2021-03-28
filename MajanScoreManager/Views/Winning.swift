@@ -21,6 +21,7 @@ struct Winning: View {
     @State private var loserID: Int = -1
     @State private var doubleID: Int = -1
     @State private var pointID: Int = -1
+    @State private var showingAlert: Bool = false
     enum WinningType: Int {
         case unselected = 0
         case draw = 1
@@ -102,10 +103,16 @@ struct Winning: View {
                     }
                 }
             }
+            .alert(isPresented: self.$showingAlert) {
+                Alert(title: Text("不正な入力です"))
+            }
         }
     }
     
     func winningProcess() -> Void {
+        showingAlert = winningShapeValidate(type: type, doubleID: doubleID, pointID: pointID)
+        if showingAlert { return }
+        
         let winner = modelData.gameData.players.first(where: { $0.id == winnerID })!
         let loser = loserID == -1
             ? Player(id: -1, score: -1, name: "", isRiichi: false, wind: -1)
@@ -195,6 +202,42 @@ struct Winning: View {
             }
             
             self.presentationMode.wrappedValue.dismiss()
+        }
+    }
+    
+    func winningShapeValidate(type: WinningType, doubleID: Int, pointID: Int) -> Bool {
+        if type == WinningType.unselected {
+            return true
+        }
+        if doubleID == -1 {
+            return true
+        }
+        let double = modelData.doubles[doubleID]
+        let point = pointID == -1 ? -1 : modelData.points[pointID]
+
+        switch double {
+        case "1飜":
+            return ![30, 40, 50, 60, 70, 80, 90, 100, 110].contains(point)
+        case "2飜":
+            if type == WinningType.draw {
+                return ![20, 30, 40, 50, 60, 70, 80, 90, 100, 110].contains(point)
+            } else {
+                return ![25, 30, 40, 50, 60, 70, 80, 90, 100, 110].contains(point)
+            }
+        case "3飜":
+            if type == WinningType.draw {
+                return ![20, 25, 30, 40, 50, 60].contains(point)
+            } else {
+                return ![25, 30, 40, 50, 60].contains(point)
+            }
+        case "4飜":
+            if type == WinningType.draw {
+                return ![20, 25, 30].contains(point)
+            } else {
+                return ![25, 30].contains(point)
+            }
+        default:
+            return false
         }
     }
     
