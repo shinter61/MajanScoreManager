@@ -59,6 +59,30 @@ final class ModelData: ObservableObject {
         
         return false
     }
+    
+    func resetGameData() -> Void {
+        var players: [Player] = []
+        for i in 0...3  {
+            let player: Player = Player(
+                id: i + 1,
+                score: 25000,
+                name: "Player\(i + 1)",
+                isRiichi: false,
+                wind: i
+            )
+            players.append(player)
+        }
+        
+        gameData = GameData(
+            id: 1,
+            isEnd: false,
+            round: "東",
+            hand: 1,
+            extra: 0,
+            bets: 0,
+            players: players
+        )
+    }
 }
 
 func load<T: Decodable>(_ filename: String) -> T {
