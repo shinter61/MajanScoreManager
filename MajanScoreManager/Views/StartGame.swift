@@ -52,9 +52,10 @@ struct StartGame: View {
                 .padding(.top, 50)
                 .navigationTitle("MahjongScoreManager")
             
-                NavigationLink(destination: Game().navigationBarHidden(true), isActive: self.$navigateGameMenu) {
+                NavigationLink(destination: Game(rootIsActive: self.$navigateGameMenu).navigationBarHidden(true), isActive: self.$navigateGameMenu) {
                     EmptyView()
                 }
+                .isDetailLink(false)
             }
         }
         .padding(0.0)

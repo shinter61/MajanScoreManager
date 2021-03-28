@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Game: View {
     @EnvironmentObject var modelData: ModelData
+    @Binding var rootIsActive : Bool
     @State private var showingEndGameMenu = false
     @State private var showingWinningMenu = false
     @State private var showingDrawnMenu = false
@@ -82,7 +83,12 @@ struct Game: View {
                         }
                         
                         Button(action: {}) {
-                            NavigationLink(destination: EndGame().navigationBarHidden(true)) {
+                            NavigationLink(destination:
+                                EndGame(
+                                    shouldPopToRootView: self.$rootIsActive,
+                                    modelData: modelData
+                                ).navigationBarHidden(true)
+                            ) {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 12.0)
                                         .fill(Color.gray)
@@ -103,9 +109,13 @@ struct Game: View {
                     NavigationLink(destination: DrawnGame(isGameEnd: $isGameEnd), isActive: self.$showingDrawnMenu) {
                         EmptyView()
                     }
-                    NavigationLink(destination: EndGame().navigationBarHidden(true), isActive: self.$isGameEnd) {
-                        EmptyView()
-                    }
+                    NavigationLink(destination:
+                        EndGame(
+                            shouldPopToRootView: self.$rootIsActive,
+                            modelData: modelData
+                        ).navigationBarHidden(true),
+                        isActive: self.$isGameEnd
+                    ) { EmptyView() }
                 }
                 .background(Color.green)
                 .ignoresSafeArea(edges: .top)
@@ -134,7 +144,7 @@ struct Game: View {
 
 struct Game_Previews: PreviewProvider {
     static var previews: some View {
-        Game()
+        Game(rootIsActive: .constant(false))
             .environmentObject(ModelData())
     }
 }
