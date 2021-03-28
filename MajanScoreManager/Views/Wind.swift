@@ -28,7 +28,7 @@ struct Wind: View {
 
 struct Wind_Previews: PreviewProvider {
     static var previews: some View {
-        Wind(player: Player(id: 1, score: 25000, name: "松本", isRiichi: false, wind: 0))
+        Wind(player: Player(id: 1, score: 25000, name: "佐藤", isRiichi: false, wind: 0))
             .environmentObject(ModelData())
     }
 }
