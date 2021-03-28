@@ -35,10 +35,10 @@ struct StartGame: View {
                 .frame(width: 200, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 
                 Button(action: {
-                    modelData.gameData.players[0].name = name1
-                    modelData.gameData.players[1].name = name2
-                    modelData.gameData.players[2].name = name3
-                    modelData.gameData.players[3].name = name4
+                    modelData.gameData.players[0].name = name1.isEmpty ? "Player1" : name1
+                    modelData.gameData.players[1].name = name2.isEmpty ? "Player2" : name2
+                    modelData.gameData.players[2].name = name3.isEmpty ? "Player3" : name3
+                    modelData.gameData.players[3].name = name4.isEmpty ? "Player4" : name4
                     navigateGameMenu = true
                 }) {
                         ZStack {
