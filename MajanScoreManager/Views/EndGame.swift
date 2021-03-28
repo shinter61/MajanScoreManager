@@ -36,7 +36,7 @@ struct EndGame: View {
                         navigateStartMenu = true
                     }) {
                         ZStack {
-                            RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                            RoundedRectangle(cornerRadius: 25.0)
                                 .fill(Color.yellow)
                                 .frame(width: 180, height: 50)
                             Text("終了")
