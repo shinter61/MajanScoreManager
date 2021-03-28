@@ -10,6 +10,7 @@ import SwiftUI
 struct EndGame: View {
     @EnvironmentObject var modelData: ModelData
     @State private var rows: [[String]] = [["名前", "順位", "持ち点", "得点"]]
+    @State private var navigateStartMenu: Bool = false
     
     init() {
         UITableView.appearance().backgroundColor = .clear
@@ -31,16 +32,19 @@ struct EndGame: View {
                         }
                     }
                     Button(action: {
+                        modelData.resetGameData()
+                        navigateStartMenu = true
                     }) {
-                        NavigationLink(destination: StartGame().navigationBarHidden(true)) {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                    .fill(Color.yellow)
-                                    .frame(width: 180, height: 50)
-                                Text("終了")
-                                    .foregroundColor(.black)
-                            }
+                        ZStack {
+                            RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                .fill(Color.yellow)
+                                .frame(width: 180, height: 50)
+                            Text("終了")
+                                .foregroundColor(.black)
                         }
+                    }
+                    NavigationLink(destination: StartGame().navigationBarHidden(true), isActive: self.$navigateStartMenu) {
+                        EmptyView()
                     }
                 }
             }
@@ -49,7 +53,7 @@ struct EndGame: View {
             buildRows()
         }
     }
-    
+
     func buildRows() -> Void {
         let sortedPlayers = modelData.gameData.players.sorted(by: { player1, player2 -> Bool in
             if player1.score == player2.score {
