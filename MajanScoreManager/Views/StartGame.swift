@@ -13,6 +13,7 @@ struct StartGame: View {
     @State private var name2: String = ""
     @State private var name3: String = ""
     @State private var name4: String = ""
+    @State private var navigateGameMenu: Bool = false
     var body: some View {
         NavigationView {
             VStack {
@@ -34,8 +35,12 @@ struct StartGame: View {
                 .frame(width: 200, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 
                 Button(action: {
+                    modelData.gameData.players[0].name = name1
+                    modelData.gameData.players[1].name = name2
+                    modelData.gameData.players[2].name = name3
+                    modelData.gameData.players[3].name = name4
+                    navigateGameMenu = true
                 }) {
-                    NavigationLink(destination: Game().navigationBarHidden(true)) {
                         ZStack {
                             RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
                                 .fill(Color.yellow)
@@ -43,10 +48,13 @@ struct StartGame: View {
                             Text("対局開始")
                                 .foregroundColor(.black)
                         }
-                    }
                 }
                 .padding(.top, 50)
                 .navigationTitle("MahjongScoreManager")
+            
+                NavigationLink(destination: Game().navigationBarHidden(true), isActive: self.$navigateGameMenu) {
+                    EmptyView()
+                }
             }
         }
         .padding(0.0)
