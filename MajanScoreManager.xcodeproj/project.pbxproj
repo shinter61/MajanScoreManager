@@ -31,6 +31,7 @@
 		E598A53F2609F92A0046F434 /* RiichiBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598A53E2609F92A0046F434 /* RiichiBar.swift */; };
 		E5CDF942260A4E8000E17A3F /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CDF941260A4E8000E17A3F /* GameInfo.swift */; };
 		E5E7330F260F8B7300805B41 /* EndGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7330E260F8B7300805B41 /* EndGame.swift */; };
+		E5E7C1152610FBAE00B04BEF /* RegisterWinning.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C1142610FBAE00B04BEF /* RegisterWinning.swift */; };
 		E5E7D2292609FD9B00DD8694 /* gameData.json in Resources */ = {isa = PBXBuildFile; fileRef = E5E7D2282609FD9B00DD8694 /* gameData.json */; };
 		E5E7D22E260A20E600DD8694 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7D22D260A20E600DD8694 /* Player.swift */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		E598A53E2609F92A0046F434 /* RiichiBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiichiBar.swift; sourceTree = "<group>"; };
 		E5CDF941260A4E8000E17A3F /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		E5E7330E260F8B7300805B41 /* EndGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGame.swift; sourceTree = "<group>"; };
+		E5E7C1142610FBAE00B04BEF /* RegisterWinning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWinning.swift; sourceTree = "<group>"; };
 		E5E7D2282609FD9B00DD8694 /* gameData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gameData.json; sourceTree = "<group>"; };
 		E5E7D22D260A20E600DD8694 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,6 +200,7 @@
 				E5065A71260D0FBF00A3AB65 /* Wind.swift */,
 				E5065A76260D2F5B00A3AB65 /* Winning.swift */,
 				E5E7330E260F8B7300805B41 /* EndGame.swift */,
+				E5E7C1142610FBAE00B04BEF /* RegisterWinning.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				E598A53F2609F92A0046F434 /* RiichiBar.swift in Sources */,
 				E569DAE82609ECA200441533 /* PlayerScore.swift in Sources */,
 				E5030745260F610F00061C47 /* Score.swift in Sources */,
+				E5E7C1152610FBAE00B04BEF /* RegisterWinning.swift in Sources */,
 				E527FB6F260A848B0073173A /* DrawnGame.swift in Sources */,
 				E569DAD32609E87800441533 /* GameData.swift in Sources */,
 				E5E7D22E260A20E600DD8694 /* Player.swift in Sources */,
