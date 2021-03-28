@@ -98,13 +98,15 @@ struct DrawnGame: View {
             modelData.gameData.players[i].isRiichi = false
         }
        
+
+        if !waiters.contains(playerIndex) {
+            modelData.proceedHand()
+            modelData.proceedWind()
+        }
+        
         if modelData.judgeGameEnd() {
             isGameEnd = modelData.judgeGameEnd()
         } else {
-            if !waiters.contains(playerIndex) {
-                modelData.proceedHand()
-                modelData.proceedWind()
-            }
             self.presentationMode.wrappedValue.dismiss()
         }
     }

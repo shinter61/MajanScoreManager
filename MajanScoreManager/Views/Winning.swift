@@ -199,17 +199,17 @@ struct Winning: View {
 
         modelData.resetBets()
         
+        if winner.wind == 0 {
+            modelData.incrementExtra()
+        } else {
+            modelData.proceedHand()
+            modelData.proceedWind()
+            modelData.resetExtra()
+        }
+        
         if modelData.judgeGameEnd() {
             isGameEnd = modelData.judgeGameEnd()
         } else {
-            if winner.wind == 0 {
-                modelData.incrementExtra()
-            } else {
-                modelData.proceedHand()
-                modelData.proceedWind()
-                modelData.resetExtra()
-            }
-            
             self.presentationMode.wrappedValue.dismiss()
         }
     }
