@@ -46,7 +46,7 @@ struct StartGame: View {
                     }
                 }
                 .padding(.top, 50)
-                .navigationTitle("MajanScoreManager")
+                .navigationTitle("MahjongScoreManager")
             }
         }
         .padding(0.0)

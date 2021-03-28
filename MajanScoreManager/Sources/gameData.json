@@ -9,28 +9,28 @@
       {
           "id": 1,
           "score": 25000,
-          "name": "player1",
+          "name": "Player1",
           "isRiichi": false,
           "wind": 0
       },
       {
           "id": 2,
           "score": 25000,
-          "name": "player2",
+          "name": "Player2",
           "isRiichi": false,
           "wind": 1
       },
       {
           "id": 3,
           "score": 25000,
-          "name": "player3",
+          "name": "Player3",
           "isRiichi": false,
           "wind": 2
       },
       {
           "id": 4,
           "score": 25000,
-          "name": "player4",
+          "name": "Player4",
           "isRiichi": false,
           "wind": 3
       },
