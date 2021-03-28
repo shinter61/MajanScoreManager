@@ -110,7 +110,7 @@ struct Winning: View {
     }
     
     func winningProcess() -> Void {
-        validate()
+        showingAlert = winningShapeValidate(type: type, doubleID: doubleID, pointID: pointID)
         if showingAlert { return }
         
         let winner = modelData.gameData.players.first(where: { $0.id == winnerID })!
@@ -205,8 +205,40 @@ struct Winning: View {
         }
     }
     
-    func validate() -> Void {
-        showingAlert = true
+    func winningShapeValidate(type: WinningType, doubleID: Int, pointID: Int) -> Bool {
+        if type == WinningType.unselected {
+            return true
+        }
+        if doubleID == -1 {
+            return true
+        }
+        let double = modelData.doubles[doubleID]
+        let point = pointID == -1 ? -1 : modelData.points[pointID]
+
+        switch double {
+        case "1飜":
+            return ![30, 40, 50, 60, 70, 80, 90, 100, 110].contains(point)
+        case "2飜":
+            if type == WinningType.draw {
+                return ![20, 30, 40, 50, 60, 70, 80, 90, 100, 110].contains(point)
+            } else {
+                return ![25, 30, 40, 50, 60, 70, 80, 90, 100, 110].contains(point)
+            }
+        case "3飜":
+            if type == WinningType.draw {
+                return ![20, 25, 30, 40, 50, 60].contains(point)
+            } else {
+                return ![25, 30, 40, 50, 60].contains(point)
+            }
+        case "4飜":
+            if type == WinningType.draw {
+                return ![20, 25, 30].contains(point)
+            } else {
+                return ![25, 30].contains(point)
+            }
+        default:
+            return false
+        }
     }
     
     func calcParentDrawScore(double: String, point: Int) -> Int {
