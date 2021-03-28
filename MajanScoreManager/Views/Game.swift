@@ -19,125 +19,126 @@ struct Game: View {
         let player2: Player = modelData.gameData.players[1]
         let player3: Player = modelData.gameData.players[2]
         let player4: Player = modelData.gameData.players[3]
-        NavigationView {
-            ZStack {
-                GeometryReader { geometry in
-                    EndGameButton(
-                        showingEndGameMenu: self.$showingEndGameMenu,
-                        showingDrawnMenu: self.$showingDrawnMenu
-                    )
-                        .position(x: 0.5 * geometry.size.width, y: 0.5 * geometry.size.height)
+        ZStack {
+            GeometryReader { geometry in
+                EndGameButton(
+                    showingEndGameMenu: self.$showingEndGameMenu,
+                    showingDrawnMenu: self.$showingDrawnMenu
+                )
+                    .position(x: 0.5 * geometry.size.width, y: 0.5 * geometry.size.height)
+                Group {
+                    GameInfo()
+                        .position(x: 0.5 * geometry.size.width, y: 0.1 * geometry.size.height)
                     Group {
-                        GameInfo()
-                            .position(x: 0.5 * geometry.size.width, y: 0.1 * geometry.size.height)
-                        Group {
-                            if player1.isRiichi {
-                                RiichiBar()
-                                    .position(x: 0.5 * geometry.size.width, y: 0.39 * geometry.size.height)
-                            }
-                            PlayerScore(player: player1)
-                                .rotationEffect(Angle(degrees: 180))
-                                .position(x: 0.5 * geometry.size.width, y: 0.30 * geometry.size.height)
-                            Wind(player: player1)
-                                .rotationEffect(Angle(degrees: 180))
-                                .position(x: 0.3 * geometry.size.width, y: 0.30 * geometry.size.height)
+                        if player1.isRiichi {
+                            RiichiBar()
+                                .position(x: 0.5 * geometry.size.width, y: 0.39 * geometry.size.height)
                         }
-                        Group {
-                            if player2.isRiichi {
-                                RiichiBar()
-                                    .rotationEffect(Angle(degrees: 90))
-                                    .position(x: 0.33 * geometry.size.width, y: 0.5 * geometry.size.height)
-                            }
-                            PlayerScore(player: player2)
+                        PlayerScore(player: player1)
+                            .rotationEffect(Angle(degrees: 180))
+                            .position(x: 0.5 * geometry.size.width, y: 0.30 * geometry.size.height)
+                        Wind(player: player1)
+                            .rotationEffect(Angle(degrees: 180))
+                            .position(x: 0.3 * geometry.size.width, y: 0.30 * geometry.size.height)
+                    }
+                    Group {
+                        if player2.isRiichi {
+                            RiichiBar()
                                 .rotationEffect(Angle(degrees: 90))
-                                .position(x: 0.19 * geometry.size.width, y: 0.5 * geometry.size.height)
-                            Wind(player: player2)
+                                .position(x: 0.33 * geometry.size.width, y: 0.5 * geometry.size.height)
+                        }
+                        PlayerScore(player: player2)
+                            .rotationEffect(Angle(degrees: 90))
+                            .position(x: 0.19 * geometry.size.width, y: 0.5 * geometry.size.height)
+                        Wind(player: player2)
+                            .rotationEffect(Angle(degrees: 90))
+                            .position(x: 0.19 * geometry.size.width, y: 0.62 * geometry.size.height)
+                    }
+                    Group {
+                        if player3.isRiichi {
+                            RiichiBar()
+                                .rotationEffect(Angle(degrees: 0))
+                                .position(x: 0.5 * geometry.size.width, y: 0.61 * geometry.size.height)
+                        }
+                        PlayerScore(player: player3)
+                            .rotationEffect(Angle(degrees: 0))
+                            .position(x: 0.5 * geometry.size.width, y: 0.70 * geometry.size.height)
+                        Wind(player: player3)
+                            .rotationEffect(Angle(degrees: 0))
+                            .position(x: 0.7 * geometry.size.width, y: 0.70 * geometry.size.height)
+                    }
+                    Group {
+                        if player4.isRiichi {
+                            RiichiBar()
                                 .rotationEffect(Angle(degrees: 90))
-                                .position(x: 0.19 * geometry.size.width, y: 0.62 * geometry.size.height)
+                                .position(x: 0.67 * geometry.size.width, y: 0.5 * geometry.size.height)
                         }
-                        Group {
-                            if player3.isRiichi {
-                                RiichiBar()
-                                    .rotationEffect(Angle(degrees: 0))
-                                    .position(x: 0.5 * geometry.size.width, y: 0.61 * geometry.size.height)
-                            }
-                            PlayerScore(player: player3)
-                                .rotationEffect(Angle(degrees: 0))
-                                .position(x: 0.5 * geometry.size.width, y: 0.70 * geometry.size.height)
-                            Wind(player: player3)
-                                .rotationEffect(Angle(degrees: 0))
-                                .position(x: 0.7 * geometry.size.width, y: 0.70 * geometry.size.height)
-                        }
-                        Group {
-                            if player4.isRiichi {
-                                RiichiBar()
-                                    .rotationEffect(Angle(degrees: 90))
-                                    .position(x: 0.67 * geometry.size.width, y: 0.5 * geometry.size.height)
-                            }
-                            PlayerScore(player: player4)
-                                .rotationEffect(Angle(degrees: -90))
-                                .position(x: 0.81 * geometry.size.width, y: 0.5 * geometry.size.height)
-                            Wind(player: player4)
-                                .rotationEffect(Angle(degrees: -90))
-                                .position(x: 0.81 * geometry.size.width, y: 0.38 * geometry.size.height)
-                        }
-                        
-                        Button(action: {}) {
-                            NavigationLink(destination:
-                                EndGame(
-                                    shouldPopToRootView: self.$rootIsActive,
-                                    modelData: modelData
-                                ).navigationBarHidden(true)
-                            ) {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 12.0)
-                                        .fill(Color.gray)
-                                        .frame(width: 150, height: 60)
-                                    RoundedRectangle(cornerRadius: 11.0)
-                                        .fill(Color.white)
-                                        .frame(width: 146, height: 56)
-                                    Text("対局終了")
-                                }
-                            }
-                        }
-                        .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
+                        PlayerScore(player: player4)
+                            .rotationEffect(Angle(degrees: -90))
+                            .position(x: 0.81 * geometry.size.width, y: 0.5 * geometry.size.height)
+                        Wind(player: player4)
+                            .rotationEffect(Angle(degrees: -90))
+                            .position(x: 0.81 * geometry.size.width, y: 0.38 * geometry.size.height)
                     }
 
-                    NavigationLink(destination: Winning(isGameEnd: $isGameEnd), isActive: self.$showingWinningMenu) {
-                        EmptyView()
+                    Button(action: {}) {
+                        NavigationLink(destination:
+                            EndGame(
+                                shouldPopToRootView: self.$rootIsActive,
+                                modelData: modelData
+                            ).navigationBarHidden(true)
+                        ) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 12.0)
+                                    .fill(Color.gray)
+                                    .frame(width: 150, height: 60)
+                                RoundedRectangle(cornerRadius: 11.0)
+                                    .fill(Color.white)
+                                    .frame(width: 146, height: 56)
+                                Text("対局終了")
+                            }
+                        }
                     }
-                    NavigationLink(destination: DrawnGame(isGameEnd: $isGameEnd), isActive: self.$showingDrawnMenu) {
-                        EmptyView()
-                    }
-                    NavigationLink(destination:
-                        EndGame(
-                            shouldPopToRootView: self.$rootIsActive,
-                            modelData: modelData
-                        ).navigationBarHidden(true),
-                        isActive: self.$isGameEnd
-                    ) { EmptyView() }
+                    .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
                 }
-                .background(Color.green)
-                .ignoresSafeArea(edges: .top)
-                .ignoresSafeArea(edges: .bottom)
-                .actionSheet(isPresented: $showingEndGameMenu, content: {
-                    ActionSheet(
-                        title: Text("終局"),
-                        message: Text("種類を選んでください"),
-                        buttons: [
-                            .default(Text("和了"), action: {
-                                self.showingEndGameMenu = false
-                                self.showingWinningMenu = true
-                            }),
-                            .default(Text("流局"), action: {
-                                self.showingEndGameMenu = false
-                                self.showingDrawnMenu = true
-                            }),
-                            .cancel()
-                        ]
-                    )
-                })
+
+//                    NavigationLink(destination: Winning(isGameEnd: $isGameEnd), isActive: self.$showingWinningMenu) {
+//                        EmptyView()
+//                    }
+                NavigationLink(destination: RegisterWinning(), isActive: self.$showingWinningMenu) {
+                    EmptyView()
+                }
+                NavigationLink(destination: DrawnGame(isGameEnd: $isGameEnd), isActive: self.$showingDrawnMenu) {
+                    EmptyView()
+                }
+                NavigationLink(destination:
+                    EndGame(
+                        shouldPopToRootView: self.$rootIsActive,
+                        modelData: modelData
+                    ).navigationBarHidden(true),
+                    isActive: self.$isGameEnd
+                ) { EmptyView() }
             }
+            .background(Color.green)
+            .ignoresSafeArea(edges: .top)
+            .ignoresSafeArea(edges: .bottom)
+            .actionSheet(isPresented: $showingEndGameMenu, content: {
+                ActionSheet(
+                    title: Text("終局"),
+                    message: Text("種類を選んでください"),
+                    buttons: [
+                        .default(Text("和了"), action: {
+                            self.showingEndGameMenu = false
+                            self.showingWinningMenu = true
+                        }),
+                        .default(Text("流局"), action: {
+                            self.showingEndGameMenu = false
+                            self.showingDrawnMenu = true
+                        }),
+                        .cancel()
+                    ]
+                )
+            })
         }
     }
 }
