@@ -10,7 +10,6 @@ import SwiftUI
 struct EndGame: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var shouldPopToRootView : Bool
-//    @State private var rows: [[String]] = [["名前", "順位", "持ち点", "得点"]]
     @State private var navigateStartMenu: Bool = false
     
     var rows: [[String]] = []
