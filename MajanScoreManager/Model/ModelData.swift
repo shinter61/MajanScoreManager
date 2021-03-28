@@ -83,6 +83,46 @@ final class ModelData: ObservableObject {
             players: players
         )
     }
+    
+    func buildResultRows() -> [[String]] {
+        var rows: [[String]] = [["名前", "順位", "持ち点", "得点"]]
+        let sortedPlayers = gameData.players.sorted(by: { player1, player2 -> Bool in
+            if player1.score == player2.score {
+                return player1.wind < player2.wind
+            }
+            return player1.score > player2.score
+        })
+        var sum: Int = 0
+        for i in 0..<sortedPlayers.count {
+            // オカの分を引く
+            var marks = Int(round(Double(sortedPlayers[i].score) / 1000)) - 30
+            
+            // ウマとオカを足す
+            switch i + 1 {
+            case 1:
+                marks += 20
+                marks += 20
+            case 2:
+                marks += 10
+            case 3:
+                marks -= 10
+            case 4:
+                marks -= 20
+            default:
+                print("何もしない")
+            }
+            
+            sum += marks
+            rows.append([
+                "\(sortedPlayers[i].name)",
+                "\(i + 1)位",
+                "\(sortedPlayers[i].score)",
+                "\(marks)"
+            ])
+        }
+        
+        return rows
+    }
 }
 
 func load<T: Decodable>(_ filename: String) -> T {
