@@ -21,6 +21,7 @@ struct Winning: View {
     @State private var loserID: Int = -1
     @State private var doubleID: Int = -1
     @State private var pointID: Int = -1
+    @State private var showingAlert: Bool = false
     enum WinningType: Int {
         case unselected = 0
         case draw = 1
@@ -102,10 +103,16 @@ struct Winning: View {
                     }
                 }
             }
+            .alert(isPresented: self.$showingAlert) {
+                Alert(title: Text("不正な入力です"))
+            }
         }
     }
     
     func winningProcess() -> Void {
+        validate()
+        if showingAlert { return }
+        
         let winner = modelData.gameData.players.first(where: { $0.id == winnerID })!
         let loser = loserID == -1
             ? Player(id: -1, score: -1, name: "", isRiichi: false, wind: -1)
@@ -196,6 +203,10 @@ struct Winning: View {
             
             self.presentationMode.wrappedValue.dismiss()
         }
+    }
+    
+    func validate() -> Void {
+        showingAlert = true
     }
     
     func calcParentDrawScore(double: String, point: Int) -> Int {
