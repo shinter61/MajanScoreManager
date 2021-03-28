@@ -111,7 +111,7 @@ struct Winning: View {
     }
     
     func winningProcess() -> Void {
-        showingAlert = inputValidate(type: type, winnerID: winnerID, loserID: loserID, doubleID: doubleID, pointID: pointID)
+        showingAlert = inputValidate(type: type,  winnerID: winnerID, loserID: loserID, doubleID: doubleID, pointID: pointID)
         if showingAlert {
             AlertText = "未入力の項目があります"
             return
