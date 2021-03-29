@@ -15,13 +15,22 @@ struct Wind: View {
             Circle()
                 .stroke(Color.gray, lineWidth: 2)
                 .frame(width: 40, height: 40)
-
+            
+            if player.wind != 0{
             Circle()
                 .fill(Color.white)
                 .frame(width: 38, height: 38)
 
             Text(modelData.winds[player.wind])
                 .foregroundColor(.black)
+            }else{
+                Circle()
+                    .fill(Color.red)
+                    .frame(width: 38, height: 38)
+
+                Text(modelData.winds[player.wind])
+                    .foregroundColor(.white)
+            }
         }
     }
 }
