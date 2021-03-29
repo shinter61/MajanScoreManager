@@ -29,6 +29,7 @@
 		E56DFF30260A2E22000312B5 /* StartGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56DFF2F260A2E22000312B5 /* StartGame.swift */; };
 		E56DFF35260A2FD7000312B5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56DFF34260A2FD7000312B5 /* Game.swift */; };
 		E598A53F2609F92A0046F434 /* RiichiBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598A53E2609F92A0046F434 /* RiichiBar.swift */; };
+		E59994FD26110F6A00125B75 /* Win.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59994FC26110F6A00125B75 /* Win.swift */; };
 		E5CDF942260A4E8000E17A3F /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CDF941260A4E8000E17A3F /* GameInfo.swift */; };
 		E5E7330F260F8B7300805B41 /* EndGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7330E260F8B7300805B41 /* EndGame.swift */; };
 		E5E7C1152610FBAE00B04BEF /* RegisterWinning.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7C1142610FBAE00B04BEF /* RegisterWinning.swift */; };
@@ -82,6 +83,7 @@
 		E56DFF2F260A2E22000312B5 /* StartGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGame.swift; sourceTree = "<group>"; };
 		E56DFF34260A2FD7000312B5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		E598A53E2609F92A0046F434 /* RiichiBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiichiBar.swift; sourceTree = "<group>"; };
+		E59994FC26110F6A00125B75 /* Win.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Win.swift; sourceTree = "<group>"; };
 		E5CDF941260A4E8000E17A3F /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		E5E7330E260F8B7300805B41 /* EndGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGame.swift; sourceTree = "<group>"; };
 		E5E7C1142610FBAE00B04BEF /* RegisterWinning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWinning.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				E5E7D22D260A20E600DD8694 /* Player.swift */,
 				E5030744260F610F00061C47 /* Score.swift */,
 				E50ED8E2260F74F600E58E19 /* ChildDrawScore.swift */,
+				E59994FC26110F6A00125B75 /* Win.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 			files = (
 				E569DAA22609E09C00441533 /* ContentView.swift in Sources */,
 				E56DFF35260A2FD7000312B5 /* Game.swift in Sources */,
+				E59994FD26110F6A00125B75 /* Win.swift in Sources */,
 				E598A53F2609F92A0046F434 /* RiichiBar.swift in Sources */,
 				E569DAE82609ECA200441533 /* PlayerScore.swift in Sources */,
 				E5030745260F610F00061C47 /* Score.swift in Sources */,
