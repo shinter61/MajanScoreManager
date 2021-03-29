@@ -23,6 +23,7 @@ struct Winning: View {
     @State private var pointID: Int = -1
     @State private var showingAlert: Bool = false
     @State private var AlertText: String = ""
+    
     enum WinningType: Int {
         case unselected = 0
         case draw = 1
@@ -57,42 +58,52 @@ struct Winning: View {
                     }
                 }
                 .frame(height: CGFloat(2) * (Winning.rowHeight + Winning.rowMargin))
-
-                Text("和了者と放銃者を選んでください")
-                Form {
-                    Picker(selection: $winnerID, label: Text("和了者を選択")) {
-                        ForEach(modelData.gameData.players, id: \.self.id) { player in
-                            Text(player.name)
+                //和了の種類選択後、和了者を選択可能にする
+                if type != WinningType.unselected{
+                    Text("プレイヤーを選択してください")
+                    Form {
+                        Picker(selection: $winnerID, label: Text("和了者を選択")) {
+                            ForEach(modelData.gameData.players, id: \.self.id) { player in
+                                Text(player.name)
+                            }
+                        }
+                        //放銃選択時、放銃者を選択可能にする
+                        if type == WinningType.ron{
+                            Picker(selection: $loserID, label: Text("放銃者を選択")) {
+                                ForEach(modelData.gameData.players, id: \.self.id) { player in
+                                    Text(player.name)
+                                }
+                            }
                         }
                     }
-                    Picker(selection: $loserID, label: Text("放銃者を選択")) {
-                        ForEach(modelData.gameData.players, id: \.self.id) { player in
-                            Text(player.name)
-                        }
-                    }
+                    .frame(height: 150, alignment: .center)
                 }
-                .frame(height: 150, alignment: .center)
-
-                Text("飜数を選んでください")
-                Form {
-                    Picker(selection: $doubleID, label: Text("飜数を選択")) {
-                        ForEach(0..<modelData.doubles.count) { index in
-                            Text(modelData.doubles[index])
+                //和了者選択時、飜数を選択可能にする
+                if winnerID != -1 {
+                    Text("飜数を選んでください")
+                    Form {
+                        Picker(selection: $doubleID, label: Text("飜数を選択")) {
+                            ForEach(0..<modelData.doubles.count) { index in
+                                Text(modelData.doubles[index])
+                            }
                         }
                     }
+                    .frame(height: 100, alignment: .center)
                 }
-                .frame(height: 100, alignment: .center)
-
-
-                Text("符を選んでください")
-                Form {
-                    Picker(selection: $pointID, label: Text("符を選択")) {
-                        ForEach(0..<modelData.points.count) { index in
-                            Text("\(modelData.points[index])符")
+                //飜数選択時、符を選択可能にする
+                if doubleID > -1 && doubleID < 4 {
+                    Text("符を選んでください")
+                    Form {
+                        Picker(selection: $pointID, label: Text("符を選択")) {
+                            ForEach(0..<modelData.points.count) { index in
+                                Text("\(modelData.points[index])符")
+                            }
                         }
                     }
+                    .frame(height: 100, alignment: .center)
                 }
-                .frame(height: 100, alignment: .center)
+                
+                
 
                 Button(action: winningProcess) {
                     ZStack {
@@ -116,7 +127,7 @@ struct Winning: View {
             AlertText = "未入力の項目があります"
             return
         }
-        showingAlert = winningShapeValidate(type: type, doubleID: doubleID, pointID: pointID)
+        showingAlert = winningShapeValidate(type: type,winnerID: winnerID,loserID: loserID, doubleID: doubleID, pointID: pointID)
         if showingAlert {
             AlertText = "不正な入力です"
             return
@@ -236,7 +247,10 @@ struct Winning: View {
         return false
     }
     
-    func winningShapeValidate(type: WinningType, doubleID: Int, pointID: Int) -> Bool {
+    func winningShapeValidate(type: WinningType,winnerID: Int,loserID: Int, doubleID: Int, pointID: Int) -> Bool {
+        if winnerID == loserID {
+            return true
+        }
         if type == WinningType.unselected {
             return true
         }
