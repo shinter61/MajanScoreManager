@@ -14,6 +14,7 @@ struct RegisterWinning: View {
     @State private var showingWinning = false
     @State private var wins: [Win] = []
     @State private var showingAlert: Bool = false
+    @State private var alertText: String = ""
     var body: some View {
         GeometryReader { geometry in
             Text("和了を登録してください")
@@ -60,7 +61,7 @@ struct RegisterWinning: View {
             }
         }
         .alert(isPresented: self.$showingAlert) {
-            Alert(title: Text("和了が登録されていません"))
+            Alert(title: Text(alertText))
         }
     }
     
@@ -92,8 +93,8 @@ struct RegisterWinning: View {
     }
     
     func winningProcess() -> Void {
-        if wins.isEmpty {
-            showingAlert = true
+        let ok: Bool = validate()
+        if !ok {
             return
         }
         
@@ -192,6 +193,22 @@ struct RegisterWinning: View {
         } else {
             showingWinningMenu = false
         }
+    }
+    
+    func validate() -> Bool {
+        if wins.isEmpty {
+            showingAlert = true
+            alertText = "和了が登録されていません"
+            return false
+        }
+        
+        if wins.count >= 2 && !wins.allSatisfy({ $0.winningType == 2 }) {
+            showingAlert = true
+            alertText = "不正な登録です"
+            return false
+        }
+        
+        return true
     }
 }
 
