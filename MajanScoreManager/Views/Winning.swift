@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct Winning: View {
-    init(newWin: Binding<Win>) {
-        self._newWin = newWin
+    init(wins: Binding<[Win]>) {
+        self._wins = wins
         UITableView.appearance().backgroundColor = .clear
     }
     
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
-    @Binding var newWin: Win
+    @Binding var wins: [Win]
     @State private var type = WinningType.unselected
     @State private var winnerID: Int = -1
     @State private var loserID: Int = -1
@@ -203,11 +203,14 @@ struct Winning: View {
             }
         }
         
-        newWin.winningType = type.rawValue
-        newWin.double = "\(double)" + (point == -1 ? "" : "\(point)符")
-        newWin.score = scores
-        newWin.winnerID = winnerID
-        newWin.loserID = loserID
+        let newWin: Win = Win(
+            winningType: type.rawValue,
+            double: "\(double)" + (point == -1 ? "" : "\(point)符"),
+            score: scores,
+            winnerID: winnerID,
+            loserID: loserID
+        )
+        wins.append(newWin)
 
         self.presentationMode.wrappedValue.dismiss()
     }
@@ -317,7 +320,7 @@ struct Winning: View {
 
 struct Winning_Previews: PreviewProvider {
     static var previews: some View {
-        Winning(newWin: .constant(Win(winningType: -1, double: "", score: [], winnerID: -1, loserID: -1)))
+        Winning(wins: .constant([]))
             .environmentObject(ModelData())
     }
 }

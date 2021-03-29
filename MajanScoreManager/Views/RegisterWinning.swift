@@ -12,14 +12,6 @@ struct RegisterWinning: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showingWinning = false
     @State private var wins: [Win] = []
-    @State private var newWin: Win =
-        Win(
-            winningType: -1,
-            double: "",
-            score: [],
-            winnerID: -1,
-            loserID: -1
-        )
     var body: some View {
         GeometryReader { geometry in
             Text("和了を登録してください")
@@ -31,10 +23,8 @@ struct RegisterWinning: View {
                     .resizable()
                     .frame(width: 26, height: 26, alignment: .center)
                     .foregroundColor(.blue)
-                    .padding(.trailing, 20)
-                    .padding(.top, -15)
             }
-            .position(x: 0.9 * geometry.size.width, y: 0.01 * geometry.size.height)
+            .position(x: 0.9 * geometry.size.width, y: 0)
             
             List {
                 ForEach(0..<wins.count, id: \.self) { i in
@@ -63,24 +53,10 @@ struct RegisterWinning: View {
             }
             .position(x: 0.5 * geometry.size.width, y: 0.85 * geometry.size.height)
             
-            NavigationLink(destination: Winning(newWin: self.$newWin), isActive: self.$showingWinning) {
+            NavigationLink(destination: Winning(wins: self.$wins), isActive: self.$showingWinning) {
                 EmptyView()
             }
         }
-        .onAppear(perform: {
-            if newWin.winningType == -1 {
-                return // 和了の情報が未選択の場合は何もしない
-            }
-            self.wins.append(self.newWin)
-            self.newWin =
-                Win(
-                    winningType: -1,
-                    double: "",
-                    score: [],
-                    winnerID: -1,
-                    loserID: -1
-                )
-        })
     }
     
     func winningTypeToJa(win: Win) -> String {
