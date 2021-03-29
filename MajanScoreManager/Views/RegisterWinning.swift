@@ -11,6 +11,7 @@ struct RegisterWinning: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
     @Binding var showingWinningMenu: Bool
+    @Binding var isGameEnd: Bool
     @State private var showingWinning = false
     @State private var wins: [Win] = []
     var body: some View {
@@ -177,13 +178,18 @@ struct RegisterWinning: View {
             modelData.proceedWind()
             modelData.resetExtra()
         }
-        showingWinningMenu = false
+        
+        if modelData.judgeGameEnd() {
+            isGameEnd = modelData.judgeGameEnd()
+        } else {
+            showingWinningMenu = false
+        }
     }
 }
 
 struct RegisterWinning_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterWinning(showingWinningMenu: .constant(true))
+        RegisterWinning(showingWinningMenu: .constant(true), isGameEnd: .constant(false))
             .environmentObject(ModelData())
     }
 }
