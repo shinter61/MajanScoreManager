@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct Winning: View {
-    init(isGameEnd: Binding<Bool>){
-        self._isGameEnd = isGameEnd
+    init(wins: Binding<[Win]>) {
+        self._wins = wins
         UITableView.appearance().backgroundColor = .clear
     }
     
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
-    @Binding var isGameEnd: Bool
+    @Binding var wins: [Win]
     @State private var type = WinningType.unselected
     @State private var winnerID: Int = -1
     @State private var loserID: Int = -1
@@ -140,96 +140,41 @@ struct Winning: View {
         }
         
         let winner = modelData.gameData.players.first(where: { $0.id == winnerID })!
-        let loser = loserID == -1
-            ? Player(id: -1, score: -1, name: "", isRiichi: false, wind: -1)
-            : modelData.gameData.players.first(where: { $0.id == loserID })!
         let double = modelData.doubles[doubleID]
         let point = pointID == -1 ? -1 : modelData.points[pointID]
+        var scores: [Int] = []
         
         var winnerIndex: Int { modelData.gameData.players.firstIndex(where: { $0.id == winner.id })! }
 
         if type == WinningType.draw {
             if winner.wind == 0 {
                 let score = calcParentDrawScore(double: double, point: point)
-                for player in modelData.gameData.players {
-                    var playerIndex: Int {
-                        modelData.gameData.players.firstIndex(where: { $0.id == player.id })!
-                    }
-                    if player.id != winner.id {
-                        modelData.gameData.players[playerIndex].score -= score
-                    } else {
-                        modelData.gameData.players[playerIndex].score += score * 3
-                    }
-                }
+                scores.append(score)
             } else {
-                let scores = calcChildDrawScore(double: double, point: point)
-                for player in modelData.gameData.players {
-                    var playerIndex: Int {
-                        modelData.gameData.players.firstIndex(where: { $0.id == player.id })!
-                    }
-                    if player.id == winner.id {
-                        modelData.gameData.players[playerIndex].score += scores[0] * 2 + scores[1]
-                    } else if player.wind == 0 {
-                        modelData.gameData.players[playerIndex].score -= scores[1]
-                    } else {
-                        modelData.gameData.players[playerIndex].score -= scores[0]
-                    }
-                }
+                scores = calcChildDrawScore(double: double, point: point)
             }
         } else if type == WinningType.ron {
             if winner.wind == 0 {
                 let score = calcParentRonScore(double: double, point: point)
-                for player in modelData.gameData.players {
-                    var playerIndex: Int {
-                        modelData.gameData.players.firstIndex(where: { $0.id == player.id })!
-                    }
-                    if player.id == winner.id {
-                        modelData.gameData.players[playerIndex].score += score
-                    } else if player.id == loser.id {
-                        modelData.gameData.players[playerIndex].score -= score
-                    }
-                }
+                scores.append(score)
             } else {
                 let score = calcChildRonScore(double: double, point: point)
-                for player in modelData.gameData.players {
-                    var playerIndex: Int {
-                        modelData.gameData.players.firstIndex(where: { $0.id == player.id })!
-                    }
-                    if player.id == winner.id {
-                        modelData.gameData.players[playerIndex].score += score
-                    } else if player.id == loser.id {
-                        modelData.gameData.players[playerIndex].score -= score
-                    }
-                }
+                scores.append(score)
             }
         }
         
-        for i in 0..<modelData.gameData.players.count {
-            if modelData.gameData.players[i].isRiichi {
-                modelData.gameData.players[winnerIndex].score += 1000
-            }
-            
-            modelData.gameData.players[i].isRiichi = false
-        }
-        
-        modelData.gameData.players[winnerIndex].score += 1000 * modelData.gameData.bets
+        let newWin: Win = Win(
+            winningType: type.rawValue,
+            double: "\(double)" + (point == -1 ? "" : "\(point)符"),
+            score: scores,
+            winnerID: winnerID,
+            loserID: loserID
+        )
+        wins.append(newWin)
 
-        modelData.resetBets()
-        
-        if winner.wind == 0 {
-            modelData.incrementExtra()
-        } else {
-            modelData.proceedHand()
-            modelData.proceedWind()
-            modelData.resetExtra()
-        }
-        
-        if modelData.judgeGameEnd() {
-            isGameEnd = modelData.judgeGameEnd()
-        } else {
-            self.presentationMode.wrappedValue.dismiss()
-        }
+        self.presentationMode.wrappedValue.dismiss()
     }
+    
     func inputValidate(type: WinningType,winnerID: Int, loserID: Int, doubleID: Int, pointID: Int) -> Bool {
         switch type {
         //自摸、放銃の選択が必須
@@ -296,9 +241,9 @@ struct Winning: View {
         let scores: Score = modelData.parentDrawScores.first(where: { $0.double == double })!
         if scores.pointExists {
             let score: Point = scores.points.first(where: { $0.point == point })!
-            return score.score + modelData.gameData.extra * 300
+            return score.score + modelData.gameData.extra * 100
         } else {
-            return scores.score + modelData.gameData.extra * 300
+            return scores.score + modelData.gameData.extra * 100
         }
     }
     
@@ -335,7 +280,7 @@ struct Winning: View {
 
 struct Winning_Previews: PreviewProvider {
     static var previews: some View {
-        Winning(isGameEnd: .constant(false))
+        Winning(wins: .constant([]))
             .environmentObject(ModelData())
     }
 }
