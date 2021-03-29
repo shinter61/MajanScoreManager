@@ -60,47 +60,47 @@ struct Winning: View {
                 .frame(height: CGFloat(2) * (Winning.rowHeight + Winning.rowMargin))
                 //和了の種類選択後、和了者を選択可能にする
                 if type != WinningType.unselected{
-                Text("プレイヤーを選択してください")
-                Form {
-                    Picker(selection: $winnerID, label: Text("和了者を選択")) {
-                        ForEach(modelData.gameData.players, id: \.self.id) { player in
-                            Text(player.name)
+                    Text("プレイヤーを選択してください")
+                    Form {
+                        Picker(selection: $winnerID, label: Text("和了者を選択")) {
+                            ForEach(modelData.gameData.players, id: \.self.id) { player in
+                                Text(player.name)
+                            }
+                        }
+                        //放銃選択時、放銃者を選択可能にする
+                        if type == WinningType.ron{
+                            Picker(selection: $loserID, label: Text("放銃者を選択")) {
+                                ForEach(modelData.gameData.players, id: \.self.id) { player in
+                                    Text(player.name)
+                                }
+                            }
                         }
                     }
-                    //放銃選択時、放銃者を選択可能にする
-                    if type == WinningType.ron{
-                    Picker(selection: $loserID, label: Text("放銃者を選択")) {
-                        ForEach(modelData.gameData.players, id: \.self.id) { player in
-                            Text(player.name)
-                        }
-                    }}
-                }
-                .frame(height: 150, alignment: .center)
+                    .frame(height: 150, alignment: .center)
                 }
                 //和了者選択時、飜数を選択可能にする
                 if winnerID != -1 {
-                Text("飜数を選んでください")
-                Form {
-                    Picker(selection: $doubleID, label: Text("飜数を選択")) {
-                        ForEach(0..<modelData.doubles.count) { index in
-                            Text(modelData.doubles[index])
+                    Text("飜数を選んでください")
+                    Form {
+                        Picker(selection: $doubleID, label: Text("飜数を選択")) {
+                            ForEach(0..<modelData.doubles.count) { index in
+                                Text(modelData.doubles[index])
+                            }
                         }
                     }
-                }
-                .frame(height: 100, alignment: .center)
+                    .frame(height: 100, alignment: .center)
                 }
                 //飜数選択時、符を選択可能にする
                 if doubleID > -1 && doubleID < 4 {
-                Text("符を選んでください")
-                Form {
-                    Picker(selection: $pointID, label: Text("符を選択")) {
-                        ForEach(0..<modelData.points.count) { index in
-                            Text("\(modelData.points[index])符")
+                    Text("符を選んでください")
+                    Form {
+                        Picker(selection: $pointID, label: Text("符を選択")) {
+                            ForEach(0..<modelData.points.count) { index in
+                                Text("\(modelData.points[index])符")
+                            }
                         }
                     }
-                    
-                }
-                .frame(height: 100, alignment: .center)
+                    .frame(height: 100, alignment: .center)
                 }
                 
                 
