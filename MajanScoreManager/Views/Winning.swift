@@ -235,9 +235,9 @@ struct Winning: View {
         let scores: Score = modelData.parentDrawScores.first(where: { $0.double == double })!
         if scores.pointExists {
             let score: Point = scores.points.first(where: { $0.point == point })!
-            return score.score + modelData.gameData.extra * 300
+            return score.score + modelData.gameData.extra * 100
         } else {
-            return scores.score + modelData.gameData.extra * 300
+            return scores.score + modelData.gameData.extra * 100
         }
     }
     
