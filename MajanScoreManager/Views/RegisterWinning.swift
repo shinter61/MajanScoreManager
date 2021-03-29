@@ -13,6 +13,7 @@ struct RegisterWinning: View {
     @Binding var isGameEnd: Bool
     @State private var showingWinning = false
     @State private var wins: [Win] = []
+    @State private var showingAlert: Bool = false
     var body: some View {
         GeometryReader { geometry in
             Text("和了を登録してください")
@@ -58,6 +59,9 @@ struct RegisterWinning: View {
                 EmptyView()
             }
         }
+        .alert(isPresented: self.$showingAlert) {
+            Alert(title: Text("和了が登録されていません"))
+        }
     }
     
     func winningTypeToJa(win: Win) -> String {
@@ -88,6 +92,11 @@ struct RegisterWinning: View {
     }
     
     func winningProcess() -> Void {
+        if wins.isEmpty {
+            showingAlert = true
+            return
+        }
+        
         for win in wins {
             let winner = modelData.gameData.players.first(where: { $0.id == win.winnerID })!
             let loser = win.loserID == -1
