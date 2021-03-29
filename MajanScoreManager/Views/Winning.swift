@@ -95,8 +95,8 @@ struct Winning: View {
                     Text("符を選んでください")
                     Form {
                         Picker(selection: $pointID, label: Text("符を選択")) {
-                            ForEach(0..<modelData.PoiontsDRs[type.rawValue - 1].pointsDoubles[doubleID].points.count, id: \.self) { index in
-                                Text("\(modelData.PoiontsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[index])符")
+                            ForEach(0..<modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points.count, id: \.self) { index in
+                                Text("\(modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[index])符")
                             }
                         }
                     }
