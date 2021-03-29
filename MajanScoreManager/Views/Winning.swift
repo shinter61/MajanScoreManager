@@ -16,13 +16,24 @@ struct Winning: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
     @Binding var isGameEnd: Bool
-    @State private var type = WinningType.unselected
+    @State private var type = WinningType.unselected {
+        willSet {
+            pointID = -1
+            idForPicker = UUID()
+        }
+    }
     @State private var winnerID: Int = -1
     @State private var loserID: Int = -1
-    @State private var doubleID: Int = -1
+    @State private var doubleID: Int = -1 {
+        willSet {
+            pointID = -1
+            idForPicker = UUID()
+        }
+    }
     @State private var pointID: Int = -1
     @State private var showingAlert: Bool = false
     @State private var AlertText: String = ""
+    @State private var idForPicker: UUID = UUID()
     enum WinningType: Int {
         case unselected = 0
         case draw = 1
@@ -83,16 +94,17 @@ struct Winning: View {
                 }
                 .frame(height: 100, alignment: .center)
 
-
-                Text("符を選んでください")
-                Form {
-                    Picker(selection: $pointID, label: Text("符を選択")) {
-                        ForEach(0..<modelData.points.count) { index in
-                            Text("\(modelData.points[index])符")
+                if type.rawValue != 0 && doubleID > -1 && doubleID < 4 {
+                    Text("符を選んでください")
+                    Form {
+                        Picker(selection: $pointID, label: Text("符を選択")) {
+                            ForEach(0..<modelData.PoiontsDRs[type.rawValue - 1].pointsDoubles[doubleID].points.count) { index in
+                                Text("\(modelData.PoiontsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[index])符")
+                            }
                         }
                     }
+                    .frame(height: 100, alignment: .center)
                 }
-                .frame(height: 100, alignment: .center)
 
                 Button(action: winningProcess) {
                     ZStack {
@@ -104,6 +116,7 @@ struct Winning: View {
                     }
                 }
             }
+            .id(idForPicker)
             .alert(isPresented: self.$showingAlert) {
                 Alert(title: Text(AlertText))
             }
