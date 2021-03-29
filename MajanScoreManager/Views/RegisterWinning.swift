@@ -9,7 +9,6 @@ import SwiftUI
 
 struct RegisterWinning: View {
     @EnvironmentObject var modelData: ModelData
-    @Environment(\.presentationMode) var presentationMode
     @Binding var showingWinningMenu: Bool
     @Binding var isGameEnd: Bool
     @State private var showingWinning = false
