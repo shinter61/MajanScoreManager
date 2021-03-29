@@ -134,9 +134,6 @@ struct Winning: View {
         }
         
         let winner = modelData.gameData.players.first(where: { $0.id == winnerID })!
-        let loser = loserID == -1
-            ? Player(id: -1, score: -1, name: "", isRiichi: false, wind: -1)
-            : modelData.gameData.players.first(where: { $0.id == loserID })!
         let double = modelData.doubles[doubleID]
         let point = pointID == -1 ? -1 : modelData.points[pointID]
         var scores: [Int] = []
@@ -147,59 +144,16 @@ struct Winning: View {
             if winner.wind == 0 {
                 let score = calcParentDrawScore(double: double, point: point)
                 scores.append(score)
-//                for player in modelData.gameData.players {
-//                    var playerIndex: Int {
-//                        modelData.gameData.players.firstIndex(where: { $0.id == player.id })!
-//                    }
-//                    if player.id != winner.id {
-//                        modelData.gameData.players[playerIndex].score -= score
-//                    } else {
-//                        modelData.gameData.players[playerIndex].score += score * 3
-//                    }
-//                }
             } else {
-                let tmpScores = calcChildDrawScore(double: double, point: point)
-                scores = tmpScores
-//                for player in modelData.gameData.players {
-//                    var playerIndex: Int {
-//                        modelData.gameData.players.firstIndex(where: { $0.id == player.id })!
-//                    }
-//                    if player.id == winner.id {
-//                        modelData.gameData.players[playerIndex].score += scores[0] * 2 + scores[1]
-//                    } else if player.wind == 0 {
-//                        modelData.gameData.players[playerIndex].score -= scores[1]
-//                    } else {
-//                        modelData.gameData.players[playerIndex].score -= scores[0]
-//                    }
-//                }
+                scores = calcChildDrawScore(double: double, point: point)
             }
         } else if type == WinningType.ron {
             if winner.wind == 0 {
                 let score = calcParentRonScore(double: double, point: point)
                 scores.append(score)
-//                for player in modelData.gameData.players {
-//                    var playerIndex: Int {
-//                        modelData.gameData.players.firstIndex(where: { $0.id == player.id })!
-//                    }
-//                    if player.id == winner.id {
-//                        modelData.gameData.players[playerIndex].score += score
-//                    } else if player.id == loser.id {
-//                        modelData.gameData.players[playerIndex].score -= score
-//                    }
-//                }
             } else {
                 let score = calcChildRonScore(double: double, point: point)
                 scores.append(score)
-//                for player in modelData.gameData.players {
-//                    var playerIndex: Int {
-//                        modelData.gameData.players.firstIndex(where: { $0.id == player.id })!
-//                    }
-//                    if player.id == winner.id {
-//                        modelData.gameData.players[playerIndex].score += score
-//                    } else if player.id == loser.id {
-//                        modelData.gameData.players[playerIndex].score -= score
-//                    }
-//                }
             }
         }
         

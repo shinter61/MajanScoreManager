@@ -102,7 +102,7 @@ struct Game: View {
                     .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
                 }
 
-                NavigationLink(destination: RegisterWinning(), isActive: self.$showingWinningMenu) {
+                NavigationLink(destination: RegisterWinning(showingWinningMenu: self.$showingWinningMenu), isActive: self.$showingWinningMenu) {
                     EmptyView()
                 }
                 NavigationLink(destination: DrawnGame(isGameEnd: $isGameEnd), isActive: self.$showingDrawnMenu) {
