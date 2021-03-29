@@ -95,8 +95,8 @@ struct Winning: View {
                     Text("符を選んでください")
                     Form {
                         Picker(selection: $pointID, label: Text("符を選択")) {
-                            ForEach(0..<modelData.points.count) { index in
-                                Text("\(modelData.points[index])符")
+                            ForEach(0..<modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points.count, id: \.self) { index in
+                                Text("\(modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[index])符")
                             }
                         }
                     }
@@ -120,9 +120,15 @@ struct Winning: View {
             }
         }
     }
+    //pointsのindex取得
+    func getPointsIndex(PointID: Int) -> Int {
+        return modelData.points.firstIndex(of: modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[PointID])!
+    }
     
     func winningProcess() -> Void {
         showingAlert = inputValidate(type: type,  winnerID: winnerID, loserID: loserID, doubleID: doubleID, pointID: pointID)
+        //PointID変換
+        pointID = getPointsIndex(PointID: pointID)
         if showingAlert {
             AlertText = "未入力の項目があります"
             return
