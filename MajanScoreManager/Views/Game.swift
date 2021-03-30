@@ -116,7 +116,7 @@ struct Game: View {
                     isActive: self.$isGameEnd
                 ) { EmptyView() }
             }
-            .background(Color.green)
+            .background(Color(red: 0, green: 102 / 255, blue: 0))
             .ignoresSafeArea(edges: .top)
             .ignoresSafeArea(edges: .bottom)
             .actionSheet(isPresented: $showingEndGameMenu, content: {
