@@ -17,15 +17,17 @@ struct EndGameButton: View {
         }) {
             ZStack {
                 Circle()
-                    .stroke(Color.gray, lineWidth: 2)
+                    .stroke(Color.yellow, lineWidth: 2)
                     .frame(width: 100, height: 100)
 
                 Circle()
-                    .fill(Color.white)
+                    .fill(Color(red: 0, green: 130 / 255, blue: 0))
                     .frame(width: 98, height: 98)
 
                 Text("終局")
-                    .foregroundColor(.black)
+                    .foregroundColor(Color.yellow)
+                    .font(.custom("Shippori Mincho", size: 36))
+                    .fontWeight(.bold)
 
             }
         }
