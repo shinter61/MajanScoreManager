@@ -1,58 +1,50 @@
 //
-//  EndGameButton.swift
+//  EndBattleButton.swift
 //  MajanScoreManager
 //
-//  Created by 松本真太朗 on 2021/03/23.
+//  Created by studik on 2021/03/30.
 //
 
 import SwiftUI
 
 struct EndGameButton: View {
-    @Binding var showingEndGameMenu: Bool
-    @Binding var showingDrawnMenu: Bool
-    @Binding var showingWinningMenu: Bool
+    @Binding var showingIsGameEndMenu: Bool
+    @Binding var isGameEnd: Bool
     
     var body: some View {
         Button(action: {
-            showingEndGameMenu = true
+            showingIsGameEndMenu = true
         }) {
             ZStack {
-                Circle()
-                    .stroke(Color.gray, lineWidth: 2)
-                    .frame(width: 100, height: 100)
-
-                Circle()
+                RoundedRectangle(cornerRadius: 12.0)
+                    .fill(Color.gray)
+                    .frame(width: 150, height: 60)
+                RoundedRectangle(cornerRadius: 11.0)
                     .fill(Color.white)
-                    .frame(width: 98, height: 98)
-
-                Text("終局")
-                    .foregroundColor(.black)
-
+                    .frame(width: 146, height: 56)
+                Text("対局終了")
             }
         }
-        .actionSheet(isPresented: $showingEndGameMenu, content: {
+        .actionSheet(isPresented: $showingIsGameEndMenu, content: {
             ActionSheet(
-                title: Text("終局"),
-                message: Text("種類を選んでください"),
+                title: Text("対局を終了しますか"),
+                message: Text("対局を終了し収支を計算します"),
                 buttons: [
-                    .default(Text("和了"), action: {
-                        self.showingEndGameMenu = false
-                        self.showingWinningMenu = true
-                    }),
-                    .default(Text("流局"), action: {
-                        self.showingEndGameMenu = false
-                        self.showingDrawnMenu = true
+                    .default(Text("対局終了"),
+                             action: {
+                                self.showingIsGameEndMenu = false
+                                self.isGameEnd = true
                     }),
                     .cancel()
                 ]
             )
         })
-        
+    
     }
 }
 
-struct EndGameButton_Previews: PreviewProvider {
+struct EndBattleButton_Previews: PreviewProvider {
     static var previews: some View {
-        EndGameButton(showingEndGameMenu: .constant(false), showingDrawnMenu: .constant(false), showingWinningMenu: .constant(false))
+        EndGameButton(showingIsGameEndMenu: .constant(false),isGameEnd: .constant(false))
     }
 }

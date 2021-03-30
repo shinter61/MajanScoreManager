@@ -28,7 +28,7 @@ struct Game: View {
         NavigationView {
             ZStack {
                 GeometryReader { geometry in
-                    EndGameButton(
+                    EndRoundButton(
                         showingEndGameMenu: self.$showingEndGameMenu,
                         showingDrawnMenu: self.$showingDrawnMenu,
                         showingWinningMenu: self.$showingWinningMenu
@@ -37,7 +37,7 @@ struct Game: View {
                     Group {
                         GameInfo()
                             .position(x: 0.5 * geometry.size.width, y: 0.1 * geometry.size.height)
-                        EndBattleButton(
+                        EndGameButton(
                             showingIsGameEndMenu: self.$showingIsGameEndMenu,
                             isGameEnd: self.$isGameEnd
                         )

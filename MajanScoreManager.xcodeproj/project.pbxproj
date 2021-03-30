@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		358A982126133133001D31BD /* EndBattleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A982026133133001D31BD /* EndBattleButton.swift */; };
+		358A982126133133001D31BD /* EndGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A982026133133001D31BD /* EndGameButton.swift */; };
 		E5030745260F610F00061C47 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5030744260F610F00061C47 /* Score.swift */; };
 		E503074A260F6C6300061C47 /* parentDrawScores.json in Resources */ = {isa = PBXBuildFile; fileRef = E5030749260F6C6300061C47 /* parentDrawScores.json */; };
 		E503074F260F6CA800061C47 /* parentRonScores.json in Resources */ = {isa = PBXBuildFile; fileRef = E503074E260F6CA800061C47 /* parentRonScores.json */; };
@@ -23,7 +23,7 @@
 		E569DAA72609E09D00441533 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E569DAA62609E09D00441533 /* Preview Assets.xcassets */; };
 		E569DAB22609E09D00441533 /* MajanScoreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAB12609E09D00441533 /* MajanScoreManagerTests.swift */; };
 		E569DABD2609E09D00441533 /* MajanScoreManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DABC2609E09D00441533 /* MajanScoreManagerUITests.swift */; };
-		E569DACE2609E12400441533 /* EndGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DACD2609E12400441533 /* EndGameButton.swift */; };
+		E569DACE2609E12400441533 /* EndRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DACD2609E12400441533 /* EndRoundButton.swift */; };
 		E569DAD32609E87800441533 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAD22609E87800441533 /* GameData.swift */; };
 		E569DAD82609E90B00441533 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAD72609E90B00441533 /* ModelData.swift */; };
 		E569DAE82609ECA200441533 /* PlayerScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAE72609ECA200441533 /* PlayerScore.swift */; };
@@ -54,7 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		358A982026133133001D31BD /* EndBattleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndBattleButton.swift; sourceTree = "<group>"; };
+		358A982026133133001D31BD /* EndGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameButton.swift; sourceTree = "<group>"; };
 		E5030744260F610F00061C47 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		E5030749260F6C6300061C47 /* parentDrawScores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = parentDrawScores.json; sourceTree = "<group>"; };
 		E503074E260F6CA800061C47 /* parentRonScores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = parentRonScores.json; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		E569DAB82609E09D00441533 /* MajanScoreManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MajanScoreManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E569DABC2609E09D00441533 /* MajanScoreManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajanScoreManagerUITests.swift; sourceTree = "<group>"; };
 		E569DABE2609E09D00441533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E569DACD2609E12400441533 /* EndGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameButton.swift; sourceTree = "<group>"; };
+		E569DACD2609E12400441533 /* EndRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndRoundButton.swift; sourceTree = "<group>"; };
 		E569DAD22609E87800441533 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		E569DAD72609E90B00441533 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		E569DAE72609ECA200441533 /* PlayerScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScore.swift; sourceTree = "<group>"; };
@@ -118,8 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				E5CDF941260A4E8000E17A3F /* GameInfo.swift */,
-				358A982026133133001D31BD /* EndBattleButton.swift */,
-				E569DACD2609E12400441533 /* EndGameButton.swift */,
+				358A982026133133001D31BD /* EndGameButton.swift */,
+				E569DACD2609E12400441533 /* EndRoundButton.swift */,
 				E598A53E2609F92A0046F434 /* RiichiBar.swift */,
 				E569DAE72609ECA200441533 /* PlayerScore.swift */,
 				E5065A71260D0FBF00A3AB65 /* Wind.swift */,
@@ -362,14 +362,14 @@
 				E569DAA22609E09C00441533 /* ContentView.swift in Sources */,
 				E56DFF35260A2FD7000312B5 /* Game.swift in Sources */,
 				E598A53F2609F92A0046F434 /* RiichiBar.swift in Sources */,
-				358A982126133133001D31BD /* EndBattleButton.swift in Sources */,
+				358A982126133133001D31BD /* EndGameButton.swift in Sources */,
 				E569DAE82609ECA200441533 /* PlayerScore.swift in Sources */,
 				E5030745260F610F00061C47 /* Score.swift in Sources */,
 				E527FB6F260A848B0073173A /* DrawnGame.swift in Sources */,
 				E569DAD32609E87800441533 /* GameData.swift in Sources */,
 				E5E7D22E260A20E600DD8694 /* Player.swift in Sources */,
 				E569DAD82609E90B00441533 /* ModelData.swift in Sources */,
-				E569DACE2609E12400441533 /* EndGameButton.swift in Sources */,
+				E569DACE2609E12400441533 /* EndRoundButton.swift in Sources */,
 				E5CDF942260A4E8000E17A3F /* GameInfo.swift in Sources */,
 				E5E7330F260F8B7300805B41 /* EndGame.swift in Sources */,
 				E56DFF30260A2E22000312B5 /* StartGame.swift in Sources */,
