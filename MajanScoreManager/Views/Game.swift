@@ -10,9 +10,15 @@ import SwiftUI
 struct Game: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var rootIsActive : Bool
+    //to actionsheet ( Winning or Drawn  )
     @State private var showingEndGameMenu = false
+    //to Winning
     @State private var showingWinningMenu = false
+    //to DrawnGame
     @State private var showingDrawnMenu = false
+    //to actionsheet ( EndGame )
+    @State private var showingIsGameEndMenu = false
+    //to EndGame
     @State private var isGameEnd = false
     var body: some View {
         let player1: Player = modelData.gameData.players[0]
@@ -30,6 +36,9 @@ struct Game: View {
                     Group {
                         GameInfo()
                             .position(x: 0.5 * geometry.size.width, y: 0.1 * geometry.size.height)
+                        EndBattleButton(showingIsGameEndMenu: self.$showingIsGameEndMenu)
+                            .position(x: 0.5 * geometry.size.width,
+                                      y: 0.2 * geometry.size.height)
                         Group {
                             if player1.isRiichi {
                                 RiichiBar()
@@ -82,25 +91,19 @@ struct Game: View {
                                 .position(x: 0.81 * geometry.size.width, y: 0.38 * geometry.size.height)
                         }
                         
-                        Button(action: {}) {
-                            NavigationLink(destination:
-                                EndGame(
-                                    shouldPopToRootView: self.$rootIsActive,
-                                    modelData: modelData
-                                ).navigationBarHidden(true)
-                            ) {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 12.0)
-                                        .fill(Color.gray)
-                                        .frame(width: 150, height: 60)
-                                    RoundedRectangle(cornerRadius: 11.0)
-                                        .fill(Color.white)
-                                        .frame(width: 146, height: 56)
-                                    Text("対局終了")
-                                }
-                            }
-                        }
-                        .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
+//                        Button(action: {}) {
+//                            NavigationLink(destination:
+//                                EndGame(
+//                                    shouldPopToRootView: self.$rootIsActive,
+//                                    modelData: modelData
+//                                ).navigationBarHidden(true)
+//                            ) {
+//                                ZStack {
+//                                    EndBattleButton(showingIsGameEndMenu: self.$showingIsGameEndMenu)
+//                                }
+//                            }
+//                        }
+//                        .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
                     }
 
                     NavigationLink(destination: Winning(isGameEnd: $isGameEnd), isActive: self.$showingWinningMenu) {
@@ -132,6 +135,20 @@ struct Game: View {
                             .default(Text("流局"), action: {
                                 self.showingEndGameMenu = false
                                 self.showingDrawnMenu = true
+                            }),
+                            .cancel()
+                        ]
+                    )
+                })
+                .actionSheet(isPresented: $showingIsGameEndMenu, content: {
+                    ActionSheet(
+                        title: Text("対局を終了しますか"),
+                        message: Text("対局を終了し収支を計算します"),
+                        buttons: [
+                            .default(Text("対局終了"),
+                                     action: {
+                                        self.showingIsGameEndMenu = false
+                                        self.isGameEnd = true
                             }),
                             .cancel()
                         ]
