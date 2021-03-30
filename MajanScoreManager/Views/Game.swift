@@ -30,15 +30,19 @@ struct Game: View {
                 GeometryReader { geometry in
                     EndGameButton(
                         showingEndGameMenu: self.$showingEndGameMenu,
-                        showingDrawnMenu: self.$showingDrawnMenu
+                        showingDrawnMenu: self.$showingDrawnMenu,
+                        showingWinningMenu: self.$showingWinningMenu
                     )
                         .position(x: 0.5 * geometry.size.width, y: 0.5 * geometry.size.height)
                     Group {
                         GameInfo()
                             .position(x: 0.5 * geometry.size.width, y: 0.1 * geometry.size.height)
-                        EndBattleButton(showingIsGameEndMenu: self.$showingIsGameEndMenu)
+                        EndBattleButton(
+                            showingIsGameEndMenu: self.$showingIsGameEndMenu,
+                            isGameEnd: self.$isGameEnd
+                        )
                             .position(x: 0.5 * geometry.size.width,
-                                      y: 0.2 * geometry.size.height)
+                                      y: 0.9 * geometry.size.height)
                         Group {
                             if player1.isRiichi {
                                 RiichiBar()
@@ -90,20 +94,6 @@ struct Game: View {
                                 .rotationEffect(Angle(degrees: -90))
                                 .position(x: 0.81 * geometry.size.width, y: 0.38 * geometry.size.height)
                         }
-                        
-//                        Button(action: {}) {
-//                            NavigationLink(destination:
-//                                EndGame(
-//                                    shouldPopToRootView: self.$rootIsActive,
-//                                    modelData: modelData
-//                                ).navigationBarHidden(true)
-//                            ) {
-//                                ZStack {
-//                                    EndBattleButton(showingIsGameEndMenu: self.$showingIsGameEndMenu)
-//                                }
-//                            }
-//                        }
-//                        .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
                     }
 
                     NavigationLink(destination: Winning(isGameEnd: $isGameEnd), isActive: self.$showingWinningMenu) {
@@ -123,37 +113,6 @@ struct Game: View {
                 .background(Color.green)
                 .ignoresSafeArea(edges: .top)
                 .ignoresSafeArea(edges: .bottom)
-                .actionSheet(isPresented: $showingEndGameMenu, content: {
-                    ActionSheet(
-                        title: Text("終局"),
-                        message: Text("種類を選んでください"),
-                        buttons: [
-                            .default(Text("和了"), action: {
-                                self.showingEndGameMenu = false
-                                self.showingWinningMenu = true
-                            }),
-                            .default(Text("流局"), action: {
-                                self.showingEndGameMenu = false
-                                self.showingDrawnMenu = true
-                            }),
-                            .cancel()
-                        ]
-                    )
-                })
-                .actionSheet(isPresented: $showingIsGameEndMenu, content: {
-                    ActionSheet(
-                        title: Text("対局を終了しますか"),
-                        message: Text("対局を終了し収支を計算します"),
-                        buttons: [
-                            .default(Text("対局終了"),
-                                     action: {
-                                        self.showingIsGameEndMenu = false
-                                        self.isGameEnd = true
-                            }),
-                            .cancel()
-                        ]
-                    )
-                })
             }
         }
     }

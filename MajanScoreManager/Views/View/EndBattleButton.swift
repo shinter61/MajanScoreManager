@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EndBattleButton: View {
     @Binding var showingIsGameEndMenu: Bool
+    @Binding var isGameEnd: Bool
     
     var body: some View {
         Button(action: {
@@ -24,12 +25,26 @@ struct EndBattleButton: View {
                 Text("対局終了")
             }
         }
+        .actionSheet(isPresented: $showingIsGameEndMenu, content: {
+            ActionSheet(
+                title: Text("対局を終了しますか"),
+                message: Text("対局を終了し収支を計算します"),
+                buttons: [
+                    .default(Text("対局終了"),
+                             action: {
+                                self.showingIsGameEndMenu = false
+                                self.isGameEnd = true
+                    }),
+                    .cancel()
+                ]
+            )
+        })
     
     }
 }
 
 struct EndBattleButton_Previews: PreviewProvider {
     static var previews: some View {
-        EndBattleButton(showingIsGameEndMenu: .constant(false))
+        EndBattleButton(showingIsGameEndMenu: .constant(false),isGameEnd: .constant(false))
     }
 }

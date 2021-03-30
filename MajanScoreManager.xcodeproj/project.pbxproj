@@ -114,6 +114,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		358A983F26135C01001D31BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5CDF941260A4E8000E17A3F /* GameInfo.swift */,
+				358A982026133133001D31BD /* EndBattleButton.swift */,
+				E569DACD2609E12400441533 /* EndGameButton.swift */,
+				E598A53E2609F92A0046F434 /* RiichiBar.swift */,
+				E569DAE72609ECA200441533 /* PlayerScore.swift */,
+				E5065A71260D0FBF00A3AB65 /* Wind.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E569DA932609E09C00441533 = {
 			isa = PBXGroup;
 			children = (
@@ -193,14 +206,9 @@
 				E56DFF2F260A2E22000312B5 /* StartGame.swift */,
 				E56DFF34260A2FD7000312B5 /* Game.swift */,
 				E5065A76260D2F5B00A3AB65 /* Winning.swift */,
-				E5E7330E260F8B7300805B41 /* EndGame.swift */,
 				E527FB6E260A848B0073173A /* DrawnGame.swift */,
-				E5CDF941260A4E8000E17A3F /* GameInfo.swift */,
-				E569DACD2609E12400441533 /* EndGameButton.swift */,
-				358A982026133133001D31BD /* EndBattleButton.swift */,
-				E598A53E2609F92A0046F434 /* RiichiBar.swift */,
-				E569DAE72609ECA200441533 /* PlayerScore.swift */,
-				E5065A71260D0FBF00A3AB65 /* Wind.swift */,
+				E5E7330E260F8B7300805B41 /* EndGame.swift */,
+				358A983F26135C01001D31BD /* View */,
 			);
 			path = Views;
 			sourceTree = "<group>";
