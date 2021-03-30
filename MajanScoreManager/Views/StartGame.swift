@@ -28,6 +28,7 @@ struct StartGame: View {
                         Text("プレイヤー名を入力してください")
                             .font(.custom("Shippori Mincho", size: 20))
                             .fontWeight(.regular)
+                            .foregroundColor(Color.black)
                             .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.2)
                         Group {
                             TextField("Player 1", text: $name1, onCommit: {
@@ -47,7 +48,7 @@ struct StartGame: View {
                             })
                             .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.6)
                         }
-                        .font(.system(size: 24))
+                        .font(.custom("Shippori Mincho", size: 24))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .frame(width: geometry.size.width * 0.75, alignment: .center)
 
