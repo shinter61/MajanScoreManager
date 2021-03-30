@@ -40,6 +40,7 @@ struct PlayerScore: View {
                         .foregroundColor(.yellow)
                 }
                 Text(String(player.name))
+                    .font(.custom("Shippori Mincho", size: 16))
                     .foregroundColor(.white)
             }
         }
