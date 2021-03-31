@@ -90,12 +90,15 @@ struct Game: View {
                         ) {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 12.0)
-                                    .fill(Color.gray)
+                                    .fill(Color.red)
                                     .frame(width: 150, height: 60)
                                 RoundedRectangle(cornerRadius: 11.0)
-                                    .fill(Color.white)
+                                    .fill(Color(red: 0, green: 130 / 255, blue: 0))
                                     .frame(width: 146, height: 56)
                                 Text("対局終了")
+                                    .foregroundColor(Color.yellow)
+                                    .font(.custom("Shippori Mincho", size: 24))
+                                    .fontWeight(.bold)
                             }
                         }
                     }
