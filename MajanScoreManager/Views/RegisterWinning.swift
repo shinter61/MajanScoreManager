@@ -16,48 +16,92 @@ struct RegisterWinning: View {
     @State private var showingAlert: Bool = false
     @State private var alertText: String = ""
     var body: some View {
-        GeometryReader { geometry in
-            Text("和了を登録してください")
-                .position(x: 0.5 * geometry.size.width, y: 0.02 * geometry.size.height)
-            Button(action: {
-                showingWinning = true
-            }) {
-                Image(systemName: "plus.circle")
-                    .resizable()
-                    .frame(width: 26, height: 26, alignment: .center)
-                    .foregroundColor(.blue)
-            }
-            .position(x: 0.9 * geometry.size.width, y: 0.02 * geometry.size.height)
+        ZStack {
+            Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255).edgesIgnoringSafeArea(.all)
             
-            List {
-                ForEach(0..<wins.count, id: \.self) { i in
-                    VStack {
-                        Group {
-                            Text("アガリ：\(winningTypeToJa(win: wins[i]))")
-                            Text("飜数：\(wins[i].double)")
-                            Text("点数：\(scoreToJa(score: wins[i].score))")
-                            Text("和了者：\(playerNameToJa(playerID: wins[i].winnerID))")
-                            Text("放銃者：\(playerNameToJa(playerID: wins[i].loserID))")
+            VStack {
+                Text("和了を登録してください")
+                    .font(.custom("Shippori Mincho", size: 20))
+                    .fontWeight(.regular)
+                    .foregroundColor(Color.black)
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        showingWinning = true
+                    }) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 11.0)
+                                .fill(Color(red: 19 / 255, green: 191 / 255, blue: 180 / 255))
+                                .frame(width: 100, height: 40)
+                            HStack {
+                                Text("追加")
+                                    .font(.custom("Shippori Mincho", size: 20))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color.white)
+                                Image(systemName: "plus.circle")
+                                    .resizable()
+                                    .frame(width: 20, height: 20, alignment: .center)
+                                    .foregroundColor(.white)
+                            }
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .padding(.trailing, 20)
+                    .padding(.bottom, 20)
+                }
+
+                List {
+                    ForEach(0..<wins.count, id: \.self) { i in
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 11.0)
+                                .fill(Color.white)
+                                .frame(width: 350, height: 110)
+                            VStack {
+                                Group {
+                                    HStack {
+                                        Text("アガリ：\(winningTypeToJa(win: wins[i]))")
+                                        Spacer()
+                                    }
+                                    HStack {
+                                        Text("飜数：\(wins[i].double)")
+                                        Text("点数：\(scoreToJa(score: wins[i].score))")
+                                        Spacer()
+                                    }
+                                    HStack {
+                                        Text("和了者：\(playerNameToJa(playerID: wins[i].winnerID))")
+                                        Text("放銃者：\(playerNameToJa(playerID: wins[i].loserID))")
+                                        Spacer()
+                                    }
+                                }
+                                .font(.custom("Shippori Mincho", size: 20))
+                                .padding(.leading, 20)
+                            }
+                        }
+                        .listRowBackground(Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255))
                     }
                 }
-            }
-            .position(x: 0.5 * geometry.size.width, y: 0.6 * geometry.size.height)
 
-            Button(action: winningProcess) {
-                ZStack {
-                    Rectangle()
-                        .frame(width: 100, height: 40, alignment: .center)
-                        .foregroundColor(.white)
-                        .border(Color.gray, width: 2)
-                    Text("決定")
+                Button(action: winningProcess) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 11.0)
+                            .fill(Color(red: 19 / 255, green: 191 / 255, blue: 180 / 255))
+                            .frame(width: 100, height: 40)
+                        HStack {
+                            Text("登録")
+                                .font(.custom("Shippori Mincho", size: 20))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.white)
+                            Image(systemName: "checkmark.circle")
+                                .resizable()
+                                .frame(width: 20, height: 20, alignment: .center)
+                                .foregroundColor(.white)
+                        }
+                    }
                 }
-            }
-            .position(x: 0.5 * geometry.size.width, y: 0.85 * geometry.size.height)
-            
-            NavigationLink(destination: Winning(wins: self.$wins), isActive: self.$showingWinning) {
-                EmptyView()
+                .padding(.bottom, 30)
+
+                NavigationLink(destination: Winning(wins: self.$wins), isActive: self.$showingWinning) {
+                    EmptyView()
+                }
             }
         }
         .alert(isPresented: self.$showingAlert) {
