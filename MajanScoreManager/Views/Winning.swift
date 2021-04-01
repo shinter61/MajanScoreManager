@@ -175,7 +175,7 @@ struct Winning: View {
                     }
                 }
                 let scoreR: Int = score * 3
-                rGD.winnersR.append(Winner(id: UUID(), winner: winner.name, double: double, point: point, score: scoreR))
+                rGD.winnersR.append(Winner(id: UUID(), name: winner.name, double: double, point: point, score: scoreR))
             } else {
                 let scores = calcChildDrawScore(double: double, point: point)
                 for player in modelData.gameData.players {
@@ -191,7 +191,7 @@ struct Winning: View {
                     }
                 }
                 let scoreR: Int = scores[0] * 2 + scores[1]
-                rGD.winnersR.append(Winner(id: UUID(), winner: winner.name, double: double, point: point, score: scoreR))
+                rGD.winnersR.append(Winner(id: UUID(), name: winner.name, double: double, point: point, score: scoreR))
             }
         } else if type == WinningType.ron {
             if winner.wind == 0 {
@@ -207,7 +207,7 @@ struct Winning: View {
                     }
                 }
                 let scoreR: Int = score
-                rGD.winnersR.append(Winner(id: UUID(), winner: winner.name, double: double, point: point, score: scoreR))
+                rGD.winnersR.append(Winner(id: UUID(), name: winner.name, double: double, point: point, score: scoreR))
                 rGD.loserR = loser.name
             } else {
                 let score = calcChildRonScore(double: double, point: point)
@@ -222,7 +222,7 @@ struct Winning: View {
                     }
                 }
                 let scoreR: Int = score
-                rGD.winnersR.append(Winner(id: UUID(), winner: winner.name, double: double, point: point, score: scoreR))
+                rGD.winnersR.append(Winner(id: UUID(), name: winner.name, double: double, point: point, score: scoreR))
                 rGD.loserR = loser.name
             }
         }

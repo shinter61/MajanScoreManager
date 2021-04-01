@@ -63,7 +63,7 @@ struct DrawnGame: View {
             isDrawnGame: true,
             waitersR: [],
             isDraw: false,
-            winnersR: [Winner(id: UUID(), winner: "", double: "", point: 0, score: 0)],
+            winnersR: [Winner(id: UUID(), name: "", double: "", point: 0, score: 0)],
             loserR: ""
         )
         

@@ -18,13 +18,59 @@ class ResultGameDatas: ObservableObject {
         isDraw: false,
         winnersR: [Winner(
             id: UUID(),
-            winner: "",
+            name: "",
             double: "",
             point: 0,
             score: 0)
         ],
         loserR: ""
     )]
+    
+    func getGameCount () -> Int {
+        return resultGameDatas.count
+    }
+    
+    func getPlace (Index: Int) -> [String] {
+        return ["\(resultGameDatas[Index].roundR) \(resultGameDatas[Index].handR)局",
+                "\(resultGameDatas[Index].extraR)本場"]
+    }
+    
+    func getEndType (Index: Int) -> String {
+        if resultGameDatas[Index].isDrawnGame {
+            return "流局"
+        } else if resultGameDatas[Index].isDraw {
+            return "自摸"
+        } else {
+            return "放銃"
+        }
+    }
+    
+    func getWaitersCount (Index: Int) -> Int {
+        return resultGameDatas[Index].waitersR.count
+    }
+    
+    func getWinnersCount (Index: Int) -> Int {
+        return resultGameDatas[Index].winnersR.count
+    }
+    
+    func getWinnerName (Index: Int, WinnersIndex: Int) -> String {
+        return resultGameDatas[Index].winnersR[WinnersIndex].name
+    }
+    
+    func getWinnerDouble (Index: Int, WineerIndex: Int) -> String {
+        let lowDoubles = ["1飜", "2飜", "3飜", "4飜"]
+        let double = resultGameDatas[Index].winnersR[WineerIndex].double
+        let point = resultGameDatas[Index].winnersR[WineerIndex].point
+        if lowDoubles.contains(double) {
+            return double + " \(point)符"
+        } else {
+            return double
+        }
+    }
+    
+    func getWinnerScore (Index: Int, WinnersIndex: Int) -> Int {
+        return resultGameDatas[Index].winnersR[WinnersIndex].score
+    }
 }
 
 struct  ResultGameData: Hashable, Codable, Identifiable {
@@ -41,7 +87,7 @@ struct  ResultGameData: Hashable, Codable, Identifiable {
 
 struct Winner: Hashable, Codable, Identifiable {
     var id: UUID = UUID()
-    var winner: String
+    var name: String
     var double: String    //飜
     var point: Int        //符
     var score: Int        //点数
