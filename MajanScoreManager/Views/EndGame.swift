@@ -11,6 +11,7 @@ struct EndGame: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var shouldPopToRootView : Bool
     @State private var navigateStartMenu: Bool = false
+    @State private var showingResultView: Bool = false
     
     var rows: [[String]] = []
     
@@ -35,6 +36,7 @@ struct EndGame: View {
                             }
                         }
                     }
+
                     Button(action: {
                         modelData.resetGameData()
                         navigateStartMenu = true
