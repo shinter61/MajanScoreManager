@@ -7,27 +7,7 @@
 
 import Foundation
 
-class ResultGameDatas: ObservableObject {
-     @Published var resultGameDatas: [ResultGameData] = [ResultGameData(
-         id: UUID(),
-         roundR: "東",
-         handR: 1,
-         extraR: 0,
-         isDrawnGame: true,
-         waitersR: [""],
-         isDraw: false,
-         winnersR: [Winner(
-             id: UUID(),
-             winner: "",
-             double: "",
-             point: 0,
-             score: 0)
-         ],
-         loserR: ""
-     )]
- }
-
- struct  ResultGameData: Hashable, Codable, Identifiable {
+struct  ResultGameData: Hashable, Codable, Identifiable {
      var id: UUID = UUID()
      var roundR: String   //風
      var handR: Int       //局
@@ -37,9 +17,9 @@ class ResultGameDatas: ObservableObject {
      var isDraw: Bool
      var winnersR: [Winner]
      var loserR: String
- }
+}
 
- struct Winner: Hashable, Codable, Identifiable {
+struct Winner: Hashable, Codable, Identifiable {
      var id: UUID = UUID()
      var winner: String
      var double: String    //飜

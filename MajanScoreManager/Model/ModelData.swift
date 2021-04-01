@@ -44,6 +44,28 @@ final class ModelData: ObservableObject {
     @Published var parentRonScores: [Score] = load("parentRonScores.json")
     @Published var childDrawScores: [ChildDrawScore] = load("childDrawScores.json")
     @Published var childRonScores: [Score] = load("childRonScores.json")
+    @Published var resultGameDatas: [ResultGameData] = [ResultGameData(
+        id: UUID(),
+        roundR: "東",
+        handR: 1,
+        extraR: 0,
+        isDrawnGame: true,
+        waitersR: [""],
+        isDraw: false,
+        winnersR: [Winner(
+            id: UUID(),
+            winner: "",
+            double: "",
+            point: 0,
+            score: 0)
+        ],
+        loserR: ""
+    )]
+    
+    func getGameCount() -> Int {
+        return resultGameDatas.count
+    }
+    
 
     func proceedHand() -> Void {
         if gameData.hand == 4 && gameData.round == "東" {

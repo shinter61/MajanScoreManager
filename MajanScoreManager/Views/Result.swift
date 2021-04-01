@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct Result: View {
-    @EnvironmentObject var rGDs: ResultGameDatas
+    @EnvironmentObject var modelData: ModelData
     var i: Int //ResultGameDatas's index
     var body: some View {
         let gameCount = rGDs.getGameCount()
-        let place = rGDs.getPlace(Index: i)
+        let place = .getPlace(Index: i)
         let endType = rGDs.getEndType(Index: i)
         let waitersCount = rGDs.getWaitersCount(Index: i)
         let winnersCount = rGDs.getWinnersCount(Index: i)
