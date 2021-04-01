@@ -10,9 +10,10 @@ import SwiftUI
 struct Game: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var rootIsActive : Bool
-    @State private var showingEndGameMenu = false
+    @State private var showingEndRoundMenu = false
     @State private var showingWinningMenu = false
     @State private var showingDrawnMenu = false
+    @State private var showingEndGameMenu = false
     @State private var isGameEnd = false
     var body: some View {
         let player1: Player = modelData.gameData.players[0]
@@ -21,14 +22,20 @@ struct Game: View {
         let player4: Player = modelData.gameData.players[3]
         ZStack {
             GeometryReader { geometry in
-                EndGameButton(
-                    showingEndGameMenu: self.$showingEndGameMenu,
+                EndRoundButton(
+                    showingEndRoundMenu: self.$showingEndRoundMenu,
+                    showingWinningMenu: self.$showingWinningMenu,
                     showingDrawnMenu: self.$showingDrawnMenu
                 )
                     .position(x: 0.5 * geometry.size.width, y: 0.5 * geometry.size.height)
                 Group {
                     GameInfo()
                         .position(x: 0.5 * geometry.size.width, y: 0.1 * geometry.size.height)
+                    EndGameButton(
+                        showingEndGameMenu: self.$showingEndGameMenu,
+                        isGameEnd: self.$isGameEnd
+                    )
+                    .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
                     Group {
                         if player1.isRiichi {
                             RiichiBar()
@@ -119,23 +126,6 @@ struct Game: View {
             .background(Color.green)
             .ignoresSafeArea(edges: .top)
             .ignoresSafeArea(edges: .bottom)
-            .actionSheet(isPresented: $showingEndGameMenu, content: {
-                ActionSheet(
-                    title: Text("終局"),
-                    message: Text("種類を選んでください"),
-                    buttons: [
-                        .default(Text("和了"), action: {
-                            self.showingEndGameMenu = false
-                            self.showingWinningMenu = true
-                        }),
-                        .default(Text("流局"), action: {
-                            self.showingEndGameMenu = false
-                            self.showingDrawnMenu = true
-                        }),
-                        .cancel()
-                    ]
-                )
-            })
         }
     }
 }
