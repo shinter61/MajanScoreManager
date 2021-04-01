@@ -128,6 +128,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		358A98FA2616085F001D31BD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E5CDF941260A4E8000E17A3F /* GameInfo.swift */,
+				E569DAE72609ECA200441533 /* PlayerScore.swift */,
+				E598A53E2609F92A0046F434 /* RiichiBar.swift */,
+				E5065A71260D0FBF00A3AB65 /* Wind.swift */,
+				358A98C32615EA66001D31BD /* Result.swift */,
+				E58E1E052615EB4F00074934 /* EndRoundButton.swift */,
+				E58E1E0A2615EBE800074934 /* EndGameButton.swift */,
+				358A98D22615EF11001D31BD /* BackResultButton.swift */,
+				358A98CD2615EEC1001D31BD /* toResultButton.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		E569DA932609E09C00441533 = {
 			isa = PBXGroup;
 			children = (
@@ -206,22 +222,14 @@
 			isa = PBXGroup;
 			children = (
 				E569DAA12609E09C00441533 /* ContentView.swift */,
-				E569DAE72609ECA200441533 /* PlayerScore.swift */,
-				E598A53E2609F92A0046F434 /* RiichiBar.swift */,
 				E56DFF2F260A2E22000312B5 /* StartGame.swift */,
 				E56DFF34260A2FD7000312B5 /* Game.swift */,
-				358A98C32615EA66001D31BD /* Result.swift */,
 				358A98C82615EA72001D31BD /* Results.swift */,
-				358A98D22615EF11001D31BD /* BackResultButton.swift */,
-				358A98CD2615EEC1001D31BD /* toResultButton.swift */,
-				E5CDF941260A4E8000E17A3F /* GameInfo.swift */,
 				E527FB6E260A848B0073173A /* DrawnGame.swift */,
-				E5065A71260D0FBF00A3AB65 /* Wind.swift */,
 				E5065A76260D2F5B00A3AB65 /* Winning.swift */,
 				E5E7330E260F8B7300805B41 /* EndGame.swift */,
 				E5E7C1142610FBAE00B04BEF /* RegisterWinning.swift */,
-				E58E1E052615EB4F00074934 /* EndRoundButton.swift */,
-				E58E1E0A2615EBE800074934 /* EndGameButton.swift */,
+				358A98FA2616085F001D31BD /* Helpers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
