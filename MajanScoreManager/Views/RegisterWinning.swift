@@ -23,7 +23,7 @@ struct RegisterWinning: View {
                 Text("和了を登録してください")
                     .font(.custom("Shippori Mincho", size: 20))
                     .fontWeight(.regular)
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
                 HStack {
                     Spacer()
                     Button(action: {
