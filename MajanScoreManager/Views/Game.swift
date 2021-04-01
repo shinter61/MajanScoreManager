@@ -31,11 +31,6 @@ struct Game: View {
                 Group {
                     GameInfo()
                         .position(x: 0.5 * geometry.size.width, y: 0.1 * geometry.size.height)
-                    EndGameButton(
-                        showingEndGameMenu: self.$showingEndGameMenu,
-                        isGameEnd: self.$isGameEnd
-                    )
-                    .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
                     Group {
                         if player1.isRiichi {
                             RiichiBar()
@@ -87,25 +82,7 @@ struct Game: View {
                             .rotationEffect(Angle(degrees: -90))
                             .position(x: 0.81 * geometry.size.width, y: 0.38 * geometry.size.height)
                     }
-
-                    Button(action: {}) {
-                        NavigationLink(destination:
-                            EndGame(
-                                shouldPopToRootView: self.$rootIsActive,
-                                modelData: modelData
-                            ).navigationBarHidden(true)
-                        ) {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 12.0)
-                                    .fill(Color.gray)
-                                    .frame(width: 150, height: 60)
-                                RoundedRectangle(cornerRadius: 11.0)
-                                    .fill(Color.white)
-                                    .frame(width: 146, height: 56)
-                                Text("対局終了")
-                            }
-                        }
-                    }
+                    EndGameButton(showingEndGameMenu: self.$showingEndGameMenu, isGameEnd: self.$isGameEnd)
                     .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
                 }
 
