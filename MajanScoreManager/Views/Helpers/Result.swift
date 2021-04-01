@@ -11,11 +11,11 @@ struct Result: View {
     @EnvironmentObject var modelData: ModelData
     var i: Int //ResultGameDatas's index
     var body: some View {
-        let gameCount = rGDs.getGameCount()
-        let place = .getPlace(Index: i)
-        let endType = rGDs.getEndType(Index: i)
-        let waitersCount = rGDs.getWaitersCount(Index: i)
-        let winnersCount = rGDs.getWinnersCount(Index: i)
+        let gameCount = modelData.getGameCount()
+        let place = modelData.getPlace(Index: i)
+        let endType = modelData.getEndType(Index: i)
+        let waitersCount = modelData.getWaitersCount(Index: i)
+        let winnersCount = modelData.getWinnersCount(Index: i)
         if gameCount != 0 {
             HStack {
                 VStack {
@@ -33,7 +33,7 @@ struct Result: View {
                                 Text("なし")
                             } else {
                                 ForEach(0..<waitersCount) { index in
-                                    Text(String(rGDs.resultGameDatas[0].waitersR[index]))
+                                    Text(String(modelData.resultGameDatas[0].waitersR[index]))
                                 }
                             }
                             Spacer()
@@ -41,12 +41,13 @@ struct Result: View {
                     } else if endType == "自摸" {
                         Group {
                             HStack{
-                                Text("和了者 : \(rGDs.getWinnerName(Index: i, WinnersIndex: 0))")
+                                Text("和了者 : ")
+                                Text(String(modelData.getWinnersName(Index: i, WinnersIndex: 0)))
                                 Spacer()
                             }
                             HStack{
-                                Text("飜数 : \(rGDs.getWinnerDouble(Index: i, WineerIndex: 0))")
-                                Text("点数 : \(rGDs.getWinnerScore(Index: i, WinnersIndex: 0))点")
+                                Text("飜数 : \(modelData.getWinnersDouble(Index: i, WinnersIndex: 0))")
+                                Text("点数 : \(modelData.getWinnersScore(Index: i, WinnersIndex: 0))点")
                                 Spacer()
                             }
                         }
@@ -54,12 +55,15 @@ struct Result: View {
                         ForEach(0..<winnersCount) { winIndex in
                             Group {
                                 HStack{
-                                    Text("和了者 : \(rGDs.getWinnerName(Index: i, WinnersIndex: winIndex))")
+                                    Text("和了者 : ")
+                                    Text(String(modelData.getWinnersName(Index: i, WinnersIndex: winIndex)))
                                     Spacer()
                                 }
                                 HStack{
-                                    Text("飜数 : \(rGDs.getWinnerDouble(Index: i, WineerIndex: winIndex))")
-                                    Text("点数 : \(rGDs.getWinnerScore(Index: i, WinnersIndex: winIndex))点")
+                                    Text("飜数 : ")
+                                    Text(String(modelData.getWinnersDouble(Index: i, WinnersIndex: winIndex)))
+                                    Text("点数 : ")
+                                    Text(String(modelData.getWinnersScore(Index: i, WinnersIndex: winIndex)))
                                     Spacer()
                                 }
                         }
@@ -84,6 +88,6 @@ struct Result: View {
 struct Result_Previews: PreviewProvider {
     static var previews: some View {
         Result(i: 0)
-            .environmentObject(ResultGameDatas())
+            .environmentObject(ModelData())
     }
 }

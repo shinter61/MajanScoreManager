@@ -21,7 +21,7 @@ struct  ResultGameData: Hashable, Codable, Identifiable {
 
 struct Winner: Hashable, Codable, Identifiable {
      var id: UUID = UUID()
-     var winner: String
+     var name: String
      var double: String    //飜
      var point: Int        //符
     var score: Int        //点数

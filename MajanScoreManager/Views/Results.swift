@@ -8,12 +8,12 @@
 import SwiftUI
 
  struct Results: View {
-     @EnvironmentObject var rGDs: ResultGameDatas
+    @EnvironmentObject var modelData: ModelData
 
      @Binding var showingResultView: Bool
 
      var body: some View {
-         let gameCount = rGDs.getGameCount()
+         let gameCount = modelData.getGameCount()
          VStack {
              Text("結果")
              List {
@@ -29,6 +29,6 @@ import SwiftUI
  struct Results_Previews: PreviewProvider {
      static var previews: some View {
          Results(showingResultView: .constant(false))
-             .environmentObject(ResultGameDatas())
+             .environmentObject(ModelData())
      }
  }
