@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Game: View {
     @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var rGDs: ResultGameDatas
     @Binding var rootIsActive : Bool
     @State private var showingEndGameMenu = false
     @State private var showingWinningMenu = false

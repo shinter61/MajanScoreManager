@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EndGame: View {
     @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var rGDs: ResultGameDatas
     @Binding var shouldPopToRootView : Bool
     @State private var navigateStartMenu: Bool = false
     @State private var showingResultView: Bool = false
@@ -36,6 +37,7 @@ struct EndGame: View {
                             }
                         }
                     }
+                    toResultButton(showingResultView: self.$showingResultView)
 
                     Button(action: {
                         modelData.resetGameData()
@@ -50,6 +52,10 @@ struct EndGame: View {
                                 .foregroundColor(.black)
                         }
                     }
+                    NavigationLink(destination: Results(showingResultView: self.$showingResultView), isActive: self.$showingResultView) {
+                        EmptyView()
+                    }
+                    
                 }
             }
         }

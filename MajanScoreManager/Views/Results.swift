@@ -9,23 +9,25 @@ import SwiftUI
 
 struct Results: View {
     @EnvironmentObject var rGDs: ResultGameDatas
-
+    @Binding var showingResultView: Bool
+    
     var body: some View {
-        let gameCount = rGDs.getGameCount()
+//        let gameCount = rGDs.getGameCount()
         VStack {
             Text("結果")
             List {
-                ForEach(0..<gameCount) { index in
+                ForEach(0..<2) { index in
                     Result(i: index)
                 }
             }
+            backResultButton(showingResultView: self.$showingResultView)
         }
     }
 }
 
 struct Results_Previews: PreviewProvider {
     static var previews: some View {
-        Results()
+        Results(showingResultView: .constant(false))
             .environmentObject(ResultGameDatas())
     }
 }

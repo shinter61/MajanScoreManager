@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var rGDs: ResultGameDatas
     var body: some View {
         StartGame()
     }

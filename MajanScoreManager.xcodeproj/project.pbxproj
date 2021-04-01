@@ -11,7 +11,8 @@
 		358A98732615610C001D31BD /* ResultGameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A98722615610C001D31BD /* ResultGameData.swift */; };
 		358A988D26158397001D31BD /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A988C26158397001D31BD /* Result.swift */; };
 		358A98952615BFDC001D31BD /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A98942615BFDB001D31BD /* Results.swift */; };
-		358A98A22615C287001D31BD /* ToResultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A98A12615C287001D31BD /* ToResultButton.swift */; };
+		358A98A22615C287001D31BD /* toResultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A98A12615C287001D31BD /* toResultButton.swift */; };
+		358A98A72615CBC2001D31BD /* backResultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A98A62615CBC2001D31BD /* backResultButton.swift */; };
 		E5030745260F610F00061C47 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5030744260F610F00061C47 /* Score.swift */; };
 		E503074A260F6C6300061C47 /* parentDrawScores.json in Resources */ = {isa = PBXBuildFile; fileRef = E5030749260F6C6300061C47 /* parentDrawScores.json */; };
 		E503074F260F6CA800061C47 /* parentRonScores.json in Resources */ = {isa = PBXBuildFile; fileRef = E503074E260F6CA800061C47 /* parentRonScores.json */; };
@@ -62,7 +63,8 @@
 		358A98722615610C001D31BD /* ResultGameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultGameData.swift; sourceTree = "<group>"; };
 		358A988C26158397001D31BD /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		358A98942615BFDB001D31BD /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
-		358A98A12615C287001D31BD /* ToResultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToResultButton.swift; sourceTree = "<group>"; };
+		358A98A12615C287001D31BD /* toResultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toResultButton.swift; sourceTree = "<group>"; };
+		358A98A62615CBC2001D31BD /* backResultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backResultButton.swift; sourceTree = "<group>"; };
 		E5030744260F610F00061C47 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		E5030749260F6C6300061C47 /* parentDrawScores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = parentDrawScores.json; sourceTree = "<group>"; };
 		E503074E260F6CA800061C47 /* parentRonScores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = parentRonScores.json; sourceTree = "<group>"; };
@@ -208,7 +210,8 @@
 				358A988C26158397001D31BD /* Result.swift */,
 				358A986D26155407001D31BD /* ResultPreviews.swift */,
 				E569DAE72609ECA200441533 /* PlayerScore.swift */,
-				358A98A12615C287001D31BD /* ToResultButton.swift */,
+				358A98A12615C287001D31BD /* toResultButton.swift */,
+				358A98A62615CBC2001D31BD /* backResultButton.swift */,
 				E598A53E2609F92A0046F434 /* RiichiBar.swift */,
 				E569DACD2609E12400441533 /* EndGameButton.swift */,
 				E5CDF941260A4E8000E17A3F /* GameInfo.swift */,
@@ -364,7 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				358A986E26155407001D31BD /* ResultPreviews.swift in Sources */,
-				358A98A22615C287001D31BD /* ToResultButton.swift in Sources */,
+				358A98A22615C287001D31BD /* toResultButton.swift in Sources */,
 				E569DAA22609E09C00441533 /* ContentView.swift in Sources */,
 				E56DFF35260A2FD7000312B5 /* Game.swift in Sources */,
 				358A98952615BFDC001D31BD /* Results.swift in Sources */,
@@ -381,6 +384,7 @@
 				358A98732615610C001D31BD /* ResultGameData.swift in Sources */,
 				E5E7330F260F8B7300805B41 /* EndGame.swift in Sources */,
 				E56DFF30260A2E22000312B5 /* StartGame.swift in Sources */,
+				358A98A72615CBC2001D31BD /* backResultButton.swift in Sources */,
 				E569DAA02609E09C00441533 /* MajanScoreManagerApp.swift in Sources */,
 				E50ED8E3260F74F600E58E19 /* ChildDrawScore.swift in Sources */,
 				E5065A77260D2F5B00A3AB65 /* Winning.swift in Sources */,

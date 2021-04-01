@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StartGame: View {
     @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var rGDs: ResultGameDatas
     @State private var name1: String = ""
     @State private var name2: String = ""
     @State private var name3: String = ""

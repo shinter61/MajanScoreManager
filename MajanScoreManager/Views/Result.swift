@@ -75,6 +75,7 @@ struct Result: View {
                 .padding(.leading, 20)
                 
             } //End HStack
+            Divider()
             
         } //End if
         
