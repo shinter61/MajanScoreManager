@@ -2,40 +2,50 @@
 //  EndGameButton.swift
 //  MajanScoreManager
 //
-//  Created by 松本真太朗 on 2021/03/23.
+//  Created by 松本真太朗 on 2021/04/01.
 //
 
 import SwiftUI
 
 struct EndGameButton: View {
     @Binding var showingEndGameMenu: Bool
-    @Binding var showingDrawnMenu: Bool
+    @Binding var isGameEnd: Bool
     
     var body: some View {
         Button(action: {
             showingEndGameMenu = true
         }) {
             ZStack {
-                Circle()
-                    .stroke(Color.yellow, lineWidth: 2)
-                    .frame(width: 100, height: 100)
-
-                Circle()
+                RoundedRectangle(cornerRadius: 12.0)
+                    .fill(Color.red)
+                    .frame(width: 150, height: 60)
+                RoundedRectangle(cornerRadius: 11.0)
                     .fill(Color(red: 0, green: 130 / 255, blue: 0))
-                    .frame(width: 98, height: 98)
-
-                Text("終局")
+                    .frame(width: 146, height: 56)
+                Text("対局終了")
                     .foregroundColor(Color.yellow)
-                    .font(.custom("Shippori Mincho", size: 36))
+                    .font(.custom("Shippori Mincho", size: 24))
                     .fontWeight(.bold)
-
             }
         }
+        .actionSheet(isPresented: $showingEndGameMenu, content: {
+            ActionSheet(
+                title: Text("対局を終了しますか"),
+                message: Text("対局を終了し収支を計算します"),
+                buttons: [
+                    .default(Text("対局終了"), action: {
+                        self.showingEndGameMenu = false
+                        self.isGameEnd = true
+                    }),
+                    .cancel()
+                ]
+            )
+        })
     }
 }
 
 struct EndGameButton_Previews: PreviewProvider {
     static var previews: some View {
-        EndGameButton(showingEndGameMenu: .constant(false), showingDrawnMenu: .constant(false))
+        EndGameButton(showingEndGameMenu: .constant(true),isGameEnd: .constant(false))
     }
 }

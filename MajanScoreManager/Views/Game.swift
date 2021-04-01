@@ -10,9 +10,10 @@ import SwiftUI
 struct Game: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var rootIsActive : Bool
-    @State private var showingEndGameMenu = false
+    @State private var showingEndRoundMenu = false
     @State private var showingWinningMenu = false
     @State private var showingDrawnMenu = false
+    @State private var showingEndGameMenu = false
     @State private var isGameEnd = false
     var body: some View {
         let player1: Player = modelData.gameData.players[0]
@@ -21,8 +22,9 @@ struct Game: View {
         let player4: Player = modelData.gameData.players[3]
         ZStack {
             GeometryReader { geometry in
-                EndGameButton(
-                    showingEndGameMenu: self.$showingEndGameMenu,
+                EndRoundButton(
+                    showingEndRoundMenu: self.$showingEndRoundMenu,
+                    showingWinningMenu: self.$showingWinningMenu,
                     showingDrawnMenu: self.$showingDrawnMenu
                 )
                     .position(x: 0.5 * geometry.size.width, y: 0.5 * geometry.size.height)
@@ -80,28 +82,7 @@ struct Game: View {
                             .rotationEffect(Angle(degrees: -90))
                             .position(x: 0.81 * geometry.size.width, y: 0.38 * geometry.size.height)
                     }
-
-                    Button(action: {}) {
-                        NavigationLink(destination:
-                            EndGame(
-                                shouldPopToRootView: self.$rootIsActive,
-                                modelData: modelData
-                            ).navigationBarHidden(true)
-                        ) {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 12.0)
-                                    .fill(Color.red)
-                                    .frame(width: 150, height: 60)
-                                RoundedRectangle(cornerRadius: 11.0)
-                                    .fill(Color(red: 0, green: 130 / 255, blue: 0))
-                                    .frame(width: 146, height: 56)
-                                Text("対局終了")
-                                    .foregroundColor(Color.yellow)
-                                    .font(.custom("Shippori Mincho", size: 24))
-                                    .fontWeight(.bold)
-                            }
-                        }
-                    }
+                    EndGameButton(showingEndGameMenu: self.$showingEndGameMenu, isGameEnd: self.$isGameEnd)
                     .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
                 }
 
@@ -122,23 +103,6 @@ struct Game: View {
             .background(Color(red: 0, green: 102 / 255, blue: 0))
             .ignoresSafeArea(edges: .top)
             .ignoresSafeArea(edges: .bottom)
-            .actionSheet(isPresented: $showingEndGameMenu, content: {
-                ActionSheet(
-                    title: Text("終局"),
-                    message: Text("種類を選んでください"),
-                    buttons: [
-                        .default(Text("和了"), action: {
-                            self.showingEndGameMenu = false
-                            self.showingWinningMenu = true
-                        }),
-                        .default(Text("流局"), action: {
-                            self.showingEndGameMenu = false
-                            self.showingDrawnMenu = true
-                        }),
-                        .cancel()
-                    ]
-                )
-            })
         }
     }
 }
