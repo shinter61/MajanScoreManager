@@ -14,6 +14,7 @@ struct Winning: View {
     }
     
     @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var rGDs: ResultGameDatas
     @Environment(\.presentationMode) var presentationMode
     @Binding var isGameEnd: Bool
     @State private var type = WinningType.unselected
@@ -147,6 +148,18 @@ struct Winning: View {
         let point = pointID == -1 ? -1 : modelData.points[pointID]
         
         var winnerIndex: Int { modelData.gameData.players.firstIndex(where: { $0.id == winner.id })! }
+        
+        var rGD: ResultGameData = ResultGameData(
+            id: UUID(),
+            roundR: modelData.gameData.round,
+            handR: modelData.gameData.hand,
+            extraR: modelData.gameData.extra,
+            isDrawnGame: false,
+            waitersR: [""],
+            isDraw: type == WinningType.draw,
+            winnersR: [],
+            loserR: ""
+        )
 
         if type == WinningType.draw {
             if winner.wind == 0 {
@@ -161,6 +174,8 @@ struct Winning: View {
                         modelData.gameData.players[playerIndex].score += score * 3
                     }
                 }
+                let scoreR: Int = score * 3
+                rGD.winnersR.append(Winner(id: UUID(), winner: winner.name, double: double, point: point, score: scoreR))
             } else {
                 let scores = calcChildDrawScore(double: double, point: point)
                 for player in modelData.gameData.players {
@@ -175,6 +190,8 @@ struct Winning: View {
                         modelData.gameData.players[playerIndex].score -= scores[0]
                     }
                 }
+                let scoreR: Int = scores[0] * 2 + scores[1]
+                rGD.winnersR.append(Winner(id: UUID(), winner: winner.name, double: double, point: point, score: scoreR))
             }
         } else if type == WinningType.ron {
             if winner.wind == 0 {
@@ -189,6 +206,9 @@ struct Winning: View {
                         modelData.gameData.players[playerIndex].score -= score
                     }
                 }
+                let scoreR: Int = score
+                rGD.winnersR.append(Winner(id: UUID(), winner: winner.name, double: double, point: point, score: scoreR))
+                rGD.loserR = loser.name
             } else {
                 let score = calcChildRonScore(double: double, point: point)
                 for player in modelData.gameData.players {
@@ -201,6 +221,9 @@ struct Winning: View {
                         modelData.gameData.players[playerIndex].score -= score
                     }
                 }
+                let scoreR: Int = score
+                rGD.winnersR.append(Winner(id: UUID(), winner: winner.name, double: double, point: point, score: scoreR))
+                rGD.loserR = loser.name
             }
         }
         

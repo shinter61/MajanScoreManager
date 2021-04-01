@@ -9,9 +9,11 @@ import SwiftUI
 
 struct DrawnGame: View {
     @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var rGDs: ResultGameDatas
     @Environment(\.presentationMode) var presentationMode
     @Binding var isGameEnd: Bool
     @State private var waiters: [Int] = []
+    
     var body: some View {
         let players: [Player] = modelData.gameData.players
         VStack {
@@ -52,6 +54,27 @@ struct DrawnGame: View {
         var playerIndex: Int {
             modelData.gameData.players.firstIndex(where: { $0.wind == 0 })!
         }
+        
+        var rGD: ResultGameData = ResultGameData(
+            id: UUID(),
+            roundR: modelData.gameData.round,
+            handR: modelData.gameData.hand,
+            extraR: modelData.gameData.extra,
+            isDrawnGame: true,
+            waitersR: [],
+            isDraw: false,
+            winnersR: [Winner(id: UUID(), winner: "", double: "", point: 0, score: 0)],
+            loserR: ""
+        )
+        
+        if waiters.count != 0 {
+            for i in 0..<waiters.count {
+                rGD.waitersR.append(modelData.gameData.players[waiters[i]].name)
+            }
+        }
+
+        rGDs.resultGameDatas.append(rGD)
+        
 
         // 聴牌料
         switch waiters.count {
