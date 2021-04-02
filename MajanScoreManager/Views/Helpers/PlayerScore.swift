@@ -30,16 +30,19 @@ struct PlayerScore: View {
         }) {
             VStack {
                 ZStack {
-                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                        .fill(Color.gray)
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.yellow)
                         .frame(width: 100, height: 50)
-                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                        .fill(Color.white)
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.black)
                         .frame(width: 96, height: 46)
                     Text(String(player.score))
-                        .foregroundColor(.black)
+                        .font(.custom("Shippori Mincho", size: 24))
+                        .fontWeight(.bold)
+                        .foregroundColor(.yellow)
                 }
                 Text(String(player.name))
+                    .font(.custom("Shippori Mincho", size: 16))
                     .foregroundColor(.white)
             }
         }

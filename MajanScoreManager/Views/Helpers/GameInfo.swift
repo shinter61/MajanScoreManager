@@ -12,28 +12,72 @@ struct GameInfo: View {
     var body: some View {
         HStack {
             ZStack {
-                Rectangle()
-                    .fill(Color.gray)
-                    .frame(width: 90, height: 50)
+                RoundedRectangle(cornerRadius: 0)
+                    .fill(Color.black)
+                    .frame(width: 80, height: 50)
+                Path { path in
+                    path.move(to: CGPoint(x: -10, y: 0))
+                    path.addLine(to: CGPoint(x: 90, y: 0))
+                    path.move(to: CGPoint(x: -10, y: 50))
+                    path.addLine(to: CGPoint(x: 90, y: 50))
+                    path.move(to: CGPoint(x: 0, y: -10))
+                    path.addLine(to: CGPoint(x: 0, y: 60))
+                    path.move(to: CGPoint(x: 80, y: -10))
+                    path.addLine(to: CGPoint(x: 80, y: 60))
+                }
+                .stroke(lineWidth: 2)
+                .fill(Color.yellow)
+                .frame(width: 80, height: 50)
                 Text("\(modelData.gameData.round)\(modelData.gameData.hand)局")
-                    .foregroundColor(.white)
-                    .font(.title3)
+                    .foregroundColor(Color.yellow)
+                    .font(.custom("Shippori Mincho", size: 20))
+                    .fontWeight(.bold)
             }
+            .padding(.trailing, 30)
             ZStack {
-                Rectangle()
-                    .fill(Color.gray)
-                    .frame(width: 90, height: 50)
+                RoundedRectangle(cornerRadius: 0)
+                    .fill(Color.black)
+                    .frame(width: 80, height: 50)
+                Path { path in
+                    path.move(to: CGPoint(x: -10, y: 0))
+                    path.addLine(to: CGPoint(x: 90, y: 0))
+                    path.move(to: CGPoint(x: -10, y: 50))
+                    path.addLine(to: CGPoint(x: 90, y: 50))
+                    path.move(to: CGPoint(x: 0, y: -10))
+                    path.addLine(to: CGPoint(x: 0, y: 60))
+                    path.move(to: CGPoint(x: 80, y: -10))
+                    path.addLine(to: CGPoint(x: 80, y: 60))
+                }
+                .stroke(lineWidth: 2)
+                .fill(Color.yellow)
+                .frame(width: 80, height: 50)
                 Text("\(modelData.gameData.extra)本場")
-                    .foregroundColor(.white)
-                    .font(.title3)
+                    .foregroundColor(Color.yellow)
+                    .font(.custom("Shippori Mincho", size: 20))
+                    .fontWeight(.bold)
             }
+            .padding(.trailing, 30)
             ZStack {
-                Rectangle()
-                    .fill(Color.gray)
-                    .frame(width: 90, height: 50)
+                RoundedRectangle(cornerRadius: 0)
+                    .fill(Color.black)
+                    .frame(width: 80, height: 50)
+                Path { path in
+                    path.move(to: CGPoint(x: -10, y: 0))
+                    path.addLine(to: CGPoint(x: 90, y: 0))
+                    path.move(to: CGPoint(x: -10, y: 50))
+                    path.addLine(to: CGPoint(x: 90, y: 50))
+                    path.move(to: CGPoint(x: 0, y: -10))
+                    path.addLine(to: CGPoint(x: 0, y: 60))
+                    path.move(to: CGPoint(x: 80, y: -10))
+                    path.addLine(to: CGPoint(x: 80, y: 60))
+                }
+                .stroke(lineWidth: 2)
+                .fill(Color.yellow)
+                .frame(width: 80, height: 50)
                 Text("供託\(modelData.gameData.bets)本")
-                    .foregroundColor(.white)
-                    .font(.title3)
+                    .foregroundColor(Color.yellow)
+                    .font(.custom("Shippori Mincho", size: 20))
+                    .fontWeight(.bold)
             }
         }
     }

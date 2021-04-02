@@ -14,36 +14,58 @@ struct DrawnGame: View {
     @State private var waiters: [Int] = []
     var body: some View {
         let players: [Player] = modelData.gameData.players
-        VStack {
-            Text("誰がテンパイしましたか？")
-            List {
-                ForEach(0 ..< players.count) { index in
-                    HStack {
-                        Button(action: {
-                            if let i = waiters.firstIndex(of: index) {
-                                waiters.remove(at: i)
-                            } else {
-                                waiters.append(index)
+        ZStack {
+            Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255).edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                Text("誰がテンパイしましたか？")
+                    .font(.custom("Shippori Mincho", size: 20))
+                    .fontWeight(.regular)
+                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                List {
+                    ForEach(0 ..< players.count) { index in
+                        HStack {
+                            Button(action: {
+                                if let i = waiters.firstIndex(of: index) {
+                                    waiters.remove(at: i)
+                                } else {
+                                    waiters.append(index)
+                                }
+                            }) {
+                                Text(players[index].name)
+                                    .font(.custom("Shippori Mincho", size: 20))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
                             }
-                        }) {
-                            Text(players[index].name)
-                        }
-                        if waiters.contains(index) {
-                            Image(systemName: "checkmark")
-                                .frame(width: 30, height: 30, alignment: .trailing)
+                            Spacer()
+                            if waiters.contains(index) {
+                                Image(systemName: "checkmark")
+                                    .frame(width: 30, height: 30, alignment: .trailing)
+                            }
                         }
                     }
+                    .listRowBackground(Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255))
                 }
-            }
-            Button(action: drawnProcess) {
-                ZStack {
-                    Rectangle()
-                        .frame(width: 100, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(.white)
-                        .border(Color.gray, width: 2)
-                    Text("決定")
+                .frame(height: 176)
+                Button(action: drawnProcess) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 11.0)
+                            .fill(Color(red: 19 / 255, green: 191 / 255, blue: 180 / 255))
+                            .frame(width: 100, height: 40)
+                        HStack {
+                            Text("決定")
+                                .font(.custom("Shippori Mincho", size: 20))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.white)
+                            Image(systemName: "checkmark.circle")
+                                .resizable()
+                                .frame(width: 20, height: 20, alignment: .center)
+                                .foregroundColor(.white)
+                        }
+                    }
+                    .padding(.top, 50)
                 }
-                .padding(.bottom, 50)
+                Spacer()
             }
         }
     }

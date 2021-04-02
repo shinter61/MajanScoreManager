@@ -171,7 +171,7 @@ final class ModelData: ObservableObject {
     }
     
     func buildResultRows() -> [[String]] {
-        var rows: [[String]] = [["名前", "順位", "持ち点", "得点"]]
+        var rows: [[String]] = []
         let sortedPlayers = gameData.players.sorted(by: { player1, player2 -> Bool in
             if player1.score == player2.score {
                 return player1.wind < player2.wind

@@ -19,8 +19,9 @@ import SwiftUI
                      .fill(Color.yellow)
                      .frame(width: 180, height: 50)
                  Text("戦績一覧")
-                     .foregroundColor(.black)
-
+                     .foregroundColor(.white)
+                     .font(.custom("Shippori Mincho", size: 24))
+                     .fontWeight(.bold)
              }
         }
     }

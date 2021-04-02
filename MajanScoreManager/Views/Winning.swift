@@ -32,91 +32,141 @@ struct Winning: View {
     static let rowHeight: CGFloat = 50
     static let rowMargin: CGFloat = 0.5
     var body: some View {
-        ScrollView(.vertical) {
-            VStack {
-                Text("和了の種類")
-                List {
-                    Group {
-                        Button(action: { type = WinningType.draw }) {
-                            HStack {
-                                Text("自摸")
-                                if type == WinningType.draw {
-                                    Image(systemName: "checkmark")
-                                        .frame(width: 30, height: 30, alignment: .trailing)
+        ZStack {
+            Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255).edgesIgnoringSafeArea(.all)
+            
+            ScrollView(.vertical) {
+                VStack {
+                    Text("和了の種類")
+                        .font(.custom("Shippori Mincho", size: 20))
+                        .fontWeight(.regular)
+                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                    List {
+                        Group {
+                            Button(action: { type = WinningType.draw }) {
+                                HStack {
+                                    Text("自摸")
+                                        .font(.custom("Shippori Mincho", size: 18))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                    if type == WinningType.draw {
+                                        Image(systemName: "checkmark")
+                                            .frame(width: 30, height: 30, alignment: .trailing)
+                                    }
+                                }
+                            }
+                            Button(action: { type = WinningType.ron }) {
+                                HStack {
+                                    Text("放銃")
+                                        .font(.custom("Shippori Mincho", size: 18))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                    if type == WinningType.ron {
+                                        Image(systemName: "checkmark")
+                                            .frame(width: 30, height: 30, alignment: .trailing)
+                                    }
                                 }
                             }
                         }
-                        Button(action: { type = WinningType.ron }) {
-                            HStack {
-                                Text("放銃")
-                                if type == WinningType.ron {
-                                    Image(systemName: "checkmark")
-                                        .frame(width: 30, height: 30, alignment: .trailing)
-                                }
-                            }
-                        }
+                        .listRowBackground(Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255))
                     }
-                }
-                .frame(height: CGFloat(2) * (Winning.rowHeight + Winning.rowMargin))
-                //和了の種類選択後、和了者を選択可能にする
-                if type != WinningType.unselected{
-                    Text("プレイヤーを選択してください")
-                    Form {
-                        Picker(selection: $winnerID, label: Text("和了者を選択")) {
-                            ForEach(modelData.gameData.players, id: \.self.id) { player in
-                                Text(player.name)
-                            }
-                        }
-                        //放銃選択時、放銃者を選択可能にする
-                        if type == WinningType.ron{
-                            Picker(selection: $loserID, label: Text("放銃者を選択")) {
+                    .frame(height: CGFloat(2) * (Winning.rowHeight + Winning.rowMargin))
+                    //和了の種類選択後、和了者を選択可能にする
+                    if type != WinningType.unselected{
+                        Text("プレイヤーを選択してください")
+                            .font(.custom("Shippori Mincho", size: 20))
+                            .fontWeight(.regular)
+                            .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                        Form {
+                            Picker(
+                                selection: $winnerID,
+                                label: Text("和了者を選択")
+                                    .font(.custom("Shippori Mincho", size: 18))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                            ) {
                                 ForEach(modelData.gameData.players, id: \.self.id) { player in
                                     Text(player.name)
                                 }
                             }
-                        }
-                    }
-                    .frame(height: 150, alignment: .center)
-                }
-                //和了者選択時、飜数を選択可能にする
-                if winnerID != -1 {
-                    Text("飜数を選んでください")
-                    Form {
-                        Picker(selection: $doubleID, label: Text("飜数を選択")) {
-                            ForEach(0..<modelData.doubles.count) { index in
-                                Text(modelData.doubles[index])
+                            //放銃選択時、放銃者を選択可能にする
+                            if type == WinningType.ron{
+                                Picker(
+                                    selection: $loserID,
+                                    label: Text("放銃者を選択")
+                                        .font(.custom("Shippori Mincho", size: 18))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                ) {
+                                    ForEach(modelData.gameData.players, id: \.self.id) { player in
+                                        Text(player.name)
+                                    }
+                                }
                             }
                         }
+                        .padding(.top, -10.0)
+                        .frame(height: 150, alignment: .center)
                     }
-                    .frame(height: 100, alignment: .center)
-                }
-                //飜数選択時、符を選択可能にする
-                if doubleID > -1 && doubleID < 4 {
-                    Text("符を選んでください")
-                    Form {
-                        Picker(selection: $pointID, label: Text("符を選択")) {
-                            ForEach(0..<modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points.count, id: \.self) { index in
-                                Text("\(modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[index])符")
+                    //和了者選択時、飜数を選択可能にする
+                    if winnerID != -1 {
+                        Text("飜数を選んでください")
+                            .font(.custom("Shippori Mincho", size: 20))
+                            .fontWeight(.regular)
+                            .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                        Form {
+                            Picker(
+                                selection: $doubleID,
+                                label: Text("飜数を選択")
+                                    .font(.custom("Shippori Mincho", size: 18))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                            ) {
+                                ForEach(0..<modelData.doubles.count) { index in
+                                    Text(modelData.doubles[index])
+                                }
                             }
                         }
+                        .padding(.top, -10.0)
+                        .frame(height: 100, alignment: .center)
                     }
-                    .frame(height: 100, alignment: .center)
-                }
-                
-                
+                    //飜数選択時、符を選択可能にする
+                    if doubleID > -1 && doubleID < 4 {
+                        Text("符を選んでください")
+                            .font(.custom("Shippori Mincho", size: 20))
+                            .fontWeight(.regular)
+                            .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                        Form {
+                            Picker(
+                                selection: $pointID,
+                                label: Text("符を選択")
+                                    .font(.custom("Shippori Mincho", size: 18))
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                            ) {
+                                ForEach(0..<modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points.count, id: \.self) { index in
+                                    Text("\(modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[index])符")
+                                }
+                            }
+                        }
+                        .padding(.top, -10.0)
+                        .frame(height: 100, alignment: .center)
+                    }
 
-                Button(action: winningProcess) {
-                    ZStack {
-                        Rectangle()
-                            .frame(width: 100, height: 40, alignment: .center)
-                            .foregroundColor(.white)
-                            .border(Color.gray, width: 2)
-                        Text("決定")
+                    Button(action: winningProcess) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 11.0)
+                                .fill(Color(red: 19 / 255, green: 191 / 255, blue: 180 / 255))
+                                .frame(width: 100, height: 40)
+                            Text("登録")
+                                .font(.custom("Shippori Mincho", size: 20))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.white)
+                        }
                     }
                 }
-            }
-            .alert(isPresented: self.$showingAlert) {
-                Alert(title: Text(AlertText))
+                .alert(isPresented: self.$showingAlert) {
+                    Alert(title: Text(AlertText))
+                }
             }
         }
     }
