@@ -67,7 +67,7 @@ struct DrawnGame: View {
         
         if waiters.count != 0 {
             for i in 0..<waiters.count {
-                rGDs.waitersR.append(modelData.gameData.players[waiters[i]].name)
+                rGDs.waitersR.append( modelData.gameData.players[waiters[i]].name)
             }
         }
         

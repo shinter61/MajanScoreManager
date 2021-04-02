@@ -29,11 +29,11 @@ struct Result: View {
                     if endType == "流局" {
                         HStack{
                            Text("聴牌者 : ")
-                            if waitersCount != 0 {
+                            if waitersCount == 0 {
                                 Text("なし")
                             } else {
                                 ForEach(0..<waitersCount) { index in
-                                    Text(String(modelData.resultGameDatas[0].waitersR[index]))
+                                    Text(String(modelData.resultGameDatas[i].waitersR[index]))
                                 }
                             }
                             Spacer()

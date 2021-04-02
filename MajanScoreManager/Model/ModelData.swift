@@ -50,7 +50,7 @@ final class ModelData: ObservableObject {
         handR: 1,
         extraR: 0,
         isDrawnGame: true,
-        waitersR: [""],
+        waitersR: ["Player1","Player2"],
         isDraw: false,
         winnersR: [Winner(
             id: UUID(),
