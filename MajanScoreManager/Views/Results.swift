@@ -27,7 +27,7 @@ struct Results: View {
                     if gameCount != 0 {
                         List {
                             ForEach(0..<gameCount) { index in
-                                Result(i: index)
+                                Result(resultGameData: modelData.resultGameDatas[index])
                             }
                             .listRowBackground(Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255))
                         }

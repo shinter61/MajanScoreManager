@@ -37,7 +37,6 @@ final class ModelData: ObservableObject {
             PointsDouble(id: 2, points: [25,30,40,50,60]),//3d
             PointsDouble(id: 3, points: [25,30])//4d
         ])
-        
     ]
     
     @Published var parentDrawScores: [Score] = load("parentDrawScores.json")
@@ -48,58 +47,6 @@ final class ModelData: ObservableObject {
 
     func getGameCount() -> Int {
         return resultGameDatas.count
-    }
-    
-    func getPlace(index: Int) -> [String] {
-        return [resultGameDatas[index].roundR + " \(resultGameDatas[index].handR)局",
-                 "\(resultGameDatas[index].extraR)本場"]
-    }
-    func getBets(index: Int) -> String {
-        return "供託: \(resultGameDatas[index].betsR)本"
-    }
-
-    func getWaitersCount(index: Int) -> Int {
-        return resultGameDatas[index].waitersR.count
-    }
-    
-    func getEndType(index: Int) -> String {
-        if resultGameDatas[index].wins.isEmpty {
-            return "流局"
-        } else if resultGameDatas[index].wins[0].winningType == 1 {
-            return "自摸"
-        } else {
-            return "放銃"
-        }
-    }
-    
-    func getWinnersCount(index: Int) -> Int {
-        return resultGameDatas[index].wins.count
-    }
-    
-    func getWinnersName(index: Int, winIndex: Int) -> String {
-        let win = resultGameDatas[index].wins[winIndex]
-        let winner = gameData.players.first(where: { $0.id == win.winnerID })!
-        return winner.name
-    }
-    
-    func getLoserName(index: Int) -> String {
-        let win = resultGameDatas[index].wins[0]
-        let loser = gameData.players.first(where: { $0.id == win.loserID })!
-        return loser.name
-    }
-    
-    func getWinnersDouble(index: Int, winIndex: Int) -> String {
-        let win = resultGameDatas[index].wins[winIndex]
-        return win.double
-    }
-    
-    func getWinnersScore(index: Int, winIndex: Int) -> String {
-        let win = resultGameDatas[index].wins[winIndex]
-        if win.score.count == 2 {
-            return "\(win.score[0]), \(win.score[1])点"
-        } else {
-            return "\(win.score[0])点"
-        }
     }
 
     func proceedHand() -> Void {
