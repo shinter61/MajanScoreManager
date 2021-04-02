@@ -53,6 +53,7 @@ struct StartGame: View {
                         .frame(width: geometry.size.width * 0.75, alignment: .center)
 
                         Button(action: {
+                            modelData.navigateSound.play()
                             modelData.gameData.players[0].name = name1.isEmpty ? "Player1" : name1
                             modelData.gameData.players[1].name = name2.isEmpty ? "Player2" : name2
                             modelData.gameData.players[2].name = name3.isEmpty ? "Player3" : name3
