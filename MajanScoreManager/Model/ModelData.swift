@@ -49,6 +49,7 @@ final class ModelData: ObservableObject {
         roundR: "東",
         handR: 1,
         extraR: 0,
+        betsR: 0,
         isDrawnGame: true,
         waitersR: ["Player1","Player2"],
         isDraw: false,
@@ -69,6 +70,9 @@ final class ModelData: ObservableObject {
     func getPlace(Index: Int) -> [String] {
         return [ resultGameDatas[Index].roundR + " \(resultGameDatas[Index].handR)局",
                  "\(resultGameDatas[Index].extraR)本場"]
+    }
+    func getBets(Index: Int) -> String {
+        return "供託: \(resultGameDatas[Index].betsR)本"
     }
     
     func getEndType (Index: Int) -> String {
@@ -98,7 +102,7 @@ final class ModelData: ObservableObject {
     }
     
     func getWinnersScore(Index: Int, WinnersIndex: Int) -> String {
-        return "\(resultGameDatas[Index].winnersR[WinnersIndex].score)"
+        return "\(resultGameDatas[Index].winnersR[WinnersIndex].score)点"
     }
     
     

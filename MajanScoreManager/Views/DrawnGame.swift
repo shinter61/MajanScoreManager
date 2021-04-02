@@ -58,6 +58,7 @@ struct DrawnGame: View {
             roundR: modelData.gameData.round,
             handR: modelData.gameData.hand,
             extraR: modelData.gameData.extra,
+            betsR: modelData.gameData.bets,
             isDrawnGame: true,
             waitersR: [],
             isDraw: false,
@@ -111,7 +112,7 @@ struct DrawnGame: View {
         for i in 0..<modelData.gameData.players.count {
             // 供託
             if modelData.gameData.players[i].isRiichi {
-                modelData.gameData.bets += 1
+//                modelData.gameData.bets += 1
             }
             
             // 立直取り消し

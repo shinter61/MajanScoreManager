@@ -103,6 +103,7 @@ struct RegisterWinning: View {
             roundR: modelData.gameData.round,
             handR: modelData.gameData.hand,
             extraR: modelData.gameData.extra,
+            betsR: modelData.gameData.bets,
             isDrawnGame: false,
             waitersR: [""],
             isDraw: wins[0].winningType == 1,

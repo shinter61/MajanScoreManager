@@ -14,6 +14,7 @@ struct Result: View {
         let gameCount = modelData.getGameCount()
         if gameCount != 0 {
             let place = modelData.getPlace(Index: i)
+            let bets = modelData.getBets(Index: i)
             let endType = modelData.getEndType(Index: i)
             let waitersCount = modelData.getWaitersCount(Index: i)
             let winnersCount = modelData.getWinnersCount(Index: i)
@@ -21,6 +22,7 @@ struct Result: View {
                 VStack {
                     Text(String(place[0]))
                     Text(String(place[1]))
+                    Text(String(bets))
                 }
                 .padding()
     
@@ -28,7 +30,7 @@ struct Result: View {
                     Text(String(endType))
                     if endType == "流局" {
                         HStack{
-                           Text("聴牌者 : ")
+                           Text("聴牌者: ")
                             if waitersCount == 0 {
                                 Text("なし")
                             } else {
@@ -41,13 +43,15 @@ struct Result: View {
                     } else if endType == "自摸" {
                         Group {
                             HStack{
-                                Text("和了者 : ")
+                                Text("和了者: ")
                                 Text(String(modelData.getWinnersName(Index: i, WinnersIndex: 0)))
                                 Spacer()
                             }
                             HStack{
-                                Text("飜 : \(modelData.getWinnersDouble(Index: i, WinnersIndex: 0))")
-                                Text("点数 : \(modelData.getWinnersScore(Index: i, WinnersIndex: 0))点")
+                                Text("飜/点数: ")
+                                Text("\(modelData.getWinnersDouble(Index: i, WinnersIndex: 0))")
+                                Text("/")
+                                Text("\(modelData.getWinnersScore(Index: i, WinnersIndex: 0))点")
                                 Spacer()
                             }
                         }
@@ -55,22 +59,27 @@ struct Result: View {
                         ForEach(0..<winnersCount) { winIndex in
                             Group {
                                 HStack{
-                                    Text("和了者 : ")
+                                    Text("和了者: ")
                                     Text(String(modelData.getWinnersName(Index: i, WinnersIndex: winIndex)))
                                     Spacer()
                                 }
                                 HStack{
-                                    Text("飜数 : ")
+                                    Text("飜/点数: ")
                                     Text(String(modelData.getWinnersDouble(Index: i, WinnersIndex: winIndex)))
-                                    Text("点数 : ")
+                                    Text("/")
                                     Text(String(modelData.getWinnersScore(Index: i, WinnersIndex: winIndex)))
                                     Spacer()
                                 }
-                        }
-                            HStack{
-                                Text("放銃者 : Player2")
-                                Spacer()
                             }
+                            if winIndex != (winnersCount - 1) {
+                                Divider()
+                            } else {
+                                Spacer(minLength: 5)
+                            }
+                        }
+                        HStack{
+                            Text("放銃者: \(modelData.resultGameDatas[i].loserR)")
+                            Spacer()
                         }
                     }
                 } //End VStack

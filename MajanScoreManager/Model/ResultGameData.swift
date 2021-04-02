@@ -12,6 +12,7 @@ struct  ResultGameData: Hashable, Codable, Identifiable {
      var roundR: String   //風
      var handR: Int       //局
      var extraR: Int      //本場
+     var betsR: Int        //供託
      var isDrawnGame: Bool
      var waitersR: [String]
      var isDraw: Bool
