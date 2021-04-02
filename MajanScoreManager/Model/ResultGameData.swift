@@ -14,19 +14,5 @@ struct ResultGameData: Hashable, Identifiable {
      var extraR: Int      //本場
      var betsR: Int        //供託
      var waitersR: [String]
-     var winnersR: [Winner]
-     var loserR: String
-}
-
-enum RoundType: String {
-    case tsumo = "自摸"
-    case ron =  "放銃"
-    case drawn = "流局"
-}
-
-struct Winner: Hashable, Codable, Identifiable {
-     var id: UUID = UUID()
-     var name: String
-     var double: String    //飜、符
-    var score: Int        //点数
+     var wins: [Win]
 }

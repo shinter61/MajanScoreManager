@@ -50,35 +50,57 @@ final class ModelData: ObservableObject {
         return resultGameDatas.count
     }
     
-    func getPlace(Index: Int) -> [String] {
-        return [ resultGameDatas[Index].roundR + " \(resultGameDatas[Index].handR)局",
-                 "\(resultGameDatas[Index].extraR)本場"]
+    func getPlace(index: Int) -> [String] {
+        return [resultGameDatas[index].roundR + " \(resultGameDatas[index].handR)局",
+                 "\(resultGameDatas[index].extraR)本場"]
     }
-    func getBets(Index: Int) -> String {
-        return "供託: \(resultGameDatas[Index].betsR)本"
+    func getBets(index: Int) -> String {
+        return "供託: \(resultGameDatas[index].betsR)本"
     }
 
-    func getWaitersCount(Index: Int) -> Int {
-        return resultGameDatas[Index].waitersR.count
+    func getWaitersCount(index: Int) -> Int {
+        return resultGameDatas[index].waitersR.count
     }
     
-    func getWinnersCount(Index: Int) -> Int {
-        return resultGameDatas[Index].winnersR.count
+    func getEndType(index: Int) -> String {
+        if resultGameDatas[index].wins.isEmpty {
+            return "流局"
+        } else if resultGameDatas[index].wins[0].winningType == 1 {
+            return "自摸"
+        } else {
+            return "放銃"
+        }
     }
     
-    func getWinnersName(Index: Int, WinnersIndex: Int) -> String {
-        return resultGameDatas[Index].winnersR[WinnersIndex].name
+    func getWinnersCount(index: Int) -> Int {
+        return resultGameDatas[index].wins.count
     }
     
-    func getWinnersDouble(Index: Int, WinnersIndex: Int) -> String {
-        return resultGameDatas[Index].winnersR[WinnersIndex].double
+    func getWinnersName(index: Int, winIndex: Int) -> String {
+        let win = resultGameDatas[index].wins[winIndex]
+        let winner = gameData.players.first(where: { $0.id == win.winnerID })!
+        return winner.name
     }
     
-    func getWinnersScore(Index: Int, WinnersIndex: Int) -> String {
-        return "\(resultGameDatas[Index].winnersR[WinnersIndex].score)点"
+    func getLoserName(index: Int) -> String {
+        let win = resultGameDatas[index].wins[0]
+        let loser = gameData.players.first(where: { $0.id == win.loserID })!
+        return loser.name
     }
     
+    func getWinnersDouble(index: Int, winIndex: Int) -> String {
+        let win = resultGameDatas[index].wins[winIndex]
+        return win.double
+    }
     
+    func getWinnersScore(index: Int, winIndex: Int) -> String {
+        let win = resultGameDatas[index].wins[winIndex]
+        if win.score.count == 2 {
+            return "\(win.score[0]), \(win.score[1])点"
+        } else {
+            return "\(win.score[0])点"
+        }
+    }
 
     func proceedHand() -> Void {
         if gameData.hand == 4 && gameData.round == "東" {

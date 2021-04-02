@@ -60,8 +60,7 @@ struct DrawnGame: View {
             extraR: modelData.gameData.extra,
             betsR: modelData.gameData.bets,
             waitersR: [],
-            winnersR: [Winner(id: UUID(), name: "", double: "", score: 0)],
-            loserR: ""
+            wins: []
         )
         
         if waiters.count != 0 {
@@ -108,11 +107,6 @@ struct DrawnGame: View {
         modelData.incrementExtra()
         
         for i in 0..<modelData.gameData.players.count {
-            // 供託
-            if modelData.gameData.players[i].isRiichi {
-//                modelData.gameData.bets += 1
-            }
-            
             // 立直取り消し
             modelData.gameData.players[i].isRiichi = false
         }
