@@ -8,10 +8,12 @@
 import SwiftUI
 
  struct backResultButton: View {
+     @EnvironmentObject var modelData: ModelData
      @Binding var showingResultView: Bool
 
      var body: some View {
          Button(action: {
+            modelData.cancelSound.play()
              showingResultView = false
          }) {
              ZStack {
@@ -30,5 +32,6 @@ import SwiftUI
  struct backResultButton_Previews: PreviewProvider {
      static var previews: some View {
          backResultButton(showingResultView: .constant(true))
+            .environmentObject(ModelData())
      }
  }

@@ -39,10 +39,12 @@ struct EndRoundButton: View {
                 message: Text("種類を選んでください"),
                 buttons: [
                     .default(Text("和了"), action: {
+                        modelData.navigateSound.play()
                         self.showingEndRoundMenu = false
                         self.showingWinningMenu = true
                     }),
                     .default(Text("流局"), action: {
+                        modelData.navigateSound.play()
                         self.showingEndRoundMenu = false
                         self.showingDrawnMenu = true
                     }),

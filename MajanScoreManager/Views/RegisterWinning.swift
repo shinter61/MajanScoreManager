@@ -80,7 +80,10 @@ struct RegisterWinning: View {
                     }
                 }
 
-                Button(action: winningProcess) {
+                Button(action: {
+                    modelData.navigateSound.play()
+                    winningProcess()
+                }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 11.0)
                             .fill(Color(red: 19 / 255, green: 191 / 255, blue: 180 / 255))

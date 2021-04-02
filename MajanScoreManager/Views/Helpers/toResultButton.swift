@@ -8,10 +8,12 @@
 import SwiftUI
 
  struct toResultButton: View {
+     @EnvironmentObject var modelData: ModelData
      @Binding var showingResultView: Bool
 
      var body: some View {
          Button(action: {
+            modelData.navigateSound.play()
              showingResultView = true
          }) {
              ZStack {
@@ -30,5 +32,6 @@ import SwiftUI
  struct ToResultButton_Previews: PreviewProvider {
      static var previews: some View {
          toResultButton(showingResultView: .constant(false))
+            .environmentObject(ModelData())
      }
  }

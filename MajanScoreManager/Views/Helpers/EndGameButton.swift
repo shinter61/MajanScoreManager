@@ -36,6 +36,7 @@ struct EndGameButton: View {
                 message: Text("対局を終了し収支を計算します"),
                 buttons: [
                     .default(Text("対局終了"), action: {
+                        modelData.navigateSound.play()
                         self.showingEndGameMenu = false
                         self.isGameEnd = true
                     }),
