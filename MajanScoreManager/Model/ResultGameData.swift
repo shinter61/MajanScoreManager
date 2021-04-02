@@ -23,6 +23,6 @@ struct Winner: Hashable, Codable, Identifiable {
      var id: UUID = UUID()
      var name: String
      var double: String    //飜
-     var point: Int        //符
+//     var point: Int        //符
     var score: Int        //点数
 }

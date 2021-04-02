@@ -52,6 +52,26 @@ struct DrawnGame: View {
         var playerIndex: Int {
             modelData.gameData.players.firstIndex(where: { $0.wind == 0 })!
         }
+        
+        var rGDs: ResultGameData = ResultGameData(
+            id: UUID(),
+            roundR: modelData.gameData.round,
+            handR: modelData.gameData.hand,
+            extraR: modelData.gameData.extra,
+            isDrawnGame: true,
+            waitersR: [],
+            isDraw: false,
+            winnersR: [Winner(id: UUID(), name: "", double: "", score: 0)],
+            loserR: ""
+        )
+        
+        if waiters.count != 0 {
+            for i in 0..<waiters.count {
+                rGDs.waitersR.append(modelData.gameData.players[waiters[i]].name)
+            }
+        }
+        
+        modelData.resultGameDatas.append(rGDs)
 
         // 聴牌料
         switch waiters.count {

@@ -12,11 +12,11 @@ struct Result: View {
     var i: Int //ResultGameDatas's index
     var body: some View {
         let gameCount = modelData.getGameCount()
-        let place = modelData.getPlace(Index: i)
-        let endType = modelData.getEndType(Index: i)
-        let waitersCount = modelData.getWaitersCount(Index: i)
-        let winnersCount = modelData.getWinnersCount(Index: i)
         if gameCount != 0 {
+            let place = modelData.getPlace(Index: i)
+            let endType = modelData.getEndType(Index: i)
+            let waitersCount = modelData.getWaitersCount(Index: i)
+            let winnersCount = modelData.getWinnersCount(Index: i)
             HStack {
                 VStack {
                     Text(String(place[0]))
@@ -75,10 +75,10 @@ struct Result: View {
                     }
                 } //End VStack
                 .frame(maxWidth: .infinity)
-                 .padding(.leading, 20)
+                .padding(.leading, 20)
+                Divider()
 
              } //End HStack
-             Divider()
 
          } //End if
          

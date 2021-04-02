@@ -11,6 +11,7 @@ struct EndGame: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var shouldPopToRootView : Bool
     @State private var navigateStartMenu: Bool = false
+    @State private var showingResultView: Bool = false
     
     var rows: [[String]] = []
     
@@ -21,36 +22,47 @@ struct EndGame: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                Text("対戦結果")
-                    .padding(.top, 50)
-                List {
-                    ForEach(0..<rows.count) { i in
-                        HStack {
-                            ForEach(0..<rows[i].count) { j in
-                                Text(rows[i][j])
-                                    .frame(width: geometry.size.width * 0.2, height: 50, alignment: .center)
+//        NavigationView {
+            GeometryReader { geometry in
+                VStack {
+                    Text("対戦結果")
+                        .padding(.top, 50)
+                    List {
+                        ForEach(0..<rows.count) { i in
+                            HStack {
+                                ForEach(0..<rows[i].count) { j in
+                                    Text(rows[i][j])
+                                        .frame(width: geometry.size.width * 0.2, height: 50, alignment: .center)
+                                }
                             }
                         }
                     }
-                }
-                Button(action: {
-                    modelData.resetGameData()
-                    navigateStartMenu = true
-                    self.shouldPopToRootView = false
-                }) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25.0)
-                            .fill(Color.yellow)
-                            .frame(width: 180, height: 50)
-                        Text("終了")
-                            .foregroundColor(.black)
+                    toResultButton(showingResultView: self.$showingResultView)
+                    
+                    Button(action: {
+                        modelData.resetGameData()
+                        navigateStartMenu = true
+                        self.shouldPopToRootView = false
+                    }) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 25.0)
+                                .fill(Color.yellow)
+                                .frame(width: 180, height: 50)
+                            Text("終了")
+                                .foregroundColor(.black)
+                        }
+                    }
+                    .padding(.bottom, 50)
+                    
+                    NavigationLink(
+                        destination: Results(showingResultView: self.$showingResultView).navigationBarHidden(true),
+                        isActive: self.$showingResultView) {
+                            EmptyView()
                     }
                 }
-                .padding(.bottom, 50)
+            
             }
-        }
+//        }
     }
 }
 

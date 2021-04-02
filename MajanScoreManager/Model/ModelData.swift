@@ -56,7 +56,7 @@ final class ModelData: ObservableObject {
             id: UUID(),
             name: "",
             double: "",
-            point: 0,
+//            point: 0,
             score: 0)
         ],
         loserR: ""
@@ -94,13 +94,7 @@ final class ModelData: ObservableObject {
     }
     
     func getWinnersDouble(Index: Int, WinnersIndex: Int) -> String {
-        let lowdoubles: [String] = ["1飜", "2飜", "3飜", "4飜"]
-        let double: String = resultGameDatas[Index].winnersR[WinnersIndex].double
-        if lowdoubles.contains(double) {
-            return double + "\(resultGameDatas[Index].winnersR[WinnersIndex].point)符"
-        } else {
-            return double
-        }
+        return resultGameDatas[Index].winnersR[WinnersIndex].double
     }
     
     func getWinnersScore(Index: Int, WinnersIndex: Int) -> String {
@@ -174,6 +168,7 @@ final class ModelData: ObservableObject {
             bets: 0,
             players: players
         )
+        resultGameDatas = []
     }
     
     func buildResultRows() -> [[String]] {
