@@ -15,6 +15,7 @@ struct RegisterWinning: View {
     @State private var wins: [Win] = []
     @State private var showingAlert: Bool = false
     @State private var alertText: String = ""
+    let columnWidth: Int = UIDevice.current.userInterfaceIdiom == .phone ? 400 : 800
     var body: some View {
         ZStack {
             Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255).edgesIgnoringSafeArea(.all)
@@ -54,7 +55,7 @@ struct RegisterWinning: View {
                         ZStack {
                             RoundedRectangle(cornerRadius: 11.0)
                                 .fill(Color.white)
-                                .frame(width: 350, height: 110)
+                                .frame(width: CGFloat(columnWidth), height: 110, alignment: .center)
                             VStack {
                                 Group {
                                     HStack {
@@ -73,12 +74,13 @@ struct RegisterWinning: View {
                                     }
                                 }
                                 .font(.custom("Shippori Mincho", size: 20))
-                                .padding(.leading, 20)
                             }
+                            .padding(.leading, 20)
                         }
                         .listRowBackground(Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255))
                     }
                 }
+                .frame(width: CGFloat(columnWidth), alignment: .center)
 
                 Button(action: winningProcess) {
                     ZStack {
