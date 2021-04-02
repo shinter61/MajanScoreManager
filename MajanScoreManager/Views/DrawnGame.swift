@@ -52,6 +52,24 @@ struct DrawnGame: View {
         var playerIndex: Int {
             modelData.gameData.players.firstIndex(where: { $0.wind == 0 })!
         }
+        
+        var rGDs: ResultGameData = ResultGameData(
+            id: UUID(),
+            roundR: modelData.gameData.round,
+            handR: modelData.gameData.hand,
+            extraR: modelData.gameData.extra,
+            betsR: modelData.gameData.bets,
+            waitersR: [],
+            wins: []
+        )
+        
+        if waiters.count != 0 {
+            for i in 0..<waiters.count {
+                rGDs.waitersR.append( modelData.gameData.players[waiters[i]].name)
+            }
+        }
+        
+        modelData.resultGameDatas.append(rGDs)
 
         // 聴牌料
         switch waiters.count {
@@ -89,11 +107,6 @@ struct DrawnGame: View {
         modelData.incrementExtra()
         
         for i in 0..<modelData.gameData.players.count {
-            // 供託
-            if modelData.gameData.players[i].isRiichi {
-                modelData.gameData.bets += 1
-            }
-            
             // 立直取り消し
             modelData.gameData.players[i].isRiichi = false
         }

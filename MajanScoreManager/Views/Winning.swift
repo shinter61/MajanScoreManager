@@ -122,17 +122,23 @@ struct Winning: View {
     }
     //pointsのindex取得
     func getPointsIndex(PointID: Int) -> Int {
-        return modelData.points.firstIndex(of: modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[PointID])!
+        if PointID == -1 {
+            return -1
+        } else {
+            return modelData.points.firstIndex(of: modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[PointID])!
+        }
     }
     
     func winningProcess() -> Void {
         showingAlert = inputValidate(type: type,  winnerID: winnerID, loserID: loserID, doubleID: doubleID, pointID: pointID)
-        //PointID変換
-        pointID = getPointsIndex(PointID: pointID)
+        
         if showingAlert {
             AlertText = "未入力の項目があります"
             return
         }
+        //PointID変換
+        pointID = getPointsIndex(PointID: pointID)
+        
         showingAlert = winningShapeValidate(type: type,winnerID: winnerID,loserID: loserID, doubleID: doubleID, pointID: pointID)
         if showingAlert {
             AlertText = "不正な入力です"

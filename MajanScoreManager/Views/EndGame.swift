@@ -11,6 +11,7 @@ struct EndGame: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var shouldPopToRootView : Bool
     @State private var navigateStartMenu: Bool = false
+    @State private var showingResultView: Bool = false
     
     var rows: [[String]] = []
     
@@ -35,6 +36,8 @@ struct EndGame: View {
                         }
                     }
                 }
+                toResultButton(showingResultView: self.$showingResultView)
+
                 Button(action: {
                     modelData.resetGameData()
                     navigateStartMenu = true
@@ -49,6 +52,12 @@ struct EndGame: View {
                     }
                 }
                 .padding(.bottom, 50)
+
+                NavigationLink(
+                    destination: Results(showingResultView: self.$showingResultView).navigationBarHidden(true),
+                    isActive: self.$showingResultView) {
+                        EmptyView()
+                }
             }
         }
     }
