@@ -81,6 +81,7 @@ struct StartGame: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     private func backGroundColor() -> LinearGradient {
