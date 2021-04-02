@@ -198,9 +198,9 @@ struct RegisterWinning: View {
         modelData.gameData.players[topWinnerIndex].score += 1000 * modelData.gameData.bets
         
         if modelData.gameData.players[topWinnerIndex].name == rGDs.winnersR[0].name {
-            rGDs.winnersR[0].score += 1000 + modelData.gameData.bets
+            rGDs.winnersR[0].score += 1000 * modelData.gameData.bets
         } else {
-            rGDs.winnersR[1].score += 1000 + modelData.gameData.bets
+            rGDs.winnersR[1].score += 1000 * modelData.gameData.bets
         }
         modelData.resultGameDatas.append(rGDs)
 

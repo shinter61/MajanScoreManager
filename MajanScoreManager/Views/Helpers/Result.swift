@@ -46,7 +46,7 @@ struct Result: View {
                                 Spacer()
                             }
                             HStack{
-                                Text("飜数 : \(modelData.getWinnersDouble(Index: i, WinnersIndex: 0))")
+                                Text("飜 : \(modelData.getWinnersDouble(Index: i, WinnersIndex: 0))")
                                 Text("点数 : \(modelData.getWinnersScore(Index: i, WinnersIndex: 0))点")
                                 Spacer()
                             }
