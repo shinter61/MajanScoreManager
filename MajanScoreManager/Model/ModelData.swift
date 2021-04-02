@@ -49,6 +49,8 @@ final class ModelData: ObservableObject {
     @Published var resultGameDatas: [ResultGameData] = []
     
     @Published var navigateSound = try! AVAudioPlayer(data: NSDataAsset(name: "normal_button")!.data)
+    @Published var dialogueSound = try! AVAudioPlayer(data: NSDataAsset(name: "dialogue")!.data)
+    @Published var cancelSound = try! AVAudioPlayer(data: NSDataAsset(name: "cancel")!.data)
 
     func getGameCount() -> Int {
         return resultGameDatas.count

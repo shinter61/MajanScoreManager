@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct EndGameButton: View {
+    @EnvironmentObject var modelData: ModelData
     @Binding var showingEndGameMenu: Bool
     @Binding var isGameEnd: Bool
     
     var body: some View {
         Button(action: {
+            modelData.dialogueSound.play()
             showingEndGameMenu = true
         }) {
             ZStack {
@@ -37,7 +39,9 @@ struct EndGameButton: View {
                         self.showingEndGameMenu = false
                         self.isGameEnd = true
                     }),
-                    .cancel()
+                    .cancel(Text("キャンセル"), action: {
+                        modelData.cancelSound.play()
+                    })
                 ]
             )
         })
@@ -47,5 +51,6 @@ struct EndGameButton: View {
 struct EndGameButton_Previews: PreviewProvider {
     static var previews: some View {
         EndGameButton(showingEndGameMenu: .constant(true),isGameEnd: .constant(false))
+            .environmentObject(ModelData())
     }
 }
