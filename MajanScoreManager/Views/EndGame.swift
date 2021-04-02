@@ -11,6 +11,7 @@ struct EndGame: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var shouldPopToRootView : Bool
     @State private var navigateStartMenu: Bool = false
+    @State private var showingResultView: Bool = false
     
     var rows: [[String]] = []
     
@@ -55,23 +56,33 @@ struct EndGame: View {
                             .listRowBackground(Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255))
                         }
                     }
-                    Button(action: {
-                        modelData.resetGameData()
-                        navigateStartMenu = true
-                        self.shouldPopToRootView = false
-                    }) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 25.0)
-                                .fill(Color.yellow)
-                                .frame(width: 180, height: 50)
-                            
-                            Text("終了")
-                                .foregroundColor(.white)
-                                .font(.custom("Shippori Mincho", size: 24))
-                                .fontWeight(.bold)
-                        }
+                }
+                
+                toResultButton(showingResultView: self.$showingResultView)
+                .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.77)
+
+                Button(action: {
+                    modelData.resetGameData()
+                    navigateStartMenu = true
+                    self.shouldPopToRootView = false
+                }) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 25.0)
+                            .fill(Color.yellow)
+                            .frame(width: 180, height: 50)
+                        Text("終了")
+                            .foregroundColor(.white)
+                            .font(.custom("Shippori Mincho", size: 24))
+                            .fontWeight(.bold)
                     }
                     .padding(.bottom, 50)
+                }
+                .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.9)
+
+                NavigationLink(
+                    destination: Results(showingResultView: self.$showingResultView).navigationBarHidden(true),
+                    isActive: self.$showingResultView) {
+                        EmptyView()
                 }
             }
         }

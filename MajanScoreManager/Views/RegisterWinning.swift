@@ -142,6 +142,16 @@ struct RegisterWinning: View {
             return
         }
         
+        var rGDs: ResultGameData = ResultGameData(
+            id: UUID(),
+            roundR: modelData.gameData.round,
+            handR: modelData.gameData.hand,
+            extraR: modelData.gameData.extra,
+            betsR: modelData.gameData.bets,
+            waitersR: [""],
+            wins: wins
+        )
+        
         for win in wins {
             let winner = modelData.gameData.players.first(where: { $0.id == win.winnerID })!
             let loser = win.loserID == -1
@@ -213,14 +223,12 @@ struct RegisterWinning: View {
 
         let topWinnerIndex = modelData.gameData.players.firstIndex(where: { $0.id == topWinner.id })!
         for i in 0..<modelData.gameData.players.count {
-            if modelData.gameData.players[i].isRiichi {
-                modelData.gameData.players[topWinnerIndex].score += 1000
-            }
-
             modelData.gameData.players[i].isRiichi = false
         }
 
         modelData.gameData.players[topWinnerIndex].score += 1000 * modelData.gameData.bets
+        
+        modelData.resultGameDatas.append(rGDs)
 
         modelData.resetBets()
         
