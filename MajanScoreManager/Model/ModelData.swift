@@ -57,17 +57,7 @@ final class ModelData: ObservableObject {
     func getBets(Index: Int) -> String {
         return "供託: \(resultGameDatas[Index].betsR)本"
     }
-    
-    func getEndType (Index: Int) -> String {
-        if resultGameDatas[Index].isDrawnGame {
-            return "流局"
-        } else if resultGameDatas[Index].isDraw{
-            return "自摸"
-        } else {
-            return "放銃"
-        }
-    }
-    
+
     func getWaitersCount(Index: Int) -> Int {
         return resultGameDatas[Index].waitersR.count
     }

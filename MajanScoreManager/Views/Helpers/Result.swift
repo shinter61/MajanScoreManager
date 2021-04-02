@@ -15,7 +15,7 @@ struct Result: View {
         if gameCount != 0 {
             let place = modelData.getPlace(Index: i)
             let bets = modelData.getBets(Index: i)
-            let endType = modelData.getEndType(Index: i)
+            let endType = "自摸"
             let waitersCount = modelData.getWaitersCount(Index: i)
             let winnersCount = modelData.getWinnersCount(Index: i)
             HStack {

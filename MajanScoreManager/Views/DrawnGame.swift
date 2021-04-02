@@ -59,9 +59,7 @@ struct DrawnGame: View {
             handR: modelData.gameData.hand,
             extraR: modelData.gameData.extra,
             betsR: modelData.gameData.bets,
-            isDrawnGame: true,
             waitersR: [],
-            isDraw: false,
             winnersR: [Winner(id: UUID(), name: "", double: "", score: 0)],
             loserR: ""
         )
