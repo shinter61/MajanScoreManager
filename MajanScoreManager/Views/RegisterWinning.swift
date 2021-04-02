@@ -189,7 +189,7 @@ struct RegisterWinning: View {
         let topWinnerIndex = modelData.gameData.players.firstIndex(where: { $0.id == topWinner.id })!
         for i in 0..<modelData.gameData.players.count {
             if modelData.gameData.players[i].isRiichi {
-                modelData.gameData.players[topWinnerIndex].score += 1000
+//                modelData.gameData.players[topWinnerIndex].score += 1000
             }
 
             modelData.gameData.players[i].isRiichi = false
