@@ -12,6 +12,9 @@ struct GameInfo: View {
     var body: some View {
         HStack {
             ZStack {
+                RoundedRectangle(cornerRadius: 0)
+                    .fill(Color.black)
+                    .frame(width: 80, height: 50)
                 Path { path in
                     path.move(to: CGPoint(x: -10, y: 0))
                     path.addLine(to: CGPoint(x: 90, y: 0))
@@ -22,7 +25,7 @@ struct GameInfo: View {
                     path.move(to: CGPoint(x: 80, y: -10))
                     path.addLine(to: CGPoint(x: 80, y: 60))
                 }
-                .stroke(lineWidth: 3)
+                .stroke(lineWidth: 2)
                 .fill(Color.yellow)
                 .frame(width: 80, height: 50)
                 Text("\(modelData.gameData.round)\(modelData.gameData.hand)局")
@@ -32,6 +35,9 @@ struct GameInfo: View {
             }
             .padding(.trailing, 30)
             ZStack {
+                RoundedRectangle(cornerRadius: 0)
+                    .fill(Color.black)
+                    .frame(width: 80, height: 50)
                 Path { path in
                     path.move(to: CGPoint(x: -10, y: 0))
                     path.addLine(to: CGPoint(x: 90, y: 0))
@@ -42,7 +48,7 @@ struct GameInfo: View {
                     path.move(to: CGPoint(x: 80, y: -10))
                     path.addLine(to: CGPoint(x: 80, y: 60))
                 }
-                .stroke(lineWidth: 3)
+                .stroke(lineWidth: 2)
                 .fill(Color.yellow)
                 .frame(width: 80, height: 50)
                 Text("\(modelData.gameData.extra)本場")
@@ -52,6 +58,9 @@ struct GameInfo: View {
             }
             .padding(.trailing, 30)
             ZStack {
+                RoundedRectangle(cornerRadius: 0)
+                    .fill(Color.black)
+                    .frame(width: 80, height: 50)
                 Path { path in
                     path.move(to: CGPoint(x: -10, y: 0))
                     path.addLine(to: CGPoint(x: 90, y: 0))
@@ -62,7 +71,7 @@ struct GameInfo: View {
                     path.move(to: CGPoint(x: 80, y: -10))
                     path.addLine(to: CGPoint(x: 80, y: 60))
                 }
-                .stroke(lineWidth: 3)
+                .stroke(lineWidth: 2)
                 .fill(Color.yellow)
                 .frame(width: 80, height: 50)
                 Text("供託\(modelData.gameData.bets)本")

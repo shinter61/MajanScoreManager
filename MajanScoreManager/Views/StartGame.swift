@@ -17,18 +17,18 @@ struct StartGame: View {
     var body: some View {
         NavigationView {
             ZStack {
-                self.backGroundColor().edgesIgnoringSafeArea(.all)
+                Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255).edgesIgnoringSafeArea(.all)
                 VStack {
                     GeometryReader { geometry in
                         Text("麻雀点数管理")
                             .font(.custom("Shippori Mincho", size: 60))
                             .fontWeight(.bold)
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
                             .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.02)
                         Text("プレイヤー名を入力してください")
                             .font(.custom("Shippori Mincho", size: 20))
                             .fontWeight(.regular)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
                             .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.2)
                         Group {
                             TextField("Player 1", text: $name1, onCommit: {
@@ -61,7 +61,7 @@ struct StartGame: View {
                         }) {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                        .fill(Color.yellow)
+                                        .fill(Color(red: 19 / 255, green: 191 / 255, blue: 180 / 255))
                                         .frame(width: 180, height: 60)
                                     Text("対局開始")
                                         .foregroundColor(.white)
