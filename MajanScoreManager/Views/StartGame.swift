@@ -73,6 +73,17 @@ struct StartGame: View {
                         .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.7)
                         .padding(.top, 50)
                         .navigationTitle("")
+                        
+                        Button(action: {
+                        }) {
+                            ZStack {
+                                Image(systemName: "questionmark.circle.fill")
+                                    .resizable()
+                                    .frame(width: 48, height: 48, alignment: .center)
+                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                            }
+                        }
+                        .position(x: geometry.size.width * 0.8, y: geometry.size.height * 0.9)
                     
                         NavigationLink(destination: Game(rootIsActive: self.$navigateGameMenu).navigationBarHidden(true), isActive: self.$navigateGameMenu) {
                             EmptyView()
