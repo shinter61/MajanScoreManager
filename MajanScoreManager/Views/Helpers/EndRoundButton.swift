@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct EndRoundButton: View {
+    @EnvironmentObject var modelData: ModelData
     @Binding var showingEndRoundMenu: Bool
     @Binding var showingWinningMenu: Bool
     @Binding var showingDrawnMenu: Bool
     
     var body: some View {
         Button(action: {
+            modelData.dialogueSound.play()
             showingEndRoundMenu = true
         }) {
             ZStack {
@@ -37,14 +39,18 @@ struct EndRoundButton: View {
                 message: Text("種類を選んでください"),
                 buttons: [
                     .default(Text("和了"), action: {
+                        modelData.navigateSound.play()
                         self.showingEndRoundMenu = false
                         self.showingWinningMenu = true
                     }),
                     .default(Text("流局"), action: {
+                        modelData.navigateSound.play()
                         self.showingEndRoundMenu = false
                         self.showingDrawnMenu = true
                     }),
-                    .cancel()
+                    .cancel(Text("キャンセル"), action: {
+                        modelData.cancelSound.play()
+                    })
                 ]
             )
         })
@@ -54,5 +60,6 @@ struct EndRoundButton: View {
 struct EndRoundButton_Previews: PreviewProvider {
     static var previews: some View {
         EndRoundButton(showingEndRoundMenu: .constant(false), showingWinningMenu: .constant(false),showingDrawnMenu: .constant(false))
+            .environmentObject(ModelData())
     }
 }

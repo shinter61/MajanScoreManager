@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import AVFoundation
 
 struct PointsDR: Identifiable {
     var id: Int = 0
@@ -44,6 +46,11 @@ final class ModelData: ObservableObject {
     @Published var childDrawScores: [ChildDrawScore] = load("childDrawScores.json")
     @Published var childRonScores: [Score] = load("childRonScores.json")
     @Published var resultGameDatas: [ResultGameData] = []
+    
+    @Published var navigateSound = try! AVAudioPlayer(data: NSDataAsset(name: "normal_button")!.data)
+    @Published var dialogueSound = try! AVAudioPlayer(data: NSDataAsset(name: "dialogue")!.data)
+    @Published var cancelSound = try! AVAudioPlayer(data: NSDataAsset(name: "cancel")!.data)
+    @Published var riichiSound = try! AVAudioPlayer(data: NSDataAsset(name: "riichi")!.data)
 
     func getGameCount() -> Int {
         return resultGameDatas.count

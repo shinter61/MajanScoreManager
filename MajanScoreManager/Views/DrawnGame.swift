@@ -47,7 +47,10 @@ struct DrawnGame: View {
                     .listRowBackground(Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255))
                 }
                 .frame(height: 176)
-                Button(action: drawnProcess) {
+                Button(action: {
+                    modelData.navigateSound.play()
+                    drawnProcess()
+                }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 11.0)
                             .fill(Color(red: 19 / 255, green: 191 / 255, blue: 180 / 255))

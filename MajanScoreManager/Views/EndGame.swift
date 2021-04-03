@@ -62,6 +62,7 @@ struct EndGame: View {
                 .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.77)
 
                 Button(action: {
+                    modelData.navigateSound.play()
                     modelData.resetGameData()
                     navigateStartMenu = true
                     self.shouldPopToRootView = false
