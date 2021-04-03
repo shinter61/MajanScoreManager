@@ -22,6 +22,7 @@ struct PlayerScore: View {
                 modelData.gameData.bets -= 1
             } else {
                 if player.score >= 1000 {
+                    modelData.riichiSound.play()
                     modelData.gameData.players[playerIndex].isRiichi = true
                     modelData.gameData.players[playerIndex].score -= 1000
                     modelData.gameData.bets += 1
