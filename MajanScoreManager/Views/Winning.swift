@@ -23,6 +23,9 @@ struct Winning: View {
     @State private var pointID: Int = -1
     @State private var showingAlert: Bool = false
     @State private var AlertText: String = ""
+    @State private var selectedIndex = 0
+    @State private var selectedEndType = 0
+    @State private var selectedDoubles = 5
     
     enum WinningType: Int {
         case unselected = 0
@@ -32,93 +35,104 @@ struct Winning: View {
     static let rowHeight: CGFloat = 50
     static let rowMargin: CGFloat = 0.5
     var body: some View {
-        ScrollView(.vertical) {
-            VStack {
-                Text("和了の種類")
-                List {
-                    Group {
-                        Button(action: { type = WinningType.draw }) {
-                            HStack {
-                                Text("自摸")
-                                if type == WinningType.draw {
-                                    Image(systemName: "checkmark")
-                                        .frame(width: 30, height: 30, alignment: .trailing)
+        VStack {
+            Text("和了の種類")
+            ScrollView(.vertical) {
+                VStack {
+                    List {
+                        Section(header: Text("和了の種類")) {
+                            Button(action: { type = WinningType.draw }) {
+                                HStack {
+                                    Text("自摸")
+                                    if type == WinningType.draw {
+                                        Image(systemName: "checkmark")
+                                            .frame(width: 30, height: 30, alignment: .trailing)
+                                    }
                                 }
                             }
-                        }
-                        Button(action: { type = WinningType.ron }) {
-                            HStack {
-                                Text("放銃")
-                                if type == WinningType.ron {
-                                    Image(systemName: "checkmark")
-                                        .frame(width: 30, height: 30, alignment: .trailing)
-                                }
-                            }
-                        }
-                    }
-                }
-                .frame(height: CGFloat(2) * (Winning.rowHeight + Winning.rowMargin))
-                //和了の種類選択後、和了者を選択可能にする
-                if type != WinningType.unselected{
-                    Text("プレイヤーを選択してください")
-                    Form {
-                        Picker(selection: $winnerID, label: Text("和了者を選択")) {
-                            ForEach(modelData.gameData.players, id: \.self.id) { player in
-                                Text(player.name)
-                            }
-                        }
-                        //放銃選択時、放銃者を選択可能にする
-                        if type == WinningType.ron{
-                            Picker(selection: $loserID, label: Text("放銃者を選択")) {
-                                ForEach(modelData.gameData.players, id: \.self.id) { player in
-                                    Text(player.name)
+                            Button(action: { type = WinningType.ron }) {
+                                HStack {
+                                    Text("放銃")
+                                    if type == WinningType.ron {
+                                        Image(systemName: "checkmark")
+                                            .frame(width: 30, height: 30, alignment: .trailing)
+                                    }
                                 }
                             }
                         }
                     }
-                    .frame(height: 150, alignment: .center)
-                }
-                //和了者選択時、飜数を選択可能にする
-                if winnerID != -1 {
-                    Text("飜数を選んでください")
-                    Form {
-                        Picker(selection: $doubleID, label: Text("飜数を選択")) {
-                            ForEach(0..<modelData.doubles.count) { index in
-                                Text(modelData.doubles[index])
-                            }
+                    .frame(height: CGFloat(2) * (Winning.rowHeight + Winning.rowMargin) + 10)
+    
+                    Picker("", selection: self.$selectedIndex) {
+                        Text("1人").tag(0)
+                        Text("2人").tag(1)
+                        Text("3人").tag(2)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    Picker("", selection: $winnerID) {
+                        ForEach(modelData.gameData.players, id: \.self.id) { player in
+                            Text(player.name)
                         }
                     }
-                    .frame(height: 100, alignment: .center)
-                }
-                //飜数選択時、符を選択可能にする
-                if doubleID > -1 && doubleID < 4 {
-                    Text("符を選んでください")
-                    Form {
-                        Picker(selection: $pointID, label: Text("符を選択")) {
-                            ForEach(0..<modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points.count, id: \.self) { index in
-                                Text("\(modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[index])符")
-                            }
+                    .pickerStyle(SegmentedPickerStyle())
+                    Text("飜数を選択")
+                    Stepper("飜数",value: $selectedDoubles, in: 5...8)
+                    Picker("", selection: $doubleID) {
+                        ForEach((selectedDoubles - 5)..<(selectedDoubles - 0)) { index in
+                            Text(modelData.doubles[index])
                         }
                     }
-                    .frame(height: 100, alignment: .center)
+                    .pickerStyle(SegmentedPickerStyle())
+                    //和了の種類選択後、和了者を選択可能にする
+//                    if type != WinningType.unselected{
+                        Text("プレイヤーを選択してください")
+                        List {
+                            //放銃選択時、放銃者を選択可能にする
+                            if type == WinningType.ron{
+                                Picker(selection: $loserID, label: Text("放銃者を選択")) {
+                                    ForEach(modelData.gameData.players, id: \.self.id) { player in
+                                        Text(player.name)
+                                    }
+                                }
+                            }
+                        }//EndForm
+//                    }
+                    //和了者選択時、飜数を選択可能にする
+//                    if winnerID != -1 {
+                        Text("飜数を選んでください")
+                        Form {
+                        }
+                        .frame(height: 100, alignment: .center)
+//                    }
+                    //飜数選択時、符を選択可能にする
+//                    if doubleID > -1 && doubleID < 4 {
+//                        Text("符を選んでください")
+//                        Form {
+//                            Picker(selection: $pointID, label: Text("符を選択")) {
+//                                ForEach(0..<modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points.count, id: \.self) { index in
+//                                    Text("\(modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[index])符")
+//                                }
+//                            }
+//                        }
+//                        .frame(height: 100, alignment: .center)
+//                    }
+                }//EndVStack
+                .alert(isPresented: self.$showingAlert) {
+                    Alert(title: Text(AlertText))
                 }
-                
-                
-
-                Button(action: winningProcess) {
-                    ZStack {
-                        Rectangle()
-                            .frame(width: 100, height: 40, alignment: .center)
-                            .foregroundColor(.white)
-                            .border(Color.gray, width: 2)
-                        Text("決定")
-                    }
+            }//EndScrollView
+            Button(action: winningProcess) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                        .fill(Color.yellow)
+                        .frame(width: 180, height: 50)
+                    Text("決定")
+                            .foregroundColor(.black)
                 }
             }
-            .alert(isPresented: self.$showingAlert) {
-                Alert(title: Text(AlertText))
-            }
-        }
+            
+            
+        }//EndVStack
     }
     //pointsのindex取得
     func getPointsIndex(PointID: Int) -> Int {
