@@ -31,6 +31,7 @@ struct Results: View {
                             }
                             .listRowBackground(Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255))
                         }
+                        .frame(width: 400, alignment: .center)
                     } else {
                         Spacer()
                     }
