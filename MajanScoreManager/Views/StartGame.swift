@@ -76,11 +76,13 @@ struct StartGame: View {
                         
                         Button(action: {
                         }) {
-                            ZStack {
-                                Image(systemName: "questionmark.circle.fill")
-                                    .resizable()
-                                    .frame(width: 48, height: 48, alignment: .center)
-                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                            NavigationLink(destination: Rule()) {
+                                ZStack {
+                                    Image(systemName: "questionmark.circle.fill")
+                                        .resizable()
+                                        .frame(width: 48, height: 48, alignment: .center)
+                                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                }
                             }
                         }
                         .position(x: geometry.size.width * 0.8, y: geometry.size.height * 0.9)
