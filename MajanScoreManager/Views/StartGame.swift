@@ -14,6 +14,7 @@ struct StartGame: View {
     @State private var name3: String = ""
     @State private var name4: String = ""
     @State private var navigateGameMenu: Bool = false
+    @State private var showingRule: Bool = false
     var body: some View {
         NavigationView {
             ZStack {
@@ -75,14 +76,14 @@ struct StartGame: View {
                         .navigationTitle("")
                         
                         Button(action: {
+                            modelData.navigateSound.play()
+                            showingRule = true
                         }) {
-                            NavigationLink(destination: Rule()) {
-                                ZStack {
-                                    Image(systemName: "questionmark.circle.fill")
-                                        .resizable()
-                                        .frame(width: 48, height: 48, alignment: .center)
-                                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
-                                }
+                            ZStack {
+                                Image(systemName: "questionmark.circle.fill")
+                                    .resizable()
+                                    .frame(width: 48, height: 48, alignment: .center)
+                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
                             }
                         }
                         .position(x: geometry.size.width * 0.8, y: geometry.size.height * 0.9)
@@ -91,6 +92,10 @@ struct StartGame: View {
                             EmptyView()
                         }
                         .isDetailLink(false)
+                        
+                        NavigationLink(destination: Rule(), isActive: self.$showingRule) {
+                            EmptyView()
+                        }
                     }
                 }
             }
