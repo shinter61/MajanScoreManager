@@ -21,6 +21,7 @@
 		E5065A77260D2F5B00A3AB65 /* Winning.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5065A76260D2F5B00A3AB65 /* Winning.swift */; };
 		E50ED8E3260F74F600E58E19 /* ChildDrawScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50ED8E2260F74F600E58E19 /* ChildDrawScore.swift */; };
 		E527FB6F260A848B0073173A /* DrawnGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E527FB6E260A848B0073173A /* DrawnGame.swift */; };
+		E53D8799261905AD0068FABC /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53D8798261905AD0068FABC /* Rule.swift */; };
 		E569DAA02609E09C00441533 /* MajanScoreManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */; };
 		E569DAA22609E09C00441533 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAA12609E09C00441533 /* ContentView.swift */; };
 		E569DAA42609E09D00441533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E569DAA32609E09D00441533 /* Assets.xcassets */; };
@@ -81,6 +82,7 @@
 		E5065A76260D2F5B00A3AB65 /* Winning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Winning.swift; sourceTree = "<group>"; };
 		E50ED8E2260F74F600E58E19 /* ChildDrawScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildDrawScore.swift; sourceTree = "<group>"; };
 		E527FB6E260A848B0073173A /* DrawnGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawnGame.swift; sourceTree = "<group>"; };
+		E53D8798261905AD0068FABC /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 		E569DA9C2609E09C00441533 /* MajanScoreManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MajanScoreManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajanScoreManagerApp.swift; sourceTree = "<group>"; };
 		E569DAA12609E09C00441533 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				E5E7330E260F8B7300805B41 /* EndGame.swift */,
 				E5E7C1142610FBAE00B04BEF /* RegisterWinning.swift */,
 				358A98FA2616085F001D31BD /* Helpers */,
+				E53D8798261905AD0068FABC /* Rule.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				E569DAA22609E09C00441533 /* ContentView.swift in Sources */,
 				E56DFF35260A2FD7000312B5 /* Game.swift in Sources */,
 				E59994FD26110F6A00125B75 /* Win.swift in Sources */,
+				E53D8799261905AD0068FABC /* Rule.swift in Sources */,
 				358A98C92615EA73001D31BD /* Results.swift in Sources */,
 				E598A53F2609F92A0046F434 /* RiichiBar.swift in Sources */,
 				E569DAE82609ECA200441533 /* PlayerScore.swift in Sources */,
