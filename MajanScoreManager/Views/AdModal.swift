@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AdModal: View {
-    @Binding var showingModal: Bool
+    @Binding var showingAd: Bool
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -17,7 +17,7 @@ struct AdModal: View {
                     .frame(width: 320, height: 500)
                     .position(x: 0.5 * geometry.size.width, y: 0.5 * geometry.size.height)
                 Button(action: {
-                    showingModal = false
+                    showingAd = false
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 11.0)
@@ -34,6 +34,6 @@ struct AdModal: View {
 
 struct AdModal_Previews: PreviewProvider {
     static var previews: some View {
-        AdModal(showingModal: .constant(false))
+        AdModal(showingAd: .constant(false))
     }
 }

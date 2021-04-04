@@ -12,8 +12,8 @@ struct EndGame: View {
     @Binding var shouldPopToRootView : Bool
     @State private var navigateStartMenu: Bool = false
     @State private var showingResultView: Bool = false
-    @State private var showingModal = false
-    @State private var isModalShownOnce = false
+    @State private var showingAd = false
+    @State private var isAdShownOnce = false
     
     var rows: [[String]] = []
     
@@ -79,8 +79,8 @@ struct EndGame: View {
                 }
                 .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.9)
                 
-                if showingModal {
-                    AdModal(showingModal: self.$showingModal)
+                if showingAd {
+                    AdModal(showingAd: self.$showingAd)
                 }
 
                 NavigationLink(
@@ -91,9 +91,9 @@ struct EndGame: View {
             }
         }
         .onAppear {
-            if !isModalShownOnce {
-                showingModal = true
-                isModalShownOnce = true
+            if !isAdShownOnce {
+                showingAd = true
+                isAdShownOnce = true
             }
         }
     }
