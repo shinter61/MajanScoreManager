@@ -114,7 +114,6 @@ final class ModelData: ObservableObject {
         
         gameData = GameData(
             id: 1,
-            isEnd: false,
             round: "東",
             hand: 1,
             extra: 0,

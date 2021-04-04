@@ -9,7 +9,6 @@ import Foundation
 
 struct GameData: Hashable, Codable, Identifiable {
     var id: Int
-    var isEnd: Bool
     var round: String
     var hand: Int
     var extra: Int
