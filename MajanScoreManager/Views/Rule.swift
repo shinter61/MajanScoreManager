@@ -31,7 +31,7 @@ struct Rule: View {
                             Circle()
                                 .fill(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
                                 .frame(width: 9, height: 9)
-                            StyledText(text: rules[i], size: 16)
+                            NavyText(text: rules[i], size: 16)
                         }
                     }
                     .listRowBackground(Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255))

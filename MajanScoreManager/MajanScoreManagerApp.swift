@@ -6,10 +6,16 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 @main
 struct MajanScoreManagerApp: App {
+    init() {
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+    }
+    
     @StateObject private var modelData = ModelData()
+
     var body: some Scene {
         WindowGroup {
             ContentView()

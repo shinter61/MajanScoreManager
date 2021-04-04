@@ -14,6 +14,8 @@ struct Game: View {
     @State private var showingWinningMenu = false
     @State private var showingDrawnMenu = false
     @State private var showingEndGameMenu = false
+    @State private var showingAd = false
+    @State private var isAdShownOnce = false
     @State private var isGameEnd = false
     var body: some View {
         let player1: Player = modelData.gameData.players[0]
@@ -85,6 +87,10 @@ struct Game: View {
                     EndGameButton(showingEndGameMenu: self.$showingEndGameMenu, isGameEnd: self.$isGameEnd)
                     .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
                 }
+                
+                if showingAd {
+                    AdModal(showingAd: self.$showingAd)
+                }
 
                 NavigationLink(destination: RegisterWinning(showingWinningMenu: self.$showingWinningMenu, isGameEnd: $isGameEnd), isActive: self.$showingWinningMenu) {
                     EmptyView()
@@ -103,6 +109,14 @@ struct Game: View {
             .background(Color(red: 0, green: 102 / 255, blue: 0))
             .ignoresSafeArea(edges: .top)
             .ignoresSafeArea(edges: .bottom)
+        }
+        .onAppear {
+            if !isAdShownOnce &&
+                modelData.gameData.round == "南" &&
+                modelData.gameData.hand == 1 {
+                showingAd = true
+                isAdShownOnce = true
+            }
         }
     }
 }
