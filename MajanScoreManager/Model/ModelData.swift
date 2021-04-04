@@ -9,22 +9,13 @@ import Foundation
 import SwiftUI
 import AVFoundation
 
-struct PointsDR: Identifiable {
-    var id: Int = 0
-    var pointsDoubles: [PointsDouble]
-}
-struct PointsDouble: Identifiable {
-    var id: Int = 0
-    var points: [Int]
-}
-
 final class ModelData: ObservableObject {
     @Published var gameData: GameData = load("gameData.json")
     @Published var winds: [String] = ["東", "南", "西", "北"]
     @Published var doubles: [String] = ["1飜", "2飜", "3飜", "4飜", "満貫", "跳満", "倍満", "三倍満", "役満", "二倍役満", "三倍役満", "四倍役満", "五倍役満"]
     @Published var points: [Int] = [20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 110]
     
-    @Published var PointsDRs: [PointsDR] = [
+    @Published var pointsDRs: [PointsDR] = [
         //Draw
         PointsDR(id: 0, pointsDoubles: [
             PointsDouble(id: 0, points: [30,40,50,60,70,80,90,100,110]),//1d

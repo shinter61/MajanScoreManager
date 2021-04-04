@@ -143,8 +143,8 @@ struct Winning: View {
                                     .fontWeight(.regular)
                                     .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
                             ) {
-                                ForEach(0..<modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points.count, id: \.self) { index in
-                                    Text("\(modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[index])符")
+                                ForEach(0..<modelData.pointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points.count, id: \.self) { index in
+                                    Text("\(modelData.pointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[index])符")
                                 }
                             }
                         }
@@ -175,7 +175,7 @@ struct Winning: View {
         if PointID == -1 {
             return -1
         } else {
-            return modelData.points.firstIndex(of: modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[PointID])!
+            return modelData.points.firstIndex(of: modelData.pointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[PointID])!
         }
     }
     
