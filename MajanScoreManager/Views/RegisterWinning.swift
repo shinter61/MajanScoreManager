@@ -139,20 +139,9 @@ struct RegisterWinning: View {
     }
     
     func winningProcess() -> Void {
-        let ok: Bool = validate()
-        if !ok {
+        if !validate() {
             return
         }
-        
-        var rGDs: ResultGameData = ResultGameData(
-            id: UUID(),
-            roundR: modelData.gameData.round,
-            handR: modelData.gameData.hand,
-            extraR: modelData.gameData.extra,
-            betsR: modelData.gameData.bets,
-            waitersR: [""],
-            wins: wins
-        )
         
         for win in wins {
             let winner = modelData.gameData.players.first(where: { $0.id == win.winnerID })!
@@ -230,6 +219,15 @@ struct RegisterWinning: View {
 
         modelData.gameData.players[topWinnerIndex].score += 1000 * modelData.gameData.bets
         
+        let rGDs: ResultGameData = ResultGameData(
+            id: UUID(),
+            roundR: modelData.gameData.round,
+            handR: modelData.gameData.hand,
+            extraR: modelData.gameData.extra,
+            betsR: modelData.gameData.bets,
+            waitersR: [],
+            wins: wins
+        )
         modelData.resultGameDatas.append(rGDs)
 
         modelData.gameData.resetBets()

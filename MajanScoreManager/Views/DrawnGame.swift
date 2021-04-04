@@ -68,7 +68,7 @@ struct DrawnGame: View {
     }
     
     func drawnProcess() -> Void {
-        var playerIndex: Int {
+        var parentIndex: Int {
             modelData.gameData.players.firstIndex(where: { $0.wind == 0 })!
         }
         
@@ -131,7 +131,7 @@ struct DrawnGame: View {
         }
        
 
-        if !waiters.contains(playerIndex) {
+        if !waiters.contains(parentIndex) {
             modelData.gameData.proceedHand()
             modelData.gameData.proceedWind()
         }
