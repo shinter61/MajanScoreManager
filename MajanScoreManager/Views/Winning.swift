@@ -203,14 +203,14 @@ struct Winning: View {
         var winnerIndex: Int { modelData.gameData.players.firstIndex(where: { $0.id == winner.id })! }
 
         if type == WinningType.draw {
-            if winner.wind == 0 {
+            if winner.isParent() {
                 let score = calcParentDrawScore(double: double, point: point)
                 scores.append(score)
             } else {
                 scores = calcChildDrawScore(double: double, point: point)
             }
         } else if type == WinningType.ron {
-            if winner.wind == 0 {
+            if winner.isParent() {
                 let score = calcParentRonScore(double: double, point: point)
                 scores.append(score)
             } else {

@@ -12,18 +12,7 @@ struct Wind: View {
     var player: Player
     var body: some View {
         ZStack {
-            if player.wind != 0 {
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(Color.yellow)
-                    .frame(width: 40, height: 40)
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(Color.white)
-                    .frame(width: 38, height: 38)
-                Text(modelData.winds[player.wind])
-                    .font(.custom("Shippori Mincho", size: 24))
-                    .fontWeight(.bold)
-                    .foregroundColor(Color(red: 68 / 255, green: 68 / 255, blue: 68 / 255))
-            } else {
+            if player.isParent() {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(Color.yellow)
                     .frame(width: 40, height: 40)
@@ -34,6 +23,17 @@ struct Wind: View {
                     .font(.custom("Shippori Mincho", size: 24))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
+            } else {
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.yellow)
+                    .frame(width: 40, height: 40)
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.white)
+                    .frame(width: 38, height: 38)
+                Text(modelData.winds[player.wind])
+                    .font(.custom("Shippori Mincho", size: 24))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color(red: 68 / 255, green: 68 / 255, blue: 68 / 255))
             }
         }
     }

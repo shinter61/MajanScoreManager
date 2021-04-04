@@ -26,7 +26,7 @@ struct GameData: Hashable, Codable, Identifiable {
     
     mutating func proceedWind() -> Void {
         for i in 0..<self.players.count {
-            if self.players[i].wind == 0 {
+            if self.players[i].isParent() {
                 self.players[i].wind = 3
             } else {
                 self.players[i].wind -= 1

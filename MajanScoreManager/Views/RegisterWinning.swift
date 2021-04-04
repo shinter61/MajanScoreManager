@@ -164,7 +164,7 @@ struct RegisterWinning: View {
                 : modelData.gameData.players.first(where: { $0.id == win.loserID })!
             
             if win.winningType == 1 {
-                if winner.wind == 0 {
+                if winner.isParent() {
                     for player in modelData.gameData.players {
                         var playerIndex: Int {
                             modelData.gameData.players.firstIndex(where: { $0.id == player.id })!
@@ -182,7 +182,7 @@ struct RegisterWinning: View {
                         }
                         if player.id == winner.id {
                             modelData.gameData.players[playerIndex].score += win.score[0] * 2 + win.score[1]
-                        } else if player.wind == 0 {
+                        } else if player.isParent() {
                             modelData.gameData.players[playerIndex].score -= win.score[1]
                         } else {
                             modelData.gameData.players[playerIndex].score -= win.score[0]
@@ -190,7 +190,7 @@ struct RegisterWinning: View {
                     }
                 }
             } else if win.winningType == 2 {
-                if winner.wind == 0 {
+                if winner.isParent() {
                     for player in modelData.gameData.players {
                         var playerIndex: Int {
                             modelData.gameData.players.firstIndex(where: { $0.id == player.id })!
