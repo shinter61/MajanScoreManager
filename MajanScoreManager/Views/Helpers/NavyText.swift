@@ -1,13 +1,13 @@
 //
-//  StyledText.swift
+//  NavyText.swift
 //  MajanScoreManager
 //
-//  Created by 松本真太朗 on 2021/04/03.
+//  Created by 松本真太朗 on 2021/04/04.
 //
 
 import SwiftUI
 
-struct StyledText: View {
+struct NavyText: View {
     var text: String
     var size: Int
     var body: some View {
@@ -18,8 +18,8 @@ struct StyledText: View {
     }
 }
 
-struct StyledText_Previews: PreviewProvider {
+struct NavyText_Previews: PreviewProvider {
     static var previews: some View {
-        StyledText(text: "エヴァに乗れ", size: 16)
+        NavyText(text: "エヴァに乗れ", size: 16)
     }
 }

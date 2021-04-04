@@ -13,4 +13,8 @@ struct Player: Hashable, Codable, Identifiable {
     var name: String
     var isRiichi: Bool
     var wind: Int
+    
+    func isParent() -> Bool {
+        return self.wind == 0
+    }
 }

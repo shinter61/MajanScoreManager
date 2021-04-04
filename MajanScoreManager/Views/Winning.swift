@@ -37,18 +37,12 @@ struct Winning: View {
             
             ScrollView(.vertical) {
                 VStack {
-                    Text("和了の種類")
-                        .font(.custom("Shippori Mincho", size: 20))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                    NavyText(text: "和了の種類", size: 20)
                     List {
                         Group {
                             Button(action: { type = WinningType.draw }) {
                                 HStack {
-                                    Text("自摸")
-                                        .font(.custom("Shippori Mincho", size: 18))
-                                        .fontWeight(.regular)
-                                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                    NavyText(text: "自摸", size: 18)
                                     if type == WinningType.draw {
                                         Image(systemName: "checkmark")
                                             .frame(width: 30, height: 30, alignment: .trailing)
@@ -57,10 +51,7 @@ struct Winning: View {
                             }
                             Button(action: { type = WinningType.ron }) {
                                 HStack {
-                                    Text("放銃")
-                                        .font(.custom("Shippori Mincho", size: 18))
-                                        .fontWeight(.regular)
-                                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                    NavyText(text: "放銃", size: 18)
                                     if type == WinningType.ron {
                                         Image(systemName: "checkmark")
                                             .frame(width: 30, height: 30, alignment: .trailing)
@@ -73,17 +64,11 @@ struct Winning: View {
                     .frame(height: CGFloat(2) * (Winning.rowHeight + Winning.rowMargin))
                     //和了の種類選択後、和了者を選択可能にする
                     if type != WinningType.unselected{
-                        Text("プレイヤーを選択してください")
-                            .font(.custom("Shippori Mincho", size: 20))
-                            .fontWeight(.regular)
-                            .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                        NavyText(text: "プレイヤーを選択してください", size: 20)
                         Form {
                             Picker(
                                 selection: $winnerID,
-                                label: Text("和了者を選択")
-                                    .font(.custom("Shippori Mincho", size: 18))
-                                    .fontWeight(.regular)
-                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                label: NavyText(text: "和了者を選択", size: 18)
                             ) {
                                 ForEach(modelData.gameData.players, id: \.self.id) { player in
                                     Text(player.name)
@@ -93,10 +78,7 @@ struct Winning: View {
                             if type == WinningType.ron{
                                 Picker(
                                     selection: $loserID,
-                                    label: Text("放銃者を選択")
-                                        .font(.custom("Shippori Mincho", size: 18))
-                                        .fontWeight(.regular)
-                                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                    label: NavyText(text: "放銃者を選択", size: 18)
                                 ) {
                                     ForEach(modelData.gameData.players, id: \.self.id) { player in
                                         Text(player.name)
@@ -109,10 +91,7 @@ struct Winning: View {
                     }
                     //和了者選択時、飜数を選択可能にする
                     if winnerID != -1 {
-                        Text("飜数を選んでください")
-                            .font(.custom("Shippori Mincho", size: 20))
-                            .fontWeight(.regular)
-                            .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                        NavyText(text: "飜数を選んでください", size: 20)
                         Form {
                             Picker(
                                 selection: $doubleID,
@@ -131,20 +110,14 @@ struct Winning: View {
                     }
                     //飜数選択時、符を選択可能にする
                     if doubleID > -1 && doubleID < 4 {
-                        Text("符を選んでください")
-                            .font(.custom("Shippori Mincho", size: 20))
-                            .fontWeight(.regular)
-                            .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                        NavyText(text: "符を選んでください", size: 20)
                         Form {
                             Picker(
                                 selection: $pointID,
-                                label: Text("符を選択")
-                                    .font(.custom("Shippori Mincho", size: 18))
-                                    .fontWeight(.regular)
-                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                label: NavyText(text: "符を選択", size: 18)
                             ) {
-                                ForEach(0..<modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points.count, id: \.self) { index in
-                                    Text("\(modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[index])符")
+                                ForEach(0..<modelData.pointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points.count, id: \.self) { index in
+                                    Text("\(modelData.pointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[index])符")
                                 }
                             }
                         }
@@ -171,11 +144,11 @@ struct Winning: View {
         }
     }
     //pointsのindex取得
-    func getPointsIndex(PointID: Int) -> Int {
-        if PointID == -1 {
+    func getPointsIndex(pointID: Int) -> Int {
+        if pointID == -1 {
             return -1
         } else {
-            return modelData.points.firstIndex(of: modelData.PointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[PointID])!
+            return modelData.points.firstIndex(of: modelData.pointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[pointID])!
         }
     }
     
@@ -187,7 +160,7 @@ struct Winning: View {
             return
         }
         //PointID変換
-        pointID = getPointsIndex(PointID: pointID)
+        pointID = getPointsIndex(pointID: pointID)
         
         showingAlert = winningShapeValidate(type: type,winnerID: winnerID,loserID: loserID, doubleID: doubleID, pointID: pointID)
         if showingAlert {
@@ -203,14 +176,14 @@ struct Winning: View {
         var winnerIndex: Int { modelData.gameData.players.firstIndex(where: { $0.id == winner.id })! }
 
         if type == WinningType.draw {
-            if winner.wind == 0 {
+            if winner.isParent() {
                 let score = calcParentDrawScore(double: double, point: point)
                 scores.append(score)
             } else {
                 scores = calcChildDrawScore(double: double, point: point)
             }
         } else if type == WinningType.ron {
-            if winner.wind == 0 {
+            if winner.isParent() {
                 let score = calcParentRonScore(double: double, point: point)
                 scores.append(score)
             } else {
@@ -297,9 +270,9 @@ struct Winning: View {
         let scores: Score = modelData.parentDrawScores.first(where: { $0.double == double })!
         if scores.pointExists {
             let score: Point = scores.points.first(where: { $0.point == point })!
-            return score.score + modelData.gameData.extra * 100
+            return score.score[0] + modelData.gameData.extra * 100
         } else {
-            return scores.score + modelData.gameData.extra * 100
+            return scores.score[0] + modelData.gameData.extra * 100
         }
     }
     
@@ -307,16 +280,16 @@ struct Winning: View {
         let scores: Score = modelData.parentRonScores.first(where: { $0.double == double })!
         if scores.pointExists {
             let score: Point = scores.points.first(where: { $0.point == point })!
-            return score.score + modelData.gameData.extra * 300
+            return score.score[0] + modelData.gameData.extra * 300
         } else {
-            return scores.score + modelData.gameData.extra * 300
+            return scores.score[0] + modelData.gameData.extra * 300
         }
     }
     
     func calcChildDrawScore(double: String, point: Int) -> [Int] {
-        let scores: ChildDrawScore = modelData.childDrawScores.first(where: { $0.double == double })!
+        let scores: Score = modelData.childDrawScores.first(where: { $0.double == double })!
         if scores.pointExists {
-            let score: ChildDrawPoint = scores.points.first(where: { $0.point == point })!
+            let score: Point = scores.points.first(where: { $0.point == point })!
             return score.score.map { $0 + modelData.gameData.extra * 100 }
         } else {
             return scores.score.map { $0 + modelData.gameData.extra * 100 }
@@ -327,9 +300,9 @@ struct Winning: View {
         let scores: Score = modelData.childRonScores.first(where: { $0.double == double })!
         if scores.pointExists {
             let score: Point = scores.points.first(where: { $0.point == point })!
-            return score.score + modelData.gameData.extra * 300
+            return score.score[0] + modelData.gameData.extra * 300
         } else {
-            return scores.score + modelData.gameData.extra * 300
+            return scores.score[0] + modelData.gameData.extra * 300
         }
     }
 }

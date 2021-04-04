@@ -46,10 +46,7 @@ struct EndGame: View {
                         ForEach(0..<rows.count) { i in
                             HStack {
                                 ForEach(0..<rows[i].count) { j in
-                                    Text(rows[i][j])
-                                        .font(.custom("Shippori Mincho", size: 20))
-                                        .fontWeight(.regular)
-                                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                    NavyText(text: rows[i][j], size: 20)
                                         .frame(width: geometry.size.width * 0.2, height: 50, alignment: .center)
                                 }
                             }

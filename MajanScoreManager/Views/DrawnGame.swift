@@ -18,10 +18,7 @@ struct DrawnGame: View {
             Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255).edgesIgnoringSafeArea(.all)
             
             VStack {
-                Text("誰がテンパイしましたか？")
-                    .font(.custom("Shippori Mincho", size: 20))
-                    .fontWeight(.regular)
-                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                NavyText(text: "誰がテンパイしましたか？", size: 20)
                 List {
                     ForEach(0 ..< players.count) { index in
                         HStack {
@@ -32,10 +29,7 @@ struct DrawnGame: View {
                                     waiters.append(index)
                                 }
                             }) {
-                                Text(players[index].name)
-                                    .font(.custom("Shippori Mincho", size: 20))
-                                    .fontWeight(.regular)
-                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                NavyText(text: players[index].name, size: 20)
                             }
                             Spacer()
                             if waiters.contains(index) {
@@ -74,7 +68,7 @@ struct DrawnGame: View {
     }
     
     func drawnProcess() -> Void {
-        var playerIndex: Int {
+        var parentIndex: Int {
             modelData.gameData.players.firstIndex(where: { $0.wind == 0 })!
         }
         
@@ -129,7 +123,7 @@ struct DrawnGame: View {
         }
         
         // 本場
-        modelData.incrementExtra()
+        modelData.gameData.incrementExtra()
         
         for i in 0..<modelData.gameData.players.count {
             // 立直取り消し
@@ -137,13 +131,13 @@ struct DrawnGame: View {
         }
        
 
-        if !waiters.contains(playerIndex) {
-            modelData.proceedHand()
-            modelData.proceedWind()
+        if !waiters.contains(parentIndex) {
+            modelData.gameData.proceedHand()
+            modelData.gameData.proceedWind()
         }
         
-        if modelData.judgeGameEnd() {
-            isGameEnd = modelData.judgeGameEnd()
+        if modelData.gameData.judgeGameEnd() {
+            isGameEnd = modelData.gameData.judgeGameEnd()
         } else {
             self.presentationMode.wrappedValue.dismiss()
         }

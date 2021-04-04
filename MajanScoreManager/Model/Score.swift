@@ -10,11 +10,11 @@ import Foundation
 struct Score: Hashable, Codable {
     var double: String
     var pointExists: Bool
-    var score: Int
+    var score: [Int]
     var points: [Point]
 }
 
 struct Point: Hashable, Codable {
-    var score: Int
+    var score: [Int]
     var point: Int
 }

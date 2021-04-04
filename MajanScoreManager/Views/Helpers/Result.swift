@@ -18,22 +18,22 @@ struct Result: View {
         let winnersCount = resultGameData.getWinnersCount()
         HStack {
             VStack {
-                StyledText(text: String(place[0]), size: 16)
-                StyledText(text: String(place[1]), size: 16)
-                StyledText(text: String(bets), size: 16)
+                NavyText(text: String(place[0]), size: 16)
+                NavyText(text: String(place[1]), size: 16)
+                NavyText(text: String(bets), size: 16)
             }
             .padding()
 
             VStack(spacing: 10) {
-                StyledText(text: String(endType), size: 16)
+                NavyText(text: String(endType), size: 16)
                 if endType == "流局" {
                     HStack{
-                        StyledText(text: "聴牌者: ", size: 16)
+                        NavyText(text: "聴牌者: ", size: 16)
                         if waitersCount == 0 {
-                            StyledText(text: "なし", size: 16)
+                            NavyText(text: "なし", size: 16)
                         } else {
                             ForEach(0..<waitersCount) { index in
-                                StyledText(text: String(resultGameData.waitersR[index]), size: 16)
+                                NavyText(text: String(resultGameData.waitersR[index]), size: 16)
                             }
                         }
                         Spacer()
@@ -41,12 +41,12 @@ struct Result: View {
                 } else if endType == "自摸" {
                     Group {
                         HStack{
-                            StyledText(text: "和了者: \(resultGameData.getWinnersName(winIndex: 0, players: modelData.gameData.players))", size: 16)
+                            NavyText(text: "和了者: \(resultGameData.getWinnersName(winIndex: 0, players: modelData.gameData.players))", size: 16)
                             Spacer()
                         }
                         HStack{
-                            StyledText(text: "飜/点数:", size: 16)
-                            StyledText(text: " \(resultGameData.getWinnersDouble(winIndex: 0)) / \(resultGameData.getWinnersScore(winIndex: 0))", size: 16)
+                            NavyText(text: "飜/点数:", size: 16)
+                            NavyText(text: " \(resultGameData.getWinnersDouble(winIndex: 0)) / \(resultGameData.getWinnersScore(winIndex: 0))", size: 16)
                             Spacer()
                         }
                     }
@@ -54,12 +54,12 @@ struct Result: View {
                     ForEach(0..<winnersCount) { winIndex in
                         Group {
                             HStack{
-                                StyledText(text: "和了者: \(resultGameData.getWinnersName(winIndex: 0, players: modelData.gameData.players))", size: 16)
+                                NavyText(text: "和了者: \(resultGameData.getWinnersName(winIndex: 0, players: modelData.gameData.players))", size: 16)
                                 Spacer()
                             }
                             HStack{
-                                StyledText(text: "飜/点数:", size: 16)
-                                StyledText(text: " \(resultGameData.getWinnersDouble(winIndex: winIndex)) / \(resultGameData.getWinnersScore(winIndex: winIndex))", size: 16)
+                                NavyText(text: "飜/点数:", size: 16)
+                                NavyText(text: " \(resultGameData.getWinnersDouble(winIndex: winIndex)) / \(resultGameData.getWinnersScore(winIndex: winIndex))", size: 16)
                                 Spacer()
                             }
                         }
@@ -70,7 +70,7 @@ struct Result: View {
                         }
                     }
                     HStack{
-                        StyledText(text: "放銃者: \(resultGameData.getLoserName(players: modelData.gameData.players))", size: 16)
+                        NavyText(text: "放銃者: \(resultGameData.getLoserName(players: modelData.gameData.players))", size: 16)
                         Spacer()
                     }
                 }

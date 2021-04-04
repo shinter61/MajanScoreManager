@@ -21,10 +21,7 @@ struct RegisterWinning: View {
             Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255).edgesIgnoringSafeArea(.all)
             
             VStack {
-                Text("和了を登録してください")
-                    .font(.custom("Shippori Mincho", size: 20))
-                    .fontWeight(.regular)
-                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                NavyText(text: "和了を登録してください", size: 20)
                 HStack {
                     Spacer()
                     Button(action: {
@@ -142,20 +139,9 @@ struct RegisterWinning: View {
     }
     
     func winningProcess() -> Void {
-        let ok: Bool = validate()
-        if !ok {
+        if !validate() {
             return
         }
-        
-        var rGDs: ResultGameData = ResultGameData(
-            id: UUID(),
-            roundR: modelData.gameData.round,
-            handR: modelData.gameData.hand,
-            extraR: modelData.gameData.extra,
-            betsR: modelData.gameData.bets,
-            waitersR: [""],
-            wins: wins
-        )
         
         for win in wins {
             let winner = modelData.gameData.players.first(where: { $0.id == win.winnerID })!
@@ -164,7 +150,7 @@ struct RegisterWinning: View {
                 : modelData.gameData.players.first(where: { $0.id == win.loserID })!
             
             if win.winningType == 1 {
-                if winner.wind == 0 {
+                if winner.isParent() {
                     for player in modelData.gameData.players {
                         var playerIndex: Int {
                             modelData.gameData.players.firstIndex(where: { $0.id == player.id })!
@@ -182,7 +168,7 @@ struct RegisterWinning: View {
                         }
                         if player.id == winner.id {
                             modelData.gameData.players[playerIndex].score += win.score[0] * 2 + win.score[1]
-                        } else if player.wind == 0 {
+                        } else if player.isParent() {
                             modelData.gameData.players[playerIndex].score -= win.score[1]
                         } else {
                             modelData.gameData.players[playerIndex].score -= win.score[0]
@@ -190,7 +176,7 @@ struct RegisterWinning: View {
                     }
                 }
             } else if win.winningType == 2 {
-                if winner.wind == 0 {
+                if winner.isParent() {
                     for player in modelData.gameData.players {
                         var playerIndex: Int {
                             modelData.gameData.players.firstIndex(where: { $0.id == player.id })!
@@ -233,20 +219,29 @@ struct RegisterWinning: View {
 
         modelData.gameData.players[topWinnerIndex].score += 1000 * modelData.gameData.bets
         
+        let rGDs: ResultGameData = ResultGameData(
+            id: UUID(),
+            roundR: modelData.gameData.round,
+            handR: modelData.gameData.hand,
+            extraR: modelData.gameData.extra,
+            betsR: modelData.gameData.bets,
+            waitersR: [],
+            wins: wins
+        )
         modelData.resultGameDatas.append(rGDs)
 
-        modelData.resetBets()
+        modelData.gameData.resetBets()
         
         if winners.min(by: { winner1, winner2 in winner1.wind < winner2.wind })?.wind == 0 {
-            modelData.incrementExtra()
+            modelData.gameData.incrementExtra()
         } else {
-            modelData.proceedHand()
-            modelData.proceedWind()
-            modelData.resetExtra()
+            modelData.gameData.proceedHand()
+            modelData.gameData.proceedWind()
+            modelData.gameData.resetExtra()
         }
         
-        if modelData.judgeGameEnd() {
-            isGameEnd = modelData.judgeGameEnd()
+        if modelData.gameData.judgeGameEnd() {
+            isGameEnd = modelData.gameData.judgeGameEnd()
         } else {
             showingWinningMenu = false
         }
