@@ -14,6 +14,7 @@ struct Game: View {
     @State private var showingWinningMenu = false
     @State private var showingDrawnMenu = false
     @State private var showingEndGameMenu = false
+    @State private var showingModal = false
     @State private var isGameEnd = false
     var body: some View {
         let player1: Player = modelData.gameData.players[0]
@@ -84,10 +85,10 @@ struct Game: View {
                     }
                     EndGameButton(showingEndGameMenu: self.$showingEndGameMenu, isGameEnd: self.$isGameEnd)
                     .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
-                    
-                    BannerAd()
-                        .frame(width: 320, height: 500)
-                        .position(x: 0.5 * geometry.size.width, y: 0.5 * geometry.size.height)
+                }
+                
+                if showingModal {
+                    AdModal(showingModal: self.$showingModal)
                 }
 
                 NavigationLink(destination: RegisterWinning(showingWinningMenu: self.$showingWinningMenu, isGameEnd: $isGameEnd), isActive: self.$showingWinningMenu) {
@@ -107,6 +108,9 @@ struct Game: View {
             .background(Color(red: 0, green: 102 / 255, blue: 0))
             .ignoresSafeArea(edges: .top)
             .ignoresSafeArea(edges: .bottom)
+        }
+        .onAppear {
+            showingModal = true
         }
     }
 }
