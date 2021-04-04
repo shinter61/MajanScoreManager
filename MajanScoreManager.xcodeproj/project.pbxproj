@@ -12,6 +12,8 @@
 		358A98CE2615EEC3001D31BD /* toResultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A98CD2615EEC1001D31BD /* toResultButton.swift */; };
 		358A98D32615EF12001D31BD /* BackResultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A98D22615EF11001D31BD /* BackResultButton.swift */; };
 		358A98D82615EF8E001D31BD /* ResultGameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A98D72615EF8E001D31BD /* ResultGameData.swift */; };
+		4A135BD07C7203AC35BD1AF0 /* Pods_MajanScoreManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59B6303A9C62E1ACFA4918F3 /* Pods_MajanScoreManager.framework */; };
+		C167BCEE4F9797132011B2FA /* Pods_MajanScoreManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A50A88D88D646184410E57 /* Pods_MajanScoreManagerTests.framework */; };
 		E5030745260F610F00061C47 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5030744260F610F00061C47 /* Score.swift */; };
 		E503074A260F6C6300061C47 /* parentDrawScores.json in Resources */ = {isa = PBXBuildFile; fileRef = E5030749260F6C6300061C47 /* parentDrawScores.json */; };
 		E503074F260F6CA800061C47 /* parentRonScores.json in Resources */ = {isa = PBXBuildFile; fileRef = E503074E260F6CA800061C47 /* parentRonScores.json */; };
@@ -48,6 +50,7 @@
 		E5E7D22E260A20E600DD8694 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7D22D260A20E600DD8694 /* Player.swift */; };
 		E5F5ABAB2619F0FF00728D88 /* PointsDR.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5ABAA2619F0FF00728D88 /* PointsDR.swift */; };
 		E5F5ABB32619FD2A00728D88 /* NavyText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5ABB22619FD2A00728D88 /* NavyText.swift */; };
+		F9242920337D01A9115AA240 /* Pods_MajanScoreManager_MajanScoreManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EECD8D35F8E600A6647C6F /* Pods_MajanScoreManager_MajanScoreManagerUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,11 +71,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A0EBD4AE5F7ECDDC0981BCF /* Pods-MajanScoreManager-MajanScoreManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MajanScoreManager-MajanScoreManagerUITests.debug.xcconfig"; path = "Target Support Files/Pods-MajanScoreManager-MajanScoreManagerUITests/Pods-MajanScoreManager-MajanScoreManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2A7197B6B526C9E150A1EEE5 /* Pods-MajanScoreManager-MajanScoreManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MajanScoreManager-MajanScoreManagerUITests.release.xcconfig"; path = "Target Support Files/Pods-MajanScoreManager-MajanScoreManagerUITests/Pods-MajanScoreManager-MajanScoreManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		32EF3F9E33777822188D24FB /* Pods-MajanScoreManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MajanScoreManager.debug.xcconfig"; path = "Target Support Files/Pods-MajanScoreManager/Pods-MajanScoreManager.debug.xcconfig"; sourceTree = "<group>"; };
 		358A98C32615EA66001D31BD /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		358A98C82615EA72001D31BD /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		358A98CD2615EEC1001D31BD /* toResultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toResultButton.swift; sourceTree = "<group>"; };
 		358A98D22615EF11001D31BD /* BackResultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackResultButton.swift; sourceTree = "<group>"; };
 		358A98D72615EF8E001D31BD /* ResultGameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultGameData.swift; sourceTree = "<group>"; };
+		42EECD8D35F8E600A6647C6F /* Pods_MajanScoreManager_MajanScoreManagerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MajanScoreManager_MajanScoreManagerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59B6303A9C62E1ACFA4918F3 /* Pods_MajanScoreManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MajanScoreManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FDC807DE34698D9BBB86F1D /* Pods-MajanScoreManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MajanScoreManagerTests.release.xcconfig"; path = "Target Support Files/Pods-MajanScoreManagerTests/Pods-MajanScoreManagerTests.release.xcconfig"; sourceTree = "<group>"; };
+		82B39712142B8F630EAA5F4C /* Pods-MajanScoreManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MajanScoreManager.release.xcconfig"; path = "Target Support Files/Pods-MajanScoreManager/Pods-MajanScoreManager.release.xcconfig"; sourceTree = "<group>"; };
+		B2A50A88D88D646184410E57 /* Pods_MajanScoreManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MajanScoreManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDFD08AD4A8A9E41B0BE61C5 /* Pods-MajanScoreManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MajanScoreManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-MajanScoreManagerTests/Pods-MajanScoreManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E5030744260F610F00061C47 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		E5030749260F6C6300061C47 /* parentDrawScores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = parentDrawScores.json; sourceTree = "<group>"; };
 		E503074E260F6CA800061C47 /* parentRonScores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = parentRonScores.json; sourceTree = "<group>"; };
@@ -122,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A135BD07C7203AC35BD1AF0 /* Pods_MajanScoreManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C167BCEE4F9797132011B2FA /* Pods_MajanScoreManagerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,12 +150,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9242920337D01A9115AA240 /* Pods_MajanScoreManager_MajanScoreManagerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0659533A732FDB2EF5AA8407 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59B6303A9C62E1ACFA4918F3 /* Pods_MajanScoreManager.framework */,
+				42EECD8D35F8E600A6647C6F /* Pods_MajanScoreManager_MajanScoreManagerUITests.framework */,
+				B2A50A88D88D646184410E57 /* Pods_MajanScoreManagerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		358A98FA2616085F001D31BD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +184,20 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		DE34110859EDE7E2DE41A4CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				32EF3F9E33777822188D24FB /* Pods-MajanScoreManager.debug.xcconfig */,
+				82B39712142B8F630EAA5F4C /* Pods-MajanScoreManager.release.xcconfig */,
+				0A0EBD4AE5F7ECDDC0981BCF /* Pods-MajanScoreManager-MajanScoreManagerUITests.debug.xcconfig */,
+				2A7197B6B526C9E150A1EEE5 /* Pods-MajanScoreManager-MajanScoreManagerUITests.release.xcconfig */,
+				BDFD08AD4A8A9E41B0BE61C5 /* Pods-MajanScoreManagerTests.debug.xcconfig */,
+				5FDC807DE34698D9BBB86F1D /* Pods-MajanScoreManagerTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E569DA932609E09C00441533 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +205,8 @@
 				E569DAB02609E09D00441533 /* MajanScoreManagerTests */,
 				E569DABB2609E09D00441533 /* MajanScoreManagerUITests */,
 				E569DA9D2609E09C00441533 /* Products */,
+				DE34110859EDE7E2DE41A4CA /* Pods */,
+				0659533A732FDB2EF5AA8407 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -282,9 +323,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E569DAC12609E09D00441533 /* Build configuration list for PBXNativeTarget "MajanScoreManager" */;
 			buildPhases = (
+				580BD853946DF71D5E3ECEB9 /* [CP] Check Pods Manifest.lock */,
 				E569DA982609E09C00441533 /* Sources */,
 				E569DA992609E09C00441533 /* Frameworks */,
 				E569DA9A2609E09C00441533 /* Resources */,
+				7F4DBD56C94D5F08299DE06F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -299,6 +342,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E569DAC42609E09D00441533 /* Build configuration list for PBXNativeTarget "MajanScoreManagerTests" */;
 			buildPhases = (
+				2C7A8B7E5C131B129DE13BEC /* [CP] Check Pods Manifest.lock */,
 				E569DAA92609E09D00441533 /* Sources */,
 				E569DAAA2609E09D00441533 /* Frameworks */,
 				E569DAAB2609E09D00441533 /* Resources */,
@@ -317,9 +361,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E569DAC72609E09D00441533 /* Build configuration list for PBXNativeTarget "MajanScoreManagerUITests" */;
 			buildPhases = (
+				8C9F404E104E10913D9BB68B /* [CP] Check Pods Manifest.lock */,
 				E569DAB42609E09D00441533 /* Sources */,
 				E569DAB52609E09D00441533 /* Frameworks */,
 				E569DAB62609E09D00441533 /* Resources */,
+				C745DFF5F5BBE463660EDD1F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -408,6 +454,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C7A8B7E5C131B129DE13BEC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MajanScoreManagerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		580BD853946DF71D5E3ECEB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MajanScoreManager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F4DBD56C94D5F08299DE06F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MajanScoreManager/Pods-MajanScoreManager-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MajanScoreManager/Pods-MajanScoreManager-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MajanScoreManager/Pods-MajanScoreManager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C9F404E104E10913D9BB68B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MajanScoreManager-MajanScoreManagerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C745DFF5F5BBE463660EDD1F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MajanScoreManager-MajanScoreManagerUITests/Pods-MajanScoreManager-MajanScoreManagerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MajanScoreManager-MajanScoreManagerUITests/Pods-MajanScoreManager-MajanScoreManagerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MajanScoreManager-MajanScoreManagerUITests/Pods-MajanScoreManager-MajanScoreManagerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E569DA982609E09C00441533 /* Sources */ = {
@@ -594,6 +743,7 @@
 		};
 		E569DAC22609E09D00441533 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32EF3F9E33777822188D24FB /* Pods-MajanScoreManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -616,6 +766,7 @@
 		};
 		E569DAC32609E09D00441533 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82B39712142B8F630EAA5F4C /* Pods-MajanScoreManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -638,6 +789,7 @@
 		};
 		E569DAC52609E09D00441533 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDFD08AD4A8A9E41B0BE61C5 /* Pods-MajanScoreManagerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -659,6 +811,7 @@
 		};
 		E569DAC62609E09D00441533 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FDC807DE34698D9BBB86F1D /* Pods-MajanScoreManagerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -680,6 +833,7 @@
 		};
 		E569DAC82609E09D00441533 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A0EBD4AE5F7ECDDC0981BCF /* Pods-MajanScoreManager-MajanScoreManagerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -699,6 +853,7 @@
 		};
 		E569DAC92609E09D00441533 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A7197B6B526C9E150A1EEE5 /* Pods-MajanScoreManager-MajanScoreManagerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
