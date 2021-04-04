@@ -19,7 +19,6 @@
 		E503075C260F72B000061C47 /* childDrawScores.json in Resources */ = {isa = PBXBuildFile; fileRef = E503075B260F72B000061C47 /* childDrawScores.json */; };
 		E5065A72260D0FBF00A3AB65 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5065A71260D0FBF00A3AB65 /* Wind.swift */; };
 		E5065A77260D2F5B00A3AB65 /* Winning.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5065A76260D2F5B00A3AB65 /* Winning.swift */; };
-		E50ED8E3260F74F600E58E19 /* ChildDrawScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50ED8E2260F74F600E58E19 /* ChildDrawScore.swift */; };
 		E527FB6F260A848B0073173A /* DrawnGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E527FB6E260A848B0073173A /* DrawnGame.swift */; };
 		E569DAA02609E09C00441533 /* MajanScoreManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */; };
 		E569DAA22609E09C00441533 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E569DAA12609E09C00441533 /* ContentView.swift */; };
@@ -80,7 +79,6 @@
 		E503075B260F72B000061C47 /* childDrawScores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = childDrawScores.json; sourceTree = "<group>"; };
 		E5065A71260D0FBF00A3AB65 /* Wind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
 		E5065A76260D2F5B00A3AB65 /* Winning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Winning.swift; sourceTree = "<group>"; };
-		E50ED8E2260F74F600E58E19 /* ChildDrawScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildDrawScore.swift; sourceTree = "<group>"; };
 		E527FB6E260A848B0073173A /* DrawnGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawnGame.swift; sourceTree = "<group>"; };
 		E569DA9C2609E09C00441533 /* MajanScoreManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MajanScoreManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E569DA9F2609E09C00441533 /* MajanScoreManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajanScoreManagerApp.swift; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 				E569DAD72609E90B00441533 /* ModelData.swift */,
 				E5E7D22D260A20E600DD8694 /* Player.swift */,
 				E5030744260F610F00061C47 /* Score.swift */,
-				E50ED8E2260F74F600E58E19 /* ChildDrawScore.swift */,
 				E59994FC26110F6A00125B75 /* Win.swift */,
 				E5F5ABAA2619F0FF00728D88 /* PointsDR.swift */,
 			);
@@ -438,7 +435,6 @@
 				358A98CE2615EEC3001D31BD /* toResultButton.swift in Sources */,
 				358A98D32615EF12001D31BD /* BackResultButton.swift in Sources */,
 				E569DAA02609E09C00441533 /* MajanScoreManagerApp.swift in Sources */,
-				E50ED8E3260F74F600E58E19 /* ChildDrawScore.swift in Sources */,
 				E5065A77260D2F5B00A3AB65 /* Winning.swift in Sources */,
 				E5065A72260D0FBF00A3AB65 /* Wind.swift in Sources */,
 			);

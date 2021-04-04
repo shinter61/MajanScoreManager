@@ -171,11 +171,11 @@ struct Winning: View {
         }
     }
     //pointsのindex取得
-    func getPointsIndex(PointID: Int) -> Int {
-        if PointID == -1 {
+    func getPointsIndex(pointID: Int) -> Int {
+        if pointID == -1 {
             return -1
         } else {
-            return modelData.points.firstIndex(of: modelData.pointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[PointID])!
+            return modelData.points.firstIndex(of: modelData.pointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[pointID])!
         }
     }
     
@@ -187,7 +187,7 @@ struct Winning: View {
             return
         }
         //PointID変換
-        pointID = getPointsIndex(PointID: pointID)
+        pointID = getPointsIndex(pointID: pointID)
         
         showingAlert = winningShapeValidate(type: type,winnerID: winnerID,loserID: loserID, doubleID: doubleID, pointID: pointID)
         if showingAlert {
@@ -297,9 +297,9 @@ struct Winning: View {
         let scores: Score = modelData.parentDrawScores.first(where: { $0.double == double })!
         if scores.pointExists {
             let score: Point = scores.points.first(where: { $0.point == point })!
-            return score.score + modelData.gameData.extra * 100
+            return score.score[0] + modelData.gameData.extra * 100
         } else {
-            return scores.score + modelData.gameData.extra * 100
+            return scores.score[0] + modelData.gameData.extra * 100
         }
     }
     
@@ -307,16 +307,16 @@ struct Winning: View {
         let scores: Score = modelData.parentRonScores.first(where: { $0.double == double })!
         if scores.pointExists {
             let score: Point = scores.points.first(where: { $0.point == point })!
-            return score.score + modelData.gameData.extra * 300
+            return score.score[0] + modelData.gameData.extra * 300
         } else {
-            return scores.score + modelData.gameData.extra * 300
+            return scores.score[0] + modelData.gameData.extra * 300
         }
     }
     
     func calcChildDrawScore(double: String, point: Int) -> [Int] {
-        let scores: ChildDrawScore = modelData.childDrawScores.first(where: { $0.double == double })!
+        let scores: Score = modelData.childDrawScores.first(where: { $0.double == double })!
         if scores.pointExists {
-            let score: ChildDrawPoint = scores.points.first(where: { $0.point == point })!
+            let score: Point = scores.points.first(where: { $0.point == point })!
             return score.score.map { $0 + modelData.gameData.extra * 100 }
         } else {
             return scores.score.map { $0 + modelData.gameData.extra * 100 }
@@ -327,9 +327,9 @@ struct Winning: View {
         let scores: Score = modelData.childRonScores.first(where: { $0.double == double })!
         if scores.pointExists {
             let score: Point = scores.points.first(where: { $0.point == point })!
-            return score.score + modelData.gameData.extra * 300
+            return score.score[0] + modelData.gameData.extra * 300
         } else {
-            return scores.score + modelData.gameData.extra * 300
+            return scores.score[0] + modelData.gameData.extra * 300
         }
     }
 }

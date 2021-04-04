@@ -34,7 +34,7 @@ final class ModelData: ObservableObject {
     
     @Published var parentDrawScores: [Score] = load("parentDrawScores.json")
     @Published var parentRonScores: [Score] = load("parentRonScores.json")
-    @Published var childDrawScores: [ChildDrawScore] = load("childDrawScores.json")
+    @Published var childDrawScores: [Score] = load("childDrawScores.json")
     @Published var childRonScores: [Score] = load("childRonScores.json")
     @Published var resultGameDatas: [ResultGameData] = []
     
