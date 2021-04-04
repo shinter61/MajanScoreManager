@@ -15,6 +15,7 @@ struct Game: View {
     @State private var showingDrawnMenu = false
     @State private var showingEndGameMenu = false
     @State private var showingModal = false
+    @State private var isModalShownOnce = false
     @State private var isGameEnd = false
     var body: some View {
         let player1: Player = modelData.gameData.players[0]
@@ -110,7 +111,12 @@ struct Game: View {
             .ignoresSafeArea(edges: .bottom)
         }
         .onAppear {
-            showingModal = true
+            if !isModalShownOnce &&
+                modelData.gameData.round == "南" &&
+                modelData.gameData.hand == 1 {
+                showingModal = true
+                isModalShownOnce = true
+            }
         }
     }
 }
