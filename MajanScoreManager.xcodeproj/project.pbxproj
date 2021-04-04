@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -194,7 +194,6 @@
 				BDFD08AD4A8A9E41B0BE61C5 /* Pods-MajanScoreManagerTests.debug.xcconfig */,
 				5FDC807DE34698D9BBB86F1D /* Pods-MajanScoreManagerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -774,6 +773,18 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MajanScoreManager/Preview Content\"";
 				DEVELOPMENT_TEAM = AKQMM94SB8;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_ROOT}/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current\"",
+					"\"${PODS_ROOT}/GoogleAppMeasurement/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUserMessagingPlatform/Frameworks/Release\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/GoogleAppMeasurement\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/GoogleMobileAds\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/UserMessagingPlatform\"",
+				);
 				INFOPLIST_FILE = MajanScoreManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
