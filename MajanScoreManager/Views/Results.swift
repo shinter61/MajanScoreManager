@@ -18,10 +18,7 @@ struct Results: View {
             
             GeometryReader { geometry in
                 VStack {
-                    Text("戦績一覧")
-                        .font(.custom("Shippori Mincho", size: 20))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                    NavyText(text: "戦績一覧", size: 20)
                         .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.05)
                         .frame(height: geometry.size.height / 10)
                     if gameCount != 0 {

@@ -18,10 +18,7 @@ struct DrawnGame: View {
             Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255).edgesIgnoringSafeArea(.all)
             
             VStack {
-                Text("誰がテンパイしましたか？")
-                    .font(.custom("Shippori Mincho", size: 20))
-                    .fontWeight(.regular)
-                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                NavyText(text: "誰がテンパイしましたか？", size: 20)
                 List {
                     ForEach(0 ..< players.count) { index in
                         HStack {
@@ -32,10 +29,7 @@ struct DrawnGame: View {
                                     waiters.append(index)
                                 }
                             }) {
-                                Text(players[index].name)
-                                    .font(.custom("Shippori Mincho", size: 20))
-                                    .fontWeight(.regular)
-                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                NavyText(text: players[index].name, size: 20)
                             }
                             Spacer()
                             if waiters.contains(index) {

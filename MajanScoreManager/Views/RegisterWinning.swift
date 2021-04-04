@@ -21,10 +21,7 @@ struct RegisterWinning: View {
             Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255).edgesIgnoringSafeArea(.all)
             
             VStack {
-                Text("和了を登録してください")
-                    .font(.custom("Shippori Mincho", size: 20))
-                    .fontWeight(.regular)
-                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                NavyText(text: "和了を登録してください", size: 20)
                 HStack {
                     Spacer()
                     Button(action: {

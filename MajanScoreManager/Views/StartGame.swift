@@ -25,10 +25,7 @@ struct StartGame: View {
                             .fontWeight(.bold)
                             .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
                             .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.02)
-                        Text("プレイヤー名を入力してください")
-                            .font(.custom("Shippori Mincho", size: 20))
-                            .fontWeight(.regular)
-                            .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                        NavyText(text: "プレイヤー名を入力してください", size: 20)
                             .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.2)
                         Group {
                             TextField("Player 1", text: $name1, onCommit: {

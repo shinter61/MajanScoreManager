@@ -37,18 +37,12 @@ struct Winning: View {
             
             ScrollView(.vertical) {
                 VStack {
-                    Text("和了の種類")
-                        .font(.custom("Shippori Mincho", size: 20))
-                        .fontWeight(.regular)
-                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                    NavyText(text: "和了の種類", size: 20)
                     List {
                         Group {
                             Button(action: { type = WinningType.draw }) {
                                 HStack {
-                                    Text("自摸")
-                                        .font(.custom("Shippori Mincho", size: 18))
-                                        .fontWeight(.regular)
-                                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                    NavyText(text: "自摸", size: 18)
                                     if type == WinningType.draw {
                                         Image(systemName: "checkmark")
                                             .frame(width: 30, height: 30, alignment: .trailing)
@@ -57,10 +51,7 @@ struct Winning: View {
                             }
                             Button(action: { type = WinningType.ron }) {
                                 HStack {
-                                    Text("放銃")
-                                        .font(.custom("Shippori Mincho", size: 18))
-                                        .fontWeight(.regular)
-                                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                    NavyText(text: "放銃", size: 18)
                                     if type == WinningType.ron {
                                         Image(systemName: "checkmark")
                                             .frame(width: 30, height: 30, alignment: .trailing)
@@ -73,17 +64,11 @@ struct Winning: View {
                     .frame(height: CGFloat(2) * (Winning.rowHeight + Winning.rowMargin))
                     //和了の種類選択後、和了者を選択可能にする
                     if type != WinningType.unselected{
-                        Text("プレイヤーを選択してください")
-                            .font(.custom("Shippori Mincho", size: 20))
-                            .fontWeight(.regular)
-                            .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                        NavyText(text: "プレイヤーを選択してください", size: 20)
                         Form {
                             Picker(
                                 selection: $winnerID,
-                                label: Text("和了者を選択")
-                                    .font(.custom("Shippori Mincho", size: 18))
-                                    .fontWeight(.regular)
-                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                label: NavyText(text: "和了者を選択", size: 18)
                             ) {
                                 ForEach(modelData.gameData.players, id: \.self.id) { player in
                                     Text(player.name)
@@ -93,10 +78,7 @@ struct Winning: View {
                             if type == WinningType.ron{
                                 Picker(
                                     selection: $loserID,
-                                    label: Text("放銃者を選択")
-                                        .font(.custom("Shippori Mincho", size: 18))
-                                        .fontWeight(.regular)
-                                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                    label: NavyText(text: "放銃者を選択", size: 18)
                                 ) {
                                     ForEach(modelData.gameData.players, id: \.self.id) { player in
                                         Text(player.name)
@@ -109,10 +91,7 @@ struct Winning: View {
                     }
                     //和了者選択時、飜数を選択可能にする
                     if winnerID != -1 {
-                        Text("飜数を選んでください")
-                            .font(.custom("Shippori Mincho", size: 20))
-                            .fontWeight(.regular)
-                            .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                        NavyText(text: "飜数を選んでください", size: 20)
                         Form {
                             Picker(
                                 selection: $doubleID,
@@ -131,17 +110,11 @@ struct Winning: View {
                     }
                     //飜数選択時、符を選択可能にする
                     if doubleID > -1 && doubleID < 4 {
-                        Text("符を選んでください")
-                            .font(.custom("Shippori Mincho", size: 20))
-                            .fontWeight(.regular)
-                            .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                        NavyText(text: "符を選んでください", size: 20)
                         Form {
                             Picker(
                                 selection: $pointID,
-                                label: Text("符を選択")
-                                    .font(.custom("Shippori Mincho", size: 18))
-                                    .fontWeight(.regular)
-                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                                label: NavyText(text: "符を選択", size: 18)
                             ) {
                                 ForEach(0..<modelData.pointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points.count, id: \.self) { index in
                                     Text("\(modelData.pointsDRs[type.rawValue - 1].pointsDoubles[doubleID].points[index])符")
