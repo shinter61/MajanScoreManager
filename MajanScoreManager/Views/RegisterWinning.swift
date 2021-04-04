@@ -235,18 +235,18 @@ struct RegisterWinning: View {
         
         modelData.resultGameDatas.append(rGDs)
 
-        modelData.resetBets()
+        modelData.gameData.resetBets()
         
         if winners.min(by: { winner1, winner2 in winner1.wind < winner2.wind })?.wind == 0 {
-            modelData.incrementExtra()
+            modelData.gameData.incrementExtra()
         } else {
-            modelData.proceedHand()
-            modelData.proceedWind()
-            modelData.resetExtra()
+            modelData.gameData.proceedHand()
+            modelData.gameData.proceedWind()
+            modelData.gameData.resetExtra()
         }
         
-        if modelData.judgeGameEnd() {
-            isGameEnd = modelData.judgeGameEnd()
+        if modelData.gameData.judgeGameEnd() {
+            isGameEnd = modelData.gameData.judgeGameEnd()
         } else {
             showingWinningMenu = false
         }

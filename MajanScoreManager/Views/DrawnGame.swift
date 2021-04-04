@@ -129,7 +129,7 @@ struct DrawnGame: View {
         }
         
         // 本場
-        modelData.incrementExtra()
+        modelData.gameData.incrementExtra()
         
         for i in 0..<modelData.gameData.players.count {
             // 立直取り消し
@@ -138,12 +138,12 @@ struct DrawnGame: View {
        
 
         if !waiters.contains(playerIndex) {
-            modelData.proceedHand()
-            modelData.proceedWind()
+            modelData.gameData.proceedHand()
+            modelData.gameData.proceedWind()
         }
         
-        if modelData.judgeGameEnd() {
-            isGameEnd = modelData.judgeGameEnd()
+        if modelData.gameData.judgeGameEnd() {
+            isGameEnd = modelData.gameData.judgeGameEnd()
         } else {
             self.presentationMode.wrappedValue.dismiss()
         }

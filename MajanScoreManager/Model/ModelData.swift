@@ -56,49 +56,6 @@ final class ModelData: ObservableObject {
         return resultGameDatas.count
     }
 
-    func proceedHand() -> Void {
-        if gameData.hand == 4 && gameData.round == "東" {
-            gameData.hand = 1
-            gameData.round = "南"
-        } else {
-            gameData.hand += 1
-        }
-    }
-    
-    func proceedWind() -> Void {
-        for i in 0..<gameData.players.count {
-            if gameData.players[i].wind == 0 {
-                gameData.players[i].wind = 3
-            } else {
-                gameData.players[i].wind -= 1
-            }
-        }
-    }
-    
-    func incrementExtra() -> Void {
-        gameData.extra += 1
-    }
-    
-    func resetExtra() -> Void {
-        gameData.extra = 0
-    }
-    
-    func resetBets() -> Void {
-        gameData.bets = 0
-    }
-    
-    func judgeGameEnd() -> Bool {
-        if gameData.round == "南" && gameData.hand >= 5 {
-            return true
-        }
-        
-        if !gameData.players.allSatisfy({ $0.score >= 0 }) {
-            return true
-        }
-        
-        return false
-    }
-    
     func resetGameData() -> Void {
         var players: [Player] = []
         for i in 0...3  {
