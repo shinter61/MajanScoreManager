@@ -84,6 +84,10 @@ struct Game: View {
                     }
                     EndGameButton(showingEndGameMenu: self.$showingEndGameMenu, isGameEnd: self.$isGameEnd)
                     .position(x: 0.5 * geometry.size.width, y: 0.9 * geometry.size.height)
+                    
+                    BannerAd()
+                        .frame(width: 320, height: 500)
+                        .position(x: 0.5 * geometry.size.width, y: 0.5 * geometry.size.height)
                 }
 
                 NavigationLink(destination: RegisterWinning(showingWinningMenu: self.$showingWinningMenu, isGameEnd: $isGameEnd), isActive: self.$showingWinningMenu) {
