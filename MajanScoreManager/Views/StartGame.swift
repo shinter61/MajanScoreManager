@@ -98,6 +98,9 @@ struct StartGame: View {
                 }
                 .padding(.top, -50)
             }
+            .onTapGesture {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .keyboardObserving()
