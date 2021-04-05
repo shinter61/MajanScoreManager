@@ -7,6 +7,7 @@ target 'MajanScoreManager' do
 
   # Pods for MajanScoreManager
   pod 'Google-Mobile-Ads-SDK'
+  pod 'KeyboardObserving'
 
   target 'MajanScoreManagerTests' do
     inherit! :search_paths

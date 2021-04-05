@@ -26,6 +26,7 @@ PODS:
   - "GoogleUtilities/NSData+zlib (7.3.1)"
   - GoogleUtilities/Reachability (7.3.1):
     - GoogleUtilities/Logger
+  - KeyboardObserving (0.3.0)
   - nanopb (2.30907.0):
     - nanopb/decode (= 2.30907.0)
     - nanopb/encode (= 2.30907.0)
@@ -35,6 +36,7 @@ PODS:
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
+  - KeyboardObserving
 
 SPEC REPOS:
   trunk:
@@ -42,6 +44,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUserMessagingPlatform
     - GoogleUtilities
+    - KeyboardObserving
     - nanopb
     - PromisesObjC
 
@@ -50,9 +53,10 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 120eec8803fe65a4a7475fb3d3d59a61d0e1a866
   GoogleUserMessagingPlatform: ab890ce5f6620f293a21b6bdd82e416a2c73aeca
   GoogleUtilities: e1d9ed4e544fc32a93e00e721400cbc3f377200d
+  KeyboardObserving: 0e3089bfd76cd10cd49f28532450e70b16c239c3
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: 3f812f0d6859ca6a3295589ab69da296d1481b1e
+PODFILE CHECKSUM: 486083c019a4c6d8710d06d79a2420da22bc9714
 
 COCOAPODS: 1.10.1
