@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KeyboardObserving
 
 struct StartGame: View {
     @EnvironmentObject var modelData: ModelData
@@ -20,58 +21,56 @@ struct StartGame: View {
             ZStack {
                 Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255).edgesIgnoringSafeArea(.all)
                 VStack {
-                    GeometryReader { geometry in
-                        Text("麻雀点数管理")
-                            .font(.custom("Shippori Mincho", size: 60))
-                            .fontWeight(.bold)
-                            .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
-                            .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.02)
-                        NavyText(text: "プレイヤー名を入力してください", size: 20)
-                            .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.2)
-                        Group {
-                            TextField("Player 1", text: $name1, onCommit: {
-                                modelData.gameData.players[0].name = name1
-                            })
-                            .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.3)
-                            TextField("Player 2", text: $name2, onCommit: {
-                                modelData.gameData.players[1].name = name2
-                            })
-                            .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.4)
-                            TextField("Player 3", text: $name3, onCommit: {
-                                modelData.gameData.players[2].name = name3
-                            })
-                            .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.5)
-                            TextField("Player 4", text: $name4, onCommit: {
-                                modelData.gameData.players[3].name = name4
-                            })
-                            .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.6)
-                        }
-                        .font(.custom("Shippori Mincho", size: 24))
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .frame(width: geometry.size.width * 0.75, alignment: .center)
+                    Text("麻雀点数管理")
+                        .font(.custom("Shippori Mincho", size: 60))
+                        .fontWeight(.bold)
+                        .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                        .padding(.bottom, 30)
+                    NavyText(text: "プレイヤー名を入力してください", size: 20)
+                    Group {
+                        TextField("Player 1", text: $name1, onCommit: {
+                            modelData.gameData.players[0].name = name1
+                        })
+                        .padding(.bottom, 10)
+                        TextField("Player 2", text: $name2, onCommit: {
+                            modelData.gameData.players[1].name = name2
+                        })
+                        .padding(.bottom, 10)
+                        TextField("Player 3", text: $name3, onCommit: {
+                            modelData.gameData.players[2].name = name3
+                        })
+                        .padding(.bottom, 10)
+                        TextField("Player 4", text: $name4, onCommit: {
+                            modelData.gameData.players[3].name = name4
+                        })
+                        .padding(.bottom, 10)
+                    }
+                    .font(.custom("Shippori Mincho", size: 24))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(width: 300)
 
-                        Button(action: {
-                            modelData.navigateSound.play()
-                            modelData.gameData.players[0].name = name1.isEmpty ? "Player1" : name1
-                            modelData.gameData.players[1].name = name2.isEmpty ? "Player2" : name2
-                            modelData.gameData.players[2].name = name3.isEmpty ? "Player3" : name3
-                            modelData.gameData.players[3].name = name4.isEmpty ? "Player4" : name4
-                            navigateGameMenu = true
-                        }) {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                        .fill(Color(red: 19 / 255, green: 191 / 255, blue: 180 / 255))
-                                        .frame(width: 180, height: 60)
-                                    Text("対局開始")
-                                        .foregroundColor(.white)
-                                        .font(.custom("Shippori Mincho", size: 24))
-                                        .fontWeight(.bold)
-                                }
-                        }
-                        .position(x: geometry.size.width * 0.5, y: geometry.size.height * 0.7)
-                        .padding(.top, 50)
-                        .navigationTitle("")
-                        
+                    Button(action: {
+                        modelData.navigateSound.play()
+                        modelData.gameData.players[0].name = name1.isEmpty ? "Player1" : name1
+                        modelData.gameData.players[1].name = name2.isEmpty ? "Player2" : name2
+                        modelData.gameData.players[2].name = name3.isEmpty ? "Player3" : name3
+                        modelData.gameData.players[3].name = name4.isEmpty ? "Player4" : name4
+                        navigateGameMenu = true
+                    }) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                    .fill(Color(red: 19 / 255, green: 191 / 255, blue: 180 / 255))
+                                    .frame(width: 180, height: 60)
+                                Text("対局開始")
+                                    .foregroundColor(.white)
+                                    .font(.custom("Shippori Mincho", size: 24))
+                                    .fontWeight(.bold)
+                            }
+                    }
+                    .navigationTitle("")
+
+                    HStack {
+                        Spacer()
                         Button(action: {
                             modelData.navigateSound.play()
                             showingRule = true
@@ -83,21 +82,25 @@ struct StartGame: View {
                                     .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
                             }
                         }
-                        .position(x: geometry.size.width * 0.8, y: geometry.size.height * 0.9)
-                    
-                        NavigationLink(destination: Game(rootIsActive: self.$navigateGameMenu).navigationBarHidden(true), isActive: self.$navigateGameMenu) {
-                            EmptyView()
-                        }
-                        .isDetailLink(false)
-                        
-                        NavigationLink(destination: Rule(), isActive: self.$showingRule) {
-                            EmptyView()
-                        }
+                        .padding(.trailing, 30)
+                    }
+
+                    Spacer()
+
+                    NavigationLink(destination: Game(rootIsActive: self.$navigateGameMenu).navigationBarHidden(true), isActive: self.$navigateGameMenu) {
+                        EmptyView()
+                    }
+                    .isDetailLink(false)
+
+                    NavigationLink(destination: Rule(), isActive: self.$showingRule) {
+                        EmptyView()
                     }
                 }
+                .padding(.top, -50)
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .keyboardObserving()
     }
     
     private func backGroundColor() -> LinearGradient {
