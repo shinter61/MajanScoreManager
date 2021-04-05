@@ -51,6 +51,7 @@
 		E5E7D2292609FD9B00DD8694 /* gameData.json in Resources */ = {isa = PBXBuildFile; fileRef = E5E7D2282609FD9B00DD8694 /* gameData.json */; };
 		E5E7D22E260A20E600DD8694 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E7D22D260A20E600DD8694 /* Player.swift */; };
 		E5F139D7261B2A64008B41CD /* Histories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F139D6261B2A64008B41CD /* Histories.swift */; };
+		E5F139DC261B8155008B41CD /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F139DB261B8155008B41CD /* History.swift */; };
 		E5F5ABAB2619F0FF00728D88 /* PointsDR.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5ABAA2619F0FF00728D88 /* PointsDR.swift */; };
 		E5F5ABB32619FD2A00728D88 /* NavyText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5ABB22619FD2A00728D88 /* NavyText.swift */; };
 		F9242920337D01A9115AA240 /* Pods_MajanScoreManager_MajanScoreManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EECD8D35F8E600A6647C6F /* Pods_MajanScoreManager_MajanScoreManagerUITests.framework */; };
@@ -131,6 +132,7 @@
 		E5E7D2282609FD9B00DD8694 /* gameData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gameData.json; sourceTree = "<group>"; };
 		E5E7D22D260A20E600DD8694 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E5F139D6261B2A64008B41CD /* Histories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Histories.swift; sourceTree = "<group>"; };
+		E5F139DB261B8155008B41CD /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		E5F5ABAA2619F0FF00728D88 /* PointsDR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsDR.swift; sourceTree = "<group>"; };
 		E5F5ABB22619FD2A00728D88 /* NavyText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavyText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -276,6 +278,7 @@
 				E5030744260F610F00061C47 /* Score.swift */,
 				E59994FC26110F6A00125B75 /* Win.swift */,
 				E5F5ABAA2619F0FF00728D88 /* PointsDR.swift */,
+				E5F139DB261B8155008B41CD /* History.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				E5CDF942260A4E8000E17A3F /* GameInfo.swift in Sources */,
 				E5E7330F260F8B7300805B41 /* EndGame.swift in Sources */,
 				E56DFF30260A2E22000312B5 /* StartGame.swift in Sources */,
+				E5F139DC261B8155008B41CD /* History.swift in Sources */,
 				358A98CE2615EEC3001D31BD /* toResultButton.swift in Sources */,
 				E5F139D7261B2A64008B41CD /* Histories.swift in Sources */,
 				358A98D32615EF12001D31BD /* BackResultButton.swift in Sources */,
