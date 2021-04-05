@@ -16,6 +16,7 @@ struct StartGame: View {
     @State private var name4: String = ""
     @State private var navigateGameMenu: Bool = false
     @State private var showingRule: Bool = false
+    @State private var showingHistories: Bool = false
     var body: some View {
         NavigationView {
             ZStack {
@@ -68,9 +69,22 @@ struct StartGame: View {
                             }
                     }
                     .navigationTitle("")
+                    .padding(.bottom, 12)
 
                     HStack {
                         Spacer()
+                        Button(action: {
+                            modelData.navigateSound.play()
+                            showingHistories = true
+                        }) {
+                            ZStack {
+                                Image(systemName: "clock.arrow.circlepath")
+                                    .resizable()
+                                    .frame(width: 48, height: 48, alignment: .center)
+                                    .foregroundColor(Color(red: 58 / 255, green: 76 / 255, blue: 99 / 255))
+                            }
+                        }
+                        .padding(.trailing, 10)
                         Button(action: {
                             modelData.navigateSound.play()
                             showingRule = true
@@ -93,6 +107,10 @@ struct StartGame: View {
                     .isDetailLink(false)
 
                     NavigationLink(destination: Rule(), isActive: self.$showingRule) {
+                        EmptyView()
+                    }
+                    
+                    NavigationLink(destination: Histories(), isActive: self.$showingHistories) {
                         EmptyView()
                     }
                 }
