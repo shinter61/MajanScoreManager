@@ -148,8 +148,9 @@ final class ModelData: ObservableObject {
         }
         
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.timeZone = TimeZone(identifier:  "Asia/Tokyo")
+        formatter.dateFormat = "yy/MM/dd HH:mm"
         let now = Date()
         let history: History = History(
             finishedAt: formatter.string(from: now),
