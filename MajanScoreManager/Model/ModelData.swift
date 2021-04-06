@@ -81,7 +81,6 @@ final class ModelData: ObservableObject {
             return player1.score > player2.score
         })
         var sum: Int = 0
-        var playersData: [HistoryPlayerData] = []
         for i in 0..<sortedPlayers.count {
             // オカの分を引く
             var marks = Int(round(Double(sortedPlayers[i].score) / 1000)) - 30
@@ -102,12 +101,6 @@ final class ModelData: ObservableObject {
             }
             
             sum += marks
-            let playerData = HistoryPlayerData(
-                name: sortedPlayers[i].name,
-                mark: marks,
-                score: sortedPlayers[i].score
-            )
-            playersData.append(playerData)
             rows.append([
                 "\(sortedPlayers[i].name)",
                 "\(i + 1)位",
@@ -115,17 +108,7 @@ final class ModelData: ObservableObject {
                 "\(marks)"
             ])
         }
-        
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
-        let now = Date()
-        let history: History = History(
-            finishedAt: formatter.string(from: now),
-            playersData: playersData
-        )
-        histories.append(history)
-        
+
         return rows
     }
 }
