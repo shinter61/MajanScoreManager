@@ -146,6 +146,7 @@ struct DrawnGame: View {
         }
         
         if modelData.gameData.judgeGameEnd() {
+            modelData.appendHistory()
             isGameEnd = modelData.gameData.judgeGameEnd()
         } else {
             self.presentationMode.wrappedValue.dismiss()

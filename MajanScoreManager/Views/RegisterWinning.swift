@@ -250,6 +250,7 @@ struct RegisterWinning: View {
         }
         
         if modelData.gameData.judgeGameEnd() {
+            modelData.appendHistory()
             isGameEnd = modelData.gameData.judgeGameEnd()
         } else {
             showingWinningMenu = false

@@ -13,7 +13,8 @@ struct History: Hashable, Codable, Identifiable {
     var playersData: [HistoryPlayerData]
 }
 
-struct HistoryPlayerData: Hashable, Codable {
+struct HistoryPlayerData: Hashable, Codable, Identifiable {
+    var id: UUID = UUID()
     var name: String
     var mark: Int
     var score: Int
