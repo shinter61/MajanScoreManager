@@ -10,8 +10,9 @@ import SwiftUI
 struct DrawnGame: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
-    @Binding var isGameEnd: Bool
+    @Binding var rootIsActive: Bool
     @State private var waiters: [Int] = []
+    @State private var isGameEnd: Bool = false
     var body: some View {
         let players: [Player] = modelData.gameData.players
         ZStack {
@@ -64,6 +65,14 @@ struct DrawnGame: View {
                 }
                 Spacer()
             }
+            
+            NavigationLink(destination:
+                EndGame(
+                    shouldPopToRootView: $rootIsActive,
+                    modelData: modelData
+                ).navigationBarHidden(true),
+               isActive: $isGameEnd
+            ) { EmptyView() }
         }
     }
     
@@ -137,6 +146,7 @@ struct DrawnGame: View {
         }
         
         if modelData.gameData.judgeGameEnd() {
+            modelData.prependHistory()
             isGameEnd = modelData.gameData.judgeGameEnd()
         } else {
             self.presentationMode.wrappedValue.dismiss()
@@ -146,7 +156,7 @@ struct DrawnGame: View {
 
 struct DrawnGame_Previews: PreviewProvider {
     static var previews: some View {
-        DrawnGame(isGameEnd: .constant(false))
+        DrawnGame(rootIsActive: .constant(false))
             .environmentObject(ModelData())
     }
 }

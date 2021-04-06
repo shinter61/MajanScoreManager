@@ -92,10 +92,10 @@ struct Game: View {
                     AdModal(showingAd: self.$showingAd)
                 }
 
-                NavigationLink(destination: RegisterWinning(showingWinningMenu: self.$showingWinningMenu, isGameEnd: $isGameEnd), isActive: self.$showingWinningMenu) {
+                NavigationLink(destination: RegisterWinning(showingWinningMenu: self.$showingWinningMenu, rootIsActive: self.$rootIsActive), isActive: self.$showingWinningMenu) {
                     EmptyView()
                 }
-                NavigationLink(destination: DrawnGame(isGameEnd: $isGameEnd), isActive: self.$showingDrawnMenu) {
+                NavigationLink(destination: DrawnGame(rootIsActive: self.$rootIsActive), isActive: self.$showingDrawnMenu) {
                     EmptyView()
                 }
                 NavigationLink(destination:

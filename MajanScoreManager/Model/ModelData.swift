@@ -37,6 +37,7 @@ final class ModelData: ObservableObject {
     @Published var childDrawScores: [Score] = load("childDrawScores.json")
     @Published var childRonScores: [Score] = load("childRonScores.json")
     @Published var resultGameDatas: [ResultGameData] = []
+    @Published var histories: [History] = []
     
     @Published var navigateSound = try! AVAudioPlayer(data: NSDataAsset(name: "normal_button")!.data)
     @Published var dialogueSound = try! AVAudioPlayer(data: NSDataAsset(name: "dialogue")!.data)
@@ -107,8 +108,55 @@ final class ModelData: ObservableObject {
                 "\(marks)"
             ])
         }
-        
+
         return rows
+    }
+    
+    func prependHistory() -> Void {
+        let sortedPlayers = gameData.players.sorted(by: { player1, player2 -> Bool in
+            if player1.score == player2.score {
+                return player1.wind < player2.wind
+            }
+            return player1.score > player2.score
+        })
+        var playersData: [HistoryPlayerData] = []
+        for i in 0..<sortedPlayers.count {
+            // オカの分を引く
+            var marks = Int(round(Double(sortedPlayers[i].score) / 1000)) - 30
+            
+            // ウマとオカを足す
+            switch i + 1 {
+            case 1:
+                marks += 20
+                marks += 20
+            case 2:
+                marks += 10
+            case 3:
+                marks -= 10
+            case 4:
+                marks -= 20
+            default:
+                print("何もしない")
+            }
+            
+            let playerData = HistoryPlayerData(
+                name: sortedPlayers[i].name,
+                mark: marks,
+                score: sortedPlayers[i].score
+            )
+            playersData.append(playerData)
+        }
+        
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.timeZone = TimeZone(identifier:  "Asia/Tokyo")
+        formatter.dateFormat = "yy/MM/dd HH:mm"
+        let now = Date()
+        let history: History = History(
+            finishedAt: formatter.string(from: now),
+            playersData: playersData
+        )
+        histories.insert(history, at: 0)
     }
 }
 
