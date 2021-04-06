@@ -112,7 +112,7 @@ final class ModelData: ObservableObject {
         return rows
     }
     
-    func appendHistory() -> Void {
+    func prependHistory() -> Void {
         let sortedPlayers = gameData.players.sorted(by: { player1, player2 -> Bool in
             if player1.score == player2.score {
                 return player1.wind < player2.wind
@@ -156,7 +156,7 @@ final class ModelData: ObservableObject {
             finishedAt: formatter.string(from: now),
             playersData: playersData
         )
-        histories.append(history)
+        histories.insert(history, at: 0)
     }
 }
 
