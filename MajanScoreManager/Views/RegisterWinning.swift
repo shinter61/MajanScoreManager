@@ -10,11 +10,12 @@ import SwiftUI
 struct RegisterWinning: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var showingWinningMenu: Bool
-    @Binding var isGameEnd: Bool
+    @Binding var rootIsActive: Bool
     @State private var showingWinning = false
     @State private var wins: [Win] = []
     @State private var showingAlert: Bool = false
     @State private var alertText: String = ""
+    @State private var isGameEnd: Bool = false
     let columnWidth: Int = UIDevice.current.userInterfaceIdiom == .phone ? 400 : 800
     var body: some View {
         ZStack {
@@ -104,6 +105,14 @@ struct RegisterWinning: View {
                 NavigationLink(destination: Winning(wins: self.$wins), isActive: self.$showingWinning) {
                     EmptyView()
                 }
+                
+                NavigationLink(destination:
+                    EndGame(
+                        shouldPopToRootView: $rootIsActive,
+                        modelData: modelData
+                    ).navigationBarHidden(true),
+                   isActive: $isGameEnd
+                ) { EmptyView() }
             }
         }
         .alert(isPresented: self.$showingAlert) {
@@ -266,7 +275,7 @@ struct RegisterWinning: View {
 
 struct RegisterWinning_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterWinning(showingWinningMenu: .constant(true), isGameEnd: .constant(false))
+        RegisterWinning(showingWinningMenu: .constant(true), rootIsActive: .constant(false))
             .environmentObject(ModelData())
     }
 }
